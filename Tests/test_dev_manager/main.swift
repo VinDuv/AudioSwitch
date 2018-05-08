@@ -63,7 +63,10 @@ sigintSource.setEventHandler {
 
 signal(SIGINT, {_ in })
 
-print("Watching device events… Press Enter or ^C to quit. To switch to a device, type the number preceding its name, then Enter.")
+print("""
+    Watching device events… Press Enter or ^C to quit.
+    To switch to a device, type the number preceding its name, then Enter.
+    """)
 stdinSource.activate()
 sigintSource.activate()
 
