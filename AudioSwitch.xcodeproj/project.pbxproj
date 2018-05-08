@@ -48,12 +48,12 @@
 			path = Shared;
 			sourceTree = "<group>";
 		};
-		BF117F6A2094E5540048D9AD /* Test Programs */ = {
+		BF117F6A2094E5540048D9AD /* Tests */ = {
 			isa = PBXGroup;
 			children = (
 				BF117F772094E85E0048D9AD /* test_dev_manager */,
 			);
-			path = "Test Programs";
+			path = Tests;
 			sourceTree = "<group>";
 		};
 		BF117F702094E6B40048D9AD /* Products */ = {
@@ -75,8 +75,8 @@
 		BF907F322094DB930045859F = {
 			isa = PBXGroup;
 			children = (
-				BF117F6A2094E5540048D9AD /* Test Programs */,
 				BF117F682094DDDB0048D9AD /* Shared */,
+				BF117F6A2094E5540048D9AD /* Tests */,
 				BF117F702094E6B40048D9AD /* Products */,
 			);
 			sourceTree = "<group>";
