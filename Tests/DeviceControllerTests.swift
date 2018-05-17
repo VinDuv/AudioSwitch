@@ -1,9 +1,5 @@
-//
-//  DeviceControllerTests.swift
-//  test_dev_manager
-//
-//  Created by Vincent Duvert on 08/05/2018.
-//
+// Copyright 2018 Vincent Duvert.
+// Distributed under the terms of the MIT License.
 
 import XCTest
 
