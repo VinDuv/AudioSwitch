@@ -11,7 +11,6 @@
 		BF117F782094E86E0048D9AD /* AudioDeviceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF117F692094DDF00048D9AD /* AudioDeviceManager.swift */; };
 		BF5ED0CB20ACC73F0023CDBF /* CoreAudioMock.c in Sources */ = {isa = PBXBuildFile; fileRef = BFFECC6C20A8BF75005ADA44 /* CoreAudioMock.c */; };
 		BF5ED0CF20ACC7750023CDBF /* libTestMocks.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF5ED0C620ACC7330023CDBF /* libTestMocks.a */; };
-		BFB40C6820A23BE300F4FA67 /* AudioSwitchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB40C6720A23BE300F4FA67 /* AudioSwitchTests.swift */; };
 		BFB40C6D20A23BE800F4FA67 /* DeviceControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB40C5F20A23B9500F4FA67 /* DeviceControllerTests.swift */; };
 		BFB40C6E20A23EAA00F4FA67 /* AudioDeviceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF88774020A2279D00F0D1A1 /* AudioDeviceController.swift */; };
 		BFB40C6F20A23EC000F4FA67 /* AudioDeviceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF117F692094DDF00048D9AD /* AudioDeviceManager.swift */; };
@@ -48,8 +47,7 @@
 		BF88774020A2279D00F0D1A1 /* AudioDeviceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioDeviceController.swift; sourceTree = "<group>"; };
 		BFB40C5F20A23B9500F4FA67 /* DeviceControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceControllerTests.swift; sourceTree = "<group>"; };
 		BFB40C6520A23BE300F4FA67 /* AudioSwitchTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AudioSwitchTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		BFB40C6720A23BE300F4FA67 /* AudioSwitchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioSwitchTests.swift; sourceTree = "<group>"; };
-		BFB40C6920A23BE300F4FA67 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BFB40C6920A23BE300F4FA67 /* AudioSwitchTestsInfo.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = AudioSwitchTestsInfo.plist; sourceTree = "<group>"; };
 		BFFECC6A20A8BF75005ADA44 /* AudioSwitchTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AudioSwitchTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		BFFECC6B20A8BF75005ADA44 /* CoreAudioMock.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CoreAudioMock.h; sourceTree = "<group>"; };
 		BFFECC6C20A8BF75005ADA44 /* CoreAudioMock.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = CoreAudioMock.c; sourceTree = "<group>"; };
@@ -98,6 +96,7 @@
 				BF117F772094E85E0048D9AD /* test_dev_manager */,
 				BFB40C5F20A23B9500F4FA67 /* DeviceControllerTests.swift */,
 				BFFECC6E20A8C2F7005ADA44 /* DeviceManagerTests.swift */,
+				BFB40C6920A23BE300F4FA67 /* AudioSwitchTestsInfo.plist */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -132,19 +131,9 @@
 			children = (
 				BF117F682094DDDB0048D9AD /* Shared */,
 				BF117F6A2094E5540048D9AD /* Tests */,
-				BFB40C6620A23BE300F4FA67 /* AudioSwitchTests */,
 				BF117F702094E6B40048D9AD /* Products */,
 				BF5ED0CE20ACC7750023CDBF /* Frameworks */,
 			);
-			sourceTree = "<group>";
-		};
-		BFB40C6620A23BE300F4FA67 /* AudioSwitchTests */ = {
-			isa = PBXGroup;
-			children = (
-				BFB40C6720A23BE300F4FA67 /* AudioSwitchTests.swift */,
-				BFB40C6920A23BE300F4FA67 /* Info.plist */,
-			);
-			path = AudioSwitchTests;
 			sourceTree = "<group>";
 		};
 		BFFECC6920A8BED2005ADA44 /* Mocks */ = {
@@ -295,7 +284,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				BFB40C6F20A23EC000F4FA67 /* AudioDeviceManager.swift in Sources */,
-				BFB40C6820A23BE300F4FA67 /* AudioSwitchTests.swift in Sources */,
 				BFB40C6D20A23BE800F4FA67 /* DeviceControllerTests.swift in Sources */,
 				BFFECC6F20A8C2F7005ADA44 /* DeviceManagerTests.swift in Sources */,
 				BFB40C6E20A23EAA00F4FA67 /* AudioDeviceController.swift in Sources */,
@@ -602,7 +590,7 @@
 				);
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				INFOPLIST_FILE = AudioSwitchTests/Info.plist;
+				INFOPLIST_FILE = Tests/AudioSwitchTestsInfo.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -644,7 +632,7 @@
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				INFOPLIST_FILE = AudioSwitchTests/Info.plist;
+				INFOPLIST_FILE = Tests/AudioSwitchTestsInfo.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
