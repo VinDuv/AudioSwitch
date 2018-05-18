@@ -119,20 +119,12 @@
 			path = test_dev_manager;
 			sourceTree = "<group>";
 		};
-		BF5ED0CE20ACC7750023CDBF /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		BF907F322094DB930045859F = {
 			isa = PBXGroup;
 			children = (
 				BF117F682094DDDB0048D9AD /* Shared */,
 				BF117F6A2094E5540048D9AD /* Tests */,
 				BF117F702094E6B40048D9AD /* Products */,
-				BF5ED0CE20ACC7750023CDBF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
