@@ -6,7 +6,7 @@
 /// The associated state can be saved or loaded as needed.
 ///
 /// Any changes done to the list are lost when loading.
-final class AudioDeviceController: AudioDeviceObserver {
+final class AudioDeviceListManager: AudioDeviceObserver {
     /// Persistent info on an audio device
     struct PersistentDeviceInfo {
         /// Unique system identifier for the audio device

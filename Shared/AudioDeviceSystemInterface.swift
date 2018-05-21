@@ -36,14 +36,14 @@ protocol AudioDeviceObserver: AnyObject {
 
 
 /// Retrieves info about online output sound devices and allows changing the currently selected one.
-protocol AudioDeviceManager: AnyObject {
-    /// Initialize the audio device manager.
+protocol AudioDeviceSystemInterface: AnyObject {
+    /// Initialize the audio device system interface.
     /// - Parameters:
     ///   - observer: The observer to notify when a new device is connected or disconnected.
     ///   - queue: Queue to use for notifications
     init(observer: AudioDeviceObserver, queue: DispatchQueue)
     
-    /// Deactivate the audio device manager.
+    /// Deactivate the audio device system interface.
     /// The observer will not receive any notification after calling this function.
     func deactivate()
     
@@ -54,8 +54,8 @@ protocol AudioDeviceManager: AnyObject {
 }
 
 
-/// Device manager implementation using CoreAudio
-final class AudioDeviceManagerCoreAudio: AudioDeviceManager {
+/// Device system interface implementation using CoreAudio
+final class AudioDeviceSystemInterfaceCoreAudio: AudioDeviceSystemInterface {
     weak var observer: AudioDeviceObserver?
     let notifyQueue: DispatchQueue
     var devicesPropertyAddress = AudioObjectPropertyAddress(mSelector: kAudioHardwarePropertyDevices, mScope: kAudioObjectPropertyScopeGlobal, mElement: kAudioObjectPropertyElementMaster)

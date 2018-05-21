@@ -37,7 +37,7 @@ class DebugObserver: AudioDeviceObserver {
 }
 
 let observer = DebugObserver()
-let manager = AudioDeviceManagerCoreAudio(observer: observer, queue: DispatchQueue.main)
+let manager = AudioDeviceSystemInterfaceCoreAudio(observer: observer, queue: DispatchQueue.main)
 let runLoop = CFRunLoopGetCurrent()!
 
 let stdinSource = DispatchSource.makeReadSource(fileDescriptor: 0)

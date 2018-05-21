@@ -32,7 +32,7 @@ class DeviceManagerTests: XCTestCase {
     
     func testInitNoDevices() {
         let logger = LoggerObserver()
-        let manager = AudioDeviceManagerCoreAudio(observer: logger, queue: DispatchQueue.main)
+        let manager = AudioDeviceSystemInterfaceCoreAudio(observer: logger, queue: DispatchQueue.main)
         
         CFRunLoopRunInMode(CFRunLoopMode.defaultMode, 0, false)
         
@@ -47,7 +47,7 @@ class DeviceManagerTests: XCTestCase {
         add_fake_device(11, 1, 0, "b", "name b")
         
         let logger = LoggerObserver()
-        let manager = AudioDeviceManagerCoreAudio(observer: logger, queue: DispatchQueue.main)
+        let manager = AudioDeviceSystemInterfaceCoreAudio(observer: logger, queue: DispatchQueue.main)
         
         CFRunLoopRunInMode(CFRunLoopMode.defaultMode, 0, false)
         
