@@ -34,6 +34,9 @@ final class AudioDeviceController: AudioDeviceObserver {
     /// Device list
     var devices = [DeviceInfo]()
     
+    /// Device list change callback
+    var changeCallback: (() -> Void)?
+    
     /// Load from persistent state and synchronize it with currently known devices
     /// - Parameters:
     ///   - state: Device state from persistent storage
@@ -75,6 +78,8 @@ final class AudioDeviceController: AudioDeviceObserver {
         }
         
         devices.append(contentsOf: remainingConnectedDevices)
+        
+        changeCallback?()
     }
     
     /// Adds the device to the list, or update its info if it’s already present
@@ -91,11 +96,15 @@ final class AudioDeviceController: AudioDeviceObserver {
             
             devices.append(device)
         }
+        
+        changeCallback?()
     }
     
     /// Marks the device as disconnected
     func deviceRemoved(info: AudioDeviceInfo) {
         guard let index = devices.index(where: { $0.uid == info.uid }) else { return }
         devices[index].connected = false
+        
+        changeCallback?()
     }
 }
