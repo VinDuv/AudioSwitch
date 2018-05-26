@@ -22,7 +22,7 @@ class LoggerObserver: AudioDeviceObserver {
 
 }
 
-class DeviceManagerTests: XCTestCase {
+class DeviceSystemInterfaceTest: XCTestCase {
     
     override func setUp() {
         super.setUp()

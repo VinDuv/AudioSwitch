@@ -3,7 +3,7 @@
 
 import XCTest
 
-class DeviceControllerTests: XCTestCase {
+class DeviceListManagerTests: XCTestCase {
     let deviceInfoA = AudioDeviceInfo(uid: "a", name:"a")
     let deviceInfoB = AudioDeviceInfo(uid: "b", name:"b")
     let persistentInfoA = AudioDeviceListManager.PersistentDeviceInfo(uid: "a", title: "Device A", enabled: true)
