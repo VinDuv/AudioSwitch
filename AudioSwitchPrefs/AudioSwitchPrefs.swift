@@ -121,33 +121,24 @@ final class AudioDeviceListController: NSObject, NSTableViewDataSource {
         return item
     }
     
-    /// Table view data source implementation; allow dropping dragged rows between other rows
+    /// Table view data source implementation; allow dropping dragged rows between other rows at valid positions
     func tableView(_ tableView: NSTableView, validateDrop info: NSDraggingInfo, proposedRow row: Int, proposedDropOperation dropOperation: NSTableView.DropOperation) -> NSDragOperation {
-        
         // Only allow dropping between rows, not on the rows themselves
-        if dropOperation == .above {
-            return [.move]
+        if dropOperation != .above {
+            return []
         }
         
-        return []
+        // Check that the drop is at a sensible place
+        if getValidatedDropIndex(from: info, to: row) == nil {
+            return []
+        }
+        
+        return [.move]
     }
     
     /// Table view data source implementation; finalize the drag/drop operation
     func tableView(_ tableView: NSTableView, acceptDrop info: NSDraggingInfo, row: Int, dropOperation: NSTableView.DropOperation) -> Bool {
-        
-        var draggedRowIndex = -1
-        
-        info.enumerateDraggingItems(options: [], for: tableView, classes: [NSPasteboardItem.self], searchOptions: [:]) { (dragItem, _, _) in
-            // We can only get NSPasteboardItem's here
-            let pbItem = dragItem.item as! NSPasteboardItem
-            if let stringValue = pbItem.string(forType: self.movedRowIdentifier), let value = Int(stringValue) {
-                draggedRowIndex = value
-            }
-        }
-        
-        if draggedRowIndex < 0 || draggedRowIndex >= displayedIndices.count || draggedRowIndex == row || draggedRowIndex + 1 == row {
-            // Nothing to do; the dragged index is invalid, or we tried to move a row between itself
-            // and the next (or previous) one; it should not move
+        guard let draggedRowIndex = getValidatedDropIndex(from: info, to: row) else {
             return false
         }
         
@@ -168,4 +159,28 @@ final class AudioDeviceListController: NSObject, NSTableViewDataSource {
         return true
     }
     
+    /// Gets the drop index from the dragging info, and ensures that it is correct.
+    /// - Parameters:
+    ///   - info: dragging info containing the dragged index
+    ///   - targetRow: row index above which the dragged index was dropped
+    /// - Returns: the index of the row that was dragged, or nil if the drag should be refused (invalid value)
+    private func getValidatedDropIndex(from info: NSDraggingInfo, to targetRow: Int) -> Int? {
+        var draggedRowIndex = -1
+        
+        info.enumerateDraggingItems(options: [], for: tableView, classes: [NSPasteboardItem.self], searchOptions: [:]) { (dragItem, _, _) in
+            // We can only get NSPasteboardItem's here
+            let pbItem = dragItem.item as! NSPasteboardItem
+            if let stringValue = pbItem.string(forType: self.movedRowIdentifier), let value = Int(stringValue) {
+                draggedRowIndex = value
+            }
+        }
+        
+        if draggedRowIndex < 0 || draggedRowIndex >= displayedIndices.count || draggedRowIndex == targetRow || draggedRowIndex + 1 == targetRow {
+            // Nothing to do; the dragged index is invalid, or we tried to move a row between itself
+            // and the next (or previous) one; it should not move
+            return nil
+        }
+        
+        return draggedRowIndex
+    }
 }
