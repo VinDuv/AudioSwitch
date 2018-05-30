@@ -8,6 +8,8 @@ import Cocoa
 final class PrefsWindowController: NSWindowController {
     static let ownNib = NSNib.Name("AudioSwitchPrefs")
     
+    @IBOutlet var deviceListController: AudioDeviceListController!
+    
     /// Create a preferences window controller with its associated window
     static func create() -> PrefsWindowController {
         // Static factory to avoid messing with NSWindowController's initializers
@@ -16,6 +18,10 @@ final class PrefsWindowController: NSWindowController {
         controller.showWindow(nil)
         
         return controller
+    }
+    
+    override func awakeFromNib() {
+        deviceListController.settings = Settings.instance
     }
 }
 
@@ -29,6 +35,15 @@ final class AudioDeviceListController: NSObject, NSTableViewDataSource {
     let systemInterface: AudioDeviceSystemInterfaceCoreAudio
     let listManager: AudioDeviceListManager
     @IBOutlet weak var tableView: NSTableView!
+    
+    /// Settings manager that will be used to load and save the device list
+    var settings: SettingsProtocol? {
+        didSet {
+            if let deviceList = settings?.deviceList {
+                listManager.load(state: deviceList)
+            }
+        }
+    }
     
     /// Indices of the connected devices in the manager's table
     var displayedIndices : [Int] {
@@ -109,6 +124,8 @@ final class AudioDeviceListController: NSObject, NSTableViewDataSource {
             default:
                 fatalError("Unknown identifier \(identifier)")
             }
+            
+            saveDeviceList()
         }
     }
     
@@ -156,6 +173,8 @@ final class AudioDeviceListController: NSObject, NSTableViewDataSource {
         // Invalidate the indices list
         displayedIndicesCache.removeAll()
 
+        saveDeviceList()
+        
         return true
     }
     
@@ -182,5 +201,12 @@ final class AudioDeviceListController: NSObject, NSTableViewDataSource {
         }
         
         return draggedRowIndex
+    }
+    
+    /// Save the new device list state to the settings
+    private func saveDeviceList() {
+        if let settings = self.settings {
+            settings.deviceList = listManager.devices.map { AudioDeviceListManager.PersistentDeviceInfo(uid: $0.uid, title: $0.title, enabled: $0.enabled) }
+        }
     }
 }

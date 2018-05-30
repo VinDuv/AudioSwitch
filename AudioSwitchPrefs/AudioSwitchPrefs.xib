@@ -7,6 +7,7 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="PrefsWindowController" customModule="AudioSwitchTestApp" customModuleProvider="target">
             <connections>
+                <outlet property="deviceListController" destination="nd2-z5-Vrk" id="IHb-Ip-eCt"/>
                 <outlet property="window" destination="QvC-M9-y7g" id="WlJ-tk-JOf"/>
             </connections>
         </customObject>
