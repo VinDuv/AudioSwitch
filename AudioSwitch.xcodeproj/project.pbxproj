@@ -160,8 +160,7 @@
 				BF1616E920AF5BC9009F471D /* AppDelegate.swift */,
 				BF1616ED20AF5BCA009F471D /* MainMenu.xib */,
 			);
-			name = AudioSwitchTestApp;
-			path = ../AudioSwitchTestApp;
+			path = AudioSwitchTestApp;
 			sourceTree = "<group>";
 		};
 		BF907F322094DB930045859F = {
