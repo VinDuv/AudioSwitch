@@ -11,6 +11,13 @@ protocol SettingsProtocol: AnyObject {
     var deviceList: [DeviceInfo] { get set }
 }
 
+/// UserDefaults extension to be able to use KVO on interesting properties
+extension UserDefaults {
+    @objc dynamic var Devices: [[String: Any]]? {
+        return self.value(forKey: "Devices") as? [[String: Any]]
+    }
+}
+
 /// Manages the persistent settings shared between the preferences pane and the helper application
 final class Settings: SettingsProtocol {
     /// Shared instance
@@ -18,6 +25,21 @@ final class Settings: SettingsProtocol {
     
     /// UserDefaults instance
     private let defaults: UserDefaults
+    
+    private var observer: NSKeyValueObservation?
+    
+    /// Device list change callback
+    var deviceListChangeCallback: (([DeviceInfo]) -> Void)? {
+        didSet {
+            observer?.invalidate()
+            
+            if (deviceListChangeCallback != nil) {
+                observer = defaults.observe(\UserDefaults.Devices, changeHandler: { [unowned self] (_, _) in
+                    self.deviceListChangeCallback?(self.deviceList)
+                })
+            }
+        }
+    }
     
     /// Initialize the settings object
     /// - Parameters:
@@ -40,7 +62,7 @@ final class Settings: SettingsProtocol {
         get {
             var devices = [DeviceInfo]()
             
-            if let savedDevices = defaults.value(forKey: "Devices") as? [[String: Any]] {
+            if let savedDevices = defaults.Devices {
                 for savedDevice in savedDevices {
                     guard let uid = savedDevice["UID"] as? String else { continue }
                     guard let title = savedDevice["Title"] as? String else { continue }
