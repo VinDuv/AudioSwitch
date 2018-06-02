@@ -21,6 +21,8 @@
 		BF5F647B20BF3F3A0084F35E /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF8211C20BB342400F0B07E /* Settings.swift */; };
 		BF5F647C20BF3F4D0084F35E /* AudioDeviceListManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF88774020A2279D00F0D1A1 /* AudioDeviceListManager.swift */; };
 		BF5F647D20BF3F510084F35E /* AudioDeviceSystemInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF117F692094DDF00048D9AD /* AudioDeviceSystemInterface.swift */; };
+		BFB1038220C1EC9700766202 /* MASShortcut.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFB1037B20C1EBB400766202 /* MASShortcut.framework */; };
+		BFB1038320C1EC9700766202 /* MASShortcut.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BFB1037B20C1EBB400766202 /* MASShortcut.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BFB40C6D20A23BE800F4FA67 /* DeviceListManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB40C5F20A23B9500F4FA67 /* DeviceListManagerTests.swift */; };
 		BFB40C6E20A23EAA00F4FA67 /* AudioDeviceListManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF88774020A2279D00F0D1A1 /* AudioDeviceListManager.swift */; };
 		BFB40C6F20A23EC000F4FA67 /* AudioDeviceSystemInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF117F692094DDF00048D9AD /* AudioDeviceSystemInterface.swift */; };
@@ -39,6 +41,34 @@
 			remoteGlobalIDString = BF5ED0C520ACC7330023CDBF;
 			remoteInfo = TestMocks;
 		};
+		BFB1037A20C1EBB400766202 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFB1037420C1EBB300766202 /* MASShortcut.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 0D827CD31990D4420010B8EF;
+			remoteInfo = MASShortcut;
+		};
+		BFB1037C20C1EBB400766202 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFB1037420C1EBB300766202 /* MASShortcut.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 0D827D8319910AFF0010B8EF;
+			remoteInfo = MASShortcutTests;
+		};
+		BFB1037E20C1EBB400766202 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFB1037420C1EBB300766202 /* MASShortcut.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 0D827D371990D5E70010B8EF;
+			remoteInfo = Demo;
+		};
+		BFB1038420C1EC9700766202 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFB1037420C1EBB300766202 /* MASShortcut.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 0D827CD21990D4420010B8EF;
+			remoteInfo = MASShortcut;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -50,6 +80,17 @@
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 1;
+		};
+		BFB1038620C1EC9700766202 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				BFB1038320C1EC9700766202 /* MASShortcut.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
@@ -69,6 +110,7 @@
 		BF5F646F20BF2EDD0084F35E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BF5F647420BF2EDE0084F35E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		BF88774020A2279D00F0D1A1 /* AudioDeviceListManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioDeviceListManager.swift; sourceTree = "<group>"; };
+		BFB1037420C1EBB300766202 /* MASShortcut.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = MASShortcut.xcodeproj; sourceTree = "<group>"; };
 		BFB40C5F20A23B9500F4FA67 /* DeviceListManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceListManagerTests.swift; sourceTree = "<group>"; };
 		BFB40C6520A23BE300F4FA67 /* AudioSwitchTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AudioSwitchTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFD1A75220B17E3500945E0E /* AudioSwitchPrefs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioSwitchPrefs.swift; sourceTree = "<group>"; };
@@ -91,6 +133,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BFB1038220C1EC9700766202 /* MASShortcut.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -198,8 +241,43 @@
 				BF117F682094DDDB0048D9AD /* Shared */,
 				BF1616CD20AF581F009F471D /* AudioSwitchPrefs */,
 				BF117F6A2094E5540048D9AD /* Tests */,
+				BFB1037220C1EB4A00766202 /* Source Frameworks */,
 				BF117F702094E6B40048D9AD /* Products */,
+				BFB1038020C1EC4A00766202 /* Frameworks */,
 			);
+			sourceTree = "<group>";
+		};
+		BFB1037220C1EB4A00766202 /* Source Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BFB1037320C1EB5700766202 /* MASShortcut */,
+			);
+			path = "Source Frameworks";
+			sourceTree = "<group>";
+		};
+		BFB1037320C1EB5700766202 /* MASShortcut */ = {
+			isa = PBXGroup;
+			children = (
+				BFB1037420C1EBB300766202 /* MASShortcut.xcodeproj */,
+			);
+			path = MASShortcut;
+			sourceTree = "<group>";
+		};
+		BFB1037520C1EBB300766202 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BFB1037B20C1EBB400766202 /* MASShortcut.framework */,
+				BFB1037D20C1EBB400766202 /* MASShortcutTests.xctest */,
+				BFB1037F20C1EBB400766202 /* Demo.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BFB1038020C1EC4A00766202 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		BFFECC6920A8BED2005ADA44 /* Mocks */ = {
@@ -249,10 +327,12 @@
 				BF1616E320AF5BC9009F471D /* Sources */,
 				BF1616E420AF5BC9009F471D /* Frameworks */,
 				BF1616E520AF5BC9009F471D /* Resources */,
+				BFB1038620C1EC9700766202 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				BFB1038520C1EC9700766202 /* PBXTargetDependency */,
 			);
 			name = AudioSwitchTestApp;
 			productName = AudioSwitchTestApp;
@@ -354,6 +434,12 @@
 			mainGroup = BF907F322094DB930045859F;
 			productRefGroup = BF117F702094E6B40048D9AD /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = BFB1037520C1EBB300766202 /* Products */;
+					ProjectRef = BFB1037420C1EBB300766202 /* MASShortcut.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				BF117F6E2094E6B40048D9AD /* test_dev_manager */,
@@ -364,6 +450,30 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		BFB1037B20C1EBB400766202 /* MASShortcut.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = MASShortcut.framework;
+			remoteRef = BFB1037A20C1EBB400766202 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		BFB1037D20C1EBB400766202 /* MASShortcutTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = MASShortcutTests.xctest;
+			remoteRef = BFB1037C20C1EBB400766202 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		BFB1037F20C1EBB400766202 /* Demo.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = Demo.app;
+			remoteRef = BFB1037E20C1EBB400766202 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		BF1616E520AF5BC9009F471D /* Resources */ = {
@@ -453,6 +563,11 @@
 			isa = PBXTargetDependency;
 			target = BF5ED0C520ACC7330023CDBF /* TestMocks */;
 			targetProxy = BF5ED0CC20ACC76C0023CDBF /* PBXContainerItemProxy */;
+		};
+		BFB1038520C1EC9700766202 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = MASShortcut;
+			targetProxy = BFB1038420C1EC9700766202 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
