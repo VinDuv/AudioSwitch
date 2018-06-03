@@ -26,24 +26,7 @@ final class Settings: SettingsProtocol {
     /// UserDefaults instance
     private let defaults: UserDefaults
     
-    private var observer: NSKeyValueObservation?
-    
-    /// Device list change callback
-    var deviceListChangeCallback: (([DeviceInfo]) -> Void)? {
-        didSet {
-            observer?.invalidate()
-            
-            if (deviceListChangeCallback != nil) {
-                observer = defaults.observe(\UserDefaults.Devices, changeHandler: { [unowned self] (_, _) in
-                    self.deviceListChangeCallback?(self.deviceList)
-                })
-            }
-        }
-    }
-    
     /// Initialize the settings object
-    /// - Parameters:
-    ///   - suiteName: Identifier of the share UserDefaults suite
     private init() {
         guard let suiteName = Bundle.main.object(forInfoDictionaryKey: "SettingsSuite") as? String else {
             fatalError("SettingsSuite missing in info plist")
@@ -82,7 +65,22 @@ final class Settings: SettingsProtocol {
             
             defaults.set(savedDevices, forKey: "Devices")
         }
-        
+    }
+    
+    /// Device list change observer
+    private var deviceListObserver: NSKeyValueObservation?
+    
+    /// Device list change callback
+    var deviceListChangeCallback: (([DeviceInfo]) -> Void)? {
+        didSet {
+            deviceListObserver?.invalidate()
+            
+            if (deviceListChangeCallback != nil) {
+                deviceListObserver = defaults.observe(\UserDefaults.Devices, changeHandler: { [unowned self] (_, _) in
+                    self.deviceListChangeCallback?(self.deviceList)
+                })
+            }
+        }
     }
     
 }
