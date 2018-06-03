@@ -210,3 +210,16 @@ final class AudioDeviceListController: NSObject, NSTableViewDataSource {
         }
     }
 }
+
+/// Controller for the shortcut setter
+final class ShortcutSettingController: NSObject {
+    @IBOutlet weak var shortcutView: MASShortcutView!
+    
+    override func awakeFromNib() {
+        shortcutView.shortcutValue = Settings.instance.switchShortcut
+        
+        shortcutView.shortcutValueChange = { [unowned self] _ in
+            Settings.instance.switchShortcut = self.shortcutView.shortcutValue
+        }
+    }
+}

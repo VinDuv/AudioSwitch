@@ -109,6 +109,7 @@
 		BF5F646D20BF2EDD0084F35E /* AudioSwitchSettingsWatcherApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AudioSwitchSettingsWatcherApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF5F646F20BF2EDD0084F35E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BF5F647420BF2EDE0084F35E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		BF79BE6C20C446CA001DCAB4 /* BridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = BridgingHeader.h; path = Shared/BridgingHeader.h; sourceTree = SOURCE_ROOT; };
 		BF88774020A2279D00F0D1A1 /* AudioDeviceListManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioDeviceListManager.swift; sourceTree = "<group>"; };
 		BFB1037420C1EBB300766202 /* MASShortcut.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = MASShortcut.xcodeproj; sourceTree = "<group>"; };
 		BFB40C5F20A23B9500F4FA67 /* DeviceListManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceListManagerTests.swift; sourceTree = "<group>"; };
@@ -168,6 +169,7 @@
 				BF117F692094DDF00048D9AD /* AudioDeviceSystemInterface.swift */,
 				BF88774020A2279D00F0D1A1 /* AudioDeviceListManager.swift */,
 				BFF8211C20BB342400F0B07E /* Settings.swift */,
+				BF79BE6C20C446CA001DCAB4 /* BridgingHeader.h */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -756,6 +758,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OBJC_BRIDGING_HEADER = Shared/BridgingHeader.h;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 			};
@@ -798,6 +801,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = net.duvert.AudioSwitchTestApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
+				SWIFT_OBJC_BRIDGING_HEADER = Shared/BridgingHeader.h;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 4.0;
 			};

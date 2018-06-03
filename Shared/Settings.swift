@@ -16,6 +16,10 @@ extension UserDefaults {
     @objc dynamic var Devices: [[String: Any]]? {
         return self.value(forKey: "Devices") as? [[String: Any]]
     }
+    
+    @objc dynamic var SwitchShortcut: [String: UInt]? {
+        return self.value(forKey: "SwitchShortcut") as? [String: UInt]
+    }
 }
 
 /// Manages the persistent settings shared between the preferences pane and the helper application
@@ -78,6 +82,48 @@ final class Settings: SettingsProtocol {
             if (deviceListChangeCallback != nil) {
                 deviceListObserver = defaults.observe(\UserDefaults.Devices, changeHandler: { [unowned self] (_, _) in
                     self.deviceListChangeCallback?(self.deviceList)
+                })
+            }
+        }
+    }
+    
+    /// Switch shortcut
+    var switchShortcut: MASShortcut? {
+        get {
+            if let shortcut = defaults.SwitchShortcut, let keyCode = shortcut["KeyCode"], let modifierFlags = shortcut["ModifierFlags"] {
+                return MASShortcut(keyCode: keyCode, modifierFlags: modifierFlags)
+            }
+            
+            return nil
+        }
+        
+        set {
+            let result: [String: UInt]?
+            
+            if let newValue = newValue {
+                result = [
+                    "KeyCode": newValue.keyCode,
+                    "ModifierFlags": newValue.modifierFlags
+                ]
+            } else {
+                result = nil
+            }
+            
+            defaults.set(result, forKey: "SwitchShortcut")
+        }
+    }
+    
+    /// Switch shortcut change observer
+    private var switchShortcutObserver: NSKeyValueObservation?
+    
+    /// Switch shortcut change callback
+    var switchShortcutChangeCallback: ((MASShortcut?) -> Void)? {
+        didSet {
+            switchShortcutObserver?.invalidate()
+            
+            if (switchShortcutChangeCallback != nil) {
+                switchShortcutObserver = defaults.observe(\UserDefaults.SwitchShortcut, changeHandler: { [unowned self] (_, _) in
+                    self.switchShortcutChangeCallback?(self.switchShortcut)
                 })
             }
         }
