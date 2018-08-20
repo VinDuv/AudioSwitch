@@ -69,6 +69,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             
             self.listManager.load(state: devices)
         }
+
+        Settings.instance.switchShortcutChangeCallback = { shortcut in
+            self.insertText("Shortcut changed to \(shortcut.map(String.init) ?? "<none>")")
+        }
     }
     
     func applicationWillTerminate(_ notification: Notification) {
