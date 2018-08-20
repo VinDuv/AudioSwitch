@@ -126,6 +126,8 @@ final class Settings: SettingsProtocol {
                     self.switchShortcutChangeCallback?(self.switchShortcut)
                 })
             }
+
+            self.switchShortcutChangeCallback?(self.switchShortcut)
         }
     }
     
