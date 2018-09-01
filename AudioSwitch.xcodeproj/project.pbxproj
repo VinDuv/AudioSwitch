@@ -12,6 +12,8 @@
 		BF1616EA20AF5BC9009F471D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1616E920AF5BC9009F471D /* AppDelegate.swift */; };
 		BF1616EF20AF5BCA009F471D /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF1616ED20AF5BCA009F471D /* MainMenu.xib */; };
 		BF1616F520AF5C0A009F471D /* AudioSwitchPrefs.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF1616CE20AF584E009F471D /* AudioSwitchPrefs.xib */; };
+		BF2496B7213B2038006D33C9 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF8211C20BB342400F0B07E /* Settings.swift */; };
+		BF2496BA213B2097006D33C9 /* MASShortcut.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFB1037B20C1EBB400766202 /* MASShortcut.framework */; };
 		BF3799F620B9F7AC0067EA2F /* AudioDeviceListControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3799F520B9F7AC0067EA2F /* AudioDeviceListControllerTest.swift */; };
 		BF3799F720B9FBA60067EA2F /* AudioSwitchPrefs.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD1A75220B17E3500945E0E /* AudioSwitchPrefs.swift */; };
 		BF5ED0CB20ACC73F0023CDBF /* CoreAudioMock.c in Sources */ = {isa = PBXBuildFile; fileRef = BFFECC6C20A8BF75005ADA44 /* CoreAudioMock.c */; };
@@ -34,6 +36,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		BF2496BB213B20DB006D33C9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFB1037420C1EBB300766202 /* MASShortcut.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 0D827CD21990D4420010B8EF;
+			remoteInfo = MASShortcut;
+		};
 		BF5ED0CC20ACC76C0023CDBF /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BF907F332094DB930045859F /* Project object */;
@@ -104,6 +113,7 @@
 		BF1616EE20AF5BCA009F471D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		BF1616F020AF5BCA009F471D /* AudioSwitchTestsInfo.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = AudioSwitchTestsInfo.plist; sourceTree = "<group>"; };
 		BF1616F120AF5BCA009F471D /* AudioSwitchTests.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AudioSwitchTests.entitlements; sourceTree = "<group>"; };
+		BF2496BD213B2301006D33C9 /* TestsBridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestsBridgingHeader.h; sourceTree = "<group>"; };
 		BF3799F520B9F7AC0067EA2F /* AudioDeviceListControllerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioDeviceListControllerTest.swift; sourceTree = "<group>"; };
 		BF5ED0C620ACC7330023CDBF /* libTestMocks.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libTestMocks.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF5F646D20BF2EDD0084F35E /* AudioSwitchSettingsWatcherApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AudioSwitchSettingsWatcherApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -156,6 +166,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF2496BA213B2097006D33C9 /* MASShortcut.framework in Frameworks */,
 				BF5ED0CF20ACC7750023CDBF /* libTestMocks.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -186,6 +197,7 @@
 				BF3799F520B9F7AC0067EA2F /* AudioDeviceListControllerTest.swift */,
 				BF1616F020AF5BCA009F471D /* AudioSwitchTestsInfo.plist */,
 				BF1616F120AF5BCA009F471D /* AudioSwitchTests.entitlements */,
+				BF2496BD213B2301006D33C9 /* TestsBridgingHeader.h */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -386,6 +398,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				BF2496BC213B20DB006D33C9 /* PBXTargetDependency */,
 				BF5ED0CD20ACC76C0023CDBF /* PBXTargetDependency */,
 			);
 			name = AudioSwitchTests;
@@ -553,6 +566,7 @@
 				BFB40C6D20A23BE800F4FA67 /* DeviceListManagerTests.swift in Sources */,
 				BFFECC6F20A8C2F7005ADA44 /* DeviceSystemInterfaceTest.swift in Sources */,
 				BF3799F720B9FBA60067EA2F /* AudioSwitchPrefs.swift in Sources */,
+				BF2496B7213B2038006D33C9 /* Settings.swift in Sources */,
 				BFB40C6E20A23EAA00F4FA67 /* AudioDeviceListManager.swift in Sources */,
 				BF3799F620B9F7AC0067EA2F /* AudioDeviceListControllerTest.swift in Sources */,
 			);
@@ -561,6 +575,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		BF2496BC213B20DB006D33C9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = MASShortcut;
+			targetProxy = BF2496BB213B20DB006D33C9 /* PBXContainerItemProxy */;
+		};
 		BF5ED0CD20ACC76C0023CDBF /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = BF5ED0C520ACC7330023CDBF /* TestMocks */;
@@ -1078,7 +1097,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_OBJC_BRIDGING_HEADER = "Tests/Mocks/AudioSwitchTests-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = Tests/TestsBridgingHeader.h;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 			};
@@ -1119,7 +1138,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = net.duvert.AudioSwitchTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
-				SWIFT_OBJC_BRIDGING_HEADER = "Tests/Mocks/AudioSwitchTests-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = Tests/TestsBridgingHeader.h;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 4.0;
 			};
