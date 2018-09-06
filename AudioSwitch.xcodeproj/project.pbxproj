@@ -431,6 +431,11 @@
 					};
 					BF5F646C20BF2EDD0084F35E = {
 						CreatedOnToolsVersion = 9.4;
+						SystemCapabilities = {
+							com.apple.Sandbox = {
+								enabled = 1;
+							};
+						};
 					};
 					BFB40C6420A23BE300F4FA67 = {
 						CreatedOnToolsVersion = 9.4;

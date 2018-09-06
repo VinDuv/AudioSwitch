@@ -32,8 +32,8 @@ final class Settings: SettingsProtocol {
     
     /// Initialize the settings object
     private init() {
-        guard let suiteName = Bundle.main.object(forInfoDictionaryKey: "SettingsSuite") as? String else {
-            fatalError("SettingsSuite missing in info plist")
+        guard let suiteName = Bundle.main.object(forInfoDictionaryKey: "AppGroup") as? String else {
+            fatalError("AppGroup missing in info plist")
         }
         
         guard let userDefaults =  UserDefaults(suiteName: suiteName) else {

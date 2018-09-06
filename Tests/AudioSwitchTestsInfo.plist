@@ -26,7 +26,7 @@
 	<string>MainMenu</string>
 	<key>NSPrincipalClass</key>
 	<string>NSApplication</string>
-	<key>SettingsSuite</key>
+	<key>AppGroup</key>
 	<string>$(TeamIdentifierPrefix)net.duvert.AudioSwitchDev</string>
 </dict>
 </plist>
