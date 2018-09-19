@@ -2,6 +2,7 @@
 // Distributed under the terms of the MIT License.
 
 import XCTest
+import AppKit
 
 private struct ListItem: Equatable {
     let enabled: Bool
@@ -13,54 +14,9 @@ final class FakeDraggingInfo: NSObject, NSDraggingInfo {
     
     init(pasteboardItem: NSPasteboardWriting) {
         self.pasteboardItem = pasteboardItem
-        self.draggingFormation = .default
-        self.animatesToDestination = false
-        self.numberOfValidItemsForDrop = 1
-        self.springLoadingHighlight = .standard
         
         super.init()
     }
-    
-    func draggingDestinationWindow() -> NSWindow? {
-        return nil
-    }
-    
-    func draggingSourceOperationMask() -> NSDragOperation {
-        return []
-    }
-    
-    func draggingLocation() -> NSPoint {
-        return .zero
-    }
-    
-    func draggedImageLocation() -> NSPoint {
-        return .zero
-    }
-    
-    func draggedImage() -> NSImage? {
-        return nil
-    }
-    
-    func draggingPasteboard() -> NSPasteboard {
-        return NSPasteboard.general
-    }
-    
-    func draggingSource() -> Any? {
-        return nil
-    }
-    
-    func draggingSequenceNumber() -> Int {
-        return 0
-    }
-    
-    func slideDraggedImage(to screenPoint: NSPoint) {
-    }
-    
-    var draggingFormation: NSDraggingFormation
-    
-    var animatesToDestination: Bool
-    
-    var numberOfValidItemsForDrop: Int
     
     func enumerateDraggingItems(options enumOpts: NSDraggingItemEnumerationOptions = [], for view: NSView?, classes classArray: [AnyClass], searchOptions: [NSPasteboard.ReadingOptionKey : Any] = [:], using block: @escaping (NSDraggingItem, Int, UnsafeMutablePointer<ObjCBool>) -> Void) {
         
@@ -72,11 +28,22 @@ final class FakeDraggingInfo: NSObject, NSDraggingInfo {
         block(NSDraggingItem(pasteboardWriter: pasteboardItem), 0, &cont)
     }
     
-    var springLoadingHighlight: NSSpringLoadingHighlight
+    var draggingDestinationWindow: NSWindow? = nil
+    var draggingSourceOperationMask: NSDragOperation = .every
+    var draggingLocation: NSPoint = .zero
+    var draggedImageLocation: NSPoint = .zero
+    var draggedImage: NSImage? = nil
+    var draggingPasteboard: NSPasteboard = NSPasteboard(name: .general)
+    var draggingSource: Any? = nil
+    var draggingSequenceNumber: Int = 0
+    var draggingFormation: NSDraggingFormation = .default
+    var animatesToDestination: Bool = false
+    var numberOfValidItemsForDrop: Int = 1
+    var springLoadingHighlight: NSSpringLoadingHighlight = .none
     
-    func resetSpringLoading() {
-    }
+    func slideDraggedImage(to screenPoint: NSPoint) { }
     
+    func resetSpringLoading() { }
 }
 
 final class FakeTableView: NSTableView {

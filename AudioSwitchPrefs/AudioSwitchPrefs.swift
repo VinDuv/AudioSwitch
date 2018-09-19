@@ -6,7 +6,7 @@ import Cocoa
 
 /// Controller for the AudioSwitch preferences window.
 final class PrefsWindowController: NSWindowController {
-    static let ownNib = NSNib.Name("AudioSwitchPrefs")
+    static let ownNib = "AudioSwitchPrefs"
     
     @IBOutlet var deviceListController: AudioDeviceListController!
     
