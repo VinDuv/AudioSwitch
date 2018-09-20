@@ -12,6 +12,10 @@
 		BF1616EA20AF5BC9009F471D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1616E920AF5BC9009F471D /* AppDelegate.swift */; };
 		BF1616EF20AF5BCA009F471D /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF1616ED20AF5BCA009F471D /* MainMenu.xib */; };
 		BF1616F520AF5C0A009F471D /* AudioSwitchPrefs.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF1616CE20AF584E009F471D /* AudioSwitchPrefs.xib */; };
+		BF1E50892163FA1200D45CDA /* HelperCommandsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1E50882163FA1200D45CDA /* HelperCommandsTests.swift */; };
+		BF1E508A2163FABD00D45CDA /* HelperCommands.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6E8161215423AB004902C1 /* HelperCommands.swift */; };
+		BF1E508B2163FAC200D45CDA /* HelperCommandsClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6E815F21542335004902C1 /* HelperCommandsClient.swift */; };
+		BF1E508C2163FAC500D45CDA /* HelperCommandsServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6E815E2154230C004902C1 /* HelperCommandsServer.swift */; };
 		BF2496B7213B2038006D33C9 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF8211C20BB342400F0B07E /* Settings.swift */; };
 		BF2496BA213B2097006D33C9 /* MASShortcut.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFB1037B20C1EBB400766202 /* MASShortcut.framework */; };
 		BF3799F620B9F7AC0067EA2F /* AudioDeviceListControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3799F520B9F7AC0067EA2F /* AudioDeviceListControllerTest.swift */; };
@@ -24,6 +28,11 @@
 		BF5F647C20BF3F4D0084F35E /* AudioDeviceListManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF88774020A2279D00F0D1A1 /* AudioDeviceListManager.swift */; };
 		BF5F647D20BF3F510084F35E /* AudioDeviceSystemInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF117F692094DDF00048D9AD /* AudioDeviceSystemInterface.swift */; };
 		BF66B79F2152DD6E00825919 /* MASShortcut.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFB1037B20C1EBB400766202 /* MASShortcut.framework */; };
+		BF6E8162215423AB004902C1 /* HelperCommands.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6E8161215423AB004902C1 /* HelperCommands.swift */; };
+		BF6E816A215423F9004902C1 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6E8169215423F9004902C1 /* main.swift */; };
+		BF6E816E21542432004902C1 /* HelperCommandsServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6E815E2154230C004902C1 /* HelperCommandsServer.swift */; };
+		BF6E816F21542438004902C1 /* HelperCommandsClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6E815F21542335004902C1 /* HelperCommandsClient.swift */; };
+		BF6E81702154243A004902C1 /* HelperCommands.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6E8161215423AB004902C1 /* HelperCommands.swift */; };
 		BFB1038220C1EC9700766202 /* MASShortcut.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFB1037B20C1EBB400766202 /* MASShortcut.framework */; };
 		BFB1038320C1EC9700766202 /* MASShortcut.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BFB1037B20C1EBB400766202 /* MASShortcut.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BFB40C6D20A23BE800F4FA67 /* DeviceListManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB40C5F20A23B9500F4FA67 /* DeviceListManagerTests.swift */; };
@@ -84,6 +93,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 		};
+		BF6E8165215423F9004902C1 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
 		BFB1038620C1EC9700766202 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -107,6 +125,7 @@
 		BF1616EE20AF5BCA009F471D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		BF1616F020AF5BCA009F471D /* AudioSwitchTestsInfo.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = AudioSwitchTestsInfo.plist; sourceTree = "<group>"; };
 		BF1616F120AF5BCA009F471D /* AudioSwitchTests.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AudioSwitchTests.entitlements; sourceTree = "<group>"; };
+		BF1E50882163FA1200D45CDA /* HelperCommandsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperCommandsTests.swift; sourceTree = "<group>"; };
 		BF2496BD213B2301006D33C9 /* TestsBridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestsBridgingHeader.h; sourceTree = "<group>"; };
 		BF3799F520B9F7AC0067EA2F /* AudioDeviceListControllerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioDeviceListControllerTest.swift; sourceTree = "<group>"; };
 		BF5ED0C620ACC7330023CDBF /* libTestMocks.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libTestMocks.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -114,6 +133,11 @@
 		BF5F646F20BF2EDD0084F35E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BF5F647420BF2EDE0084F35E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		BF66B7872152DA5400825919 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		BF6E815E2154230C004902C1 /* HelperCommandsServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperCommandsServer.swift; sourceTree = "<group>"; };
+		BF6E815F21542335004902C1 /* HelperCommandsClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelperCommandsClient.swift; sourceTree = "<group>"; };
+		BF6E8161215423AB004902C1 /* HelperCommands.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelperCommands.swift; sourceTree = "<group>"; };
+		BF6E8167215423F9004902C1 /* test_comm */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = test_comm; sourceTree = BUILT_PRODUCTS_DIR; };
+		BF6E8169215423F9004902C1 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		BF79BE6C20C446CA001DCAB4 /* BridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = BridgingHeader.h; path = Shared/BridgingHeader.h; sourceTree = SOURCE_ROOT; };
 		BF88774020A2279D00F0D1A1 /* AudioDeviceListManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioDeviceListManager.swift; sourceTree = "<group>"; };
 		BFB1037420C1EBB300766202 /* MASShortcut.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = MASShortcut.xcodeproj; sourceTree = "<group>"; };
@@ -158,6 +182,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		BF6E8164215423F9004902C1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		BFB40C6220A23BE300F4FA67 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -173,10 +204,11 @@
 		BF117F682094DDDB0048D9AD /* Shared */ = {
 			isa = PBXGroup;
 			children = (
-				BF117F692094DDF00048D9AD /* AudioDeviceSystemInterface.swift */,
 				BF88774020A2279D00F0D1A1 /* AudioDeviceListManager.swift */,
-				BFF8211C20BB342400F0B07E /* Settings.swift */,
+				BF117F692094DDF00048D9AD /* AudioDeviceSystemInterface.swift */,
 				BF79BE6C20C446CA001DCAB4 /* BridgingHeader.h */,
+				BF6E8161215423AB004902C1 /* HelperCommands.swift */,
+				BFF8211C20BB342400F0B07E /* Settings.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -184,11 +216,13 @@
 		BF117F6A2094E5540048D9AD /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				BF5F646E20BF2EDD0084F35E /* AudioSwitchSettingsWatcherApp */,
 				BF1616E820AF5BC9009F471D /* AudioSwitchTestApp */,
-				BFFECC6920A8BED2005ADA44 /* Mocks */,
+				BF5F646E20BF2EDD0084F35E /* AudioSwitchSettingsWatcherApp */,
+				BF6E8168215423F9004902C1 /* test_comm */,
 				BF117F772094E85E0048D9AD /* test_dev_manager */,
+				BFFECC6920A8BED2005ADA44 /* Mocks */,
 				BFB40C5F20A23B9500F4FA67 /* DeviceListManagerTests.swift */,
+				BF1E50882163FA1200D45CDA /* HelperCommandsTests.swift */,
 				BFFECC6E20A8C2F7005ADA44 /* DeviceSystemInterfaceTest.swift */,
 				BF3799F520B9F7AC0067EA2F /* AudioDeviceListControllerTest.swift */,
 				BF1616F020AF5BCA009F471D /* AudioSwitchTestsInfo.plist */,
@@ -206,6 +240,7 @@
 				BF5ED0C620ACC7330023CDBF /* libTestMocks.a */,
 				BF1616E720AF5BC9009F471D /* AudioSwitchTestApp.app */,
 				BF5F646D20BF2EDD0084F35E /* AudioSwitchSettingsWatcherApp.app */,
+				BF6E8167215423F9004902C1 /* test_comm */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -223,6 +258,7 @@
 			children = (
 				BF1616CE20AF584E009F471D /* AudioSwitchPrefs.xib */,
 				BFD1A75220B17E3500945E0E /* AudioSwitchPrefs.swift */,
+				BF6E815F21542335004902C1 /* HelperCommandsClient.swift */,
 			);
 			path = AudioSwitchPrefs;
 			sourceTree = "<group>";
@@ -245,11 +281,28 @@
 			path = AudioSwitchSettingsWatcherApp;
 			sourceTree = "<group>";
 		};
+		BF6E815D2154230C004902C1 /* AudioSwitchHelper */ = {
+			isa = PBXGroup;
+			children = (
+				BF6E815E2154230C004902C1 /* HelperCommandsServer.swift */,
+			);
+			path = AudioSwitchHelper;
+			sourceTree = "<group>";
+		};
+		BF6E8168215423F9004902C1 /* test_comm */ = {
+			isa = PBXGroup;
+			children = (
+				BF6E8169215423F9004902C1 /* main.swift */,
+			);
+			path = test_comm;
+			sourceTree = "<group>";
+		};
 		BF907F322094DB930045859F = {
 			isa = PBXGroup;
 			children = (
 				BF117F682094DDDB0048D9AD /* Shared */,
 				BF1616CD20AF581F009F471D /* AudioSwitchPrefs */,
+				BF6E815D2154230C004902C1 /* AudioSwitchHelper */,
 				BF117F6A2094E5540048D9AD /* Tests */,
 				BFB1037220C1EB4A00766202 /* Source Frameworks */,
 				BF117F702094E6B40048D9AD /* Products */,
@@ -383,6 +436,23 @@
 			productReference = BF5F646D20BF2EDD0084F35E /* AudioSwitchSettingsWatcherApp.app */;
 			productType = "com.apple.product-type.application";
 		};
+		BF6E8166215423F9004902C1 /* test_comm */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BF6E816B215423F9004902C1 /* Build configuration list for PBXNativeTarget "test_comm" */;
+			buildPhases = (
+				BF6E8163215423F9004902C1 /* Sources */,
+				BF6E8164215423F9004902C1 /* Frameworks */,
+				BF6E8165215423F9004902C1 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = test_comm;
+			productName = test_comm;
+			productReference = BF6E8167215423F9004902C1 /* test_comm */;
+			productType = "com.apple.product-type.tool";
+		};
 		BFB40C6420A23BE300F4FA67 /* AudioSwitchTests */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = BFB40C6A20A23BE300F4FA67 /* Build configuration list for PBXNativeTarget "AudioSwitchTests" */;
@@ -408,7 +478,7 @@
 		BF907F332094DB930045859F /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0940;
+				LastSwiftUpdateCheck = 1000;
 				LastUpgradeCheck = 0940;
 				TargetAttributes = {
 					BF117F6E2094E6B40048D9AD = {
@@ -435,6 +505,9 @@
 								enabled = 1;
 							};
 						};
+					};
+					BF6E8166215423F9004902C1 = {
+						CreatedOnToolsVersion = 10.0;
 					};
 					BFB40C6420A23BE300F4FA67 = {
 						CreatedOnToolsVersion = 9.4;
@@ -466,6 +539,7 @@
 				BF5ED0C520ACC7330023CDBF /* TestMocks */,
 				BF1616E620AF5BC9009F471D /* AudioSwitchTestApp */,
 				BF5F646C20BF2EDD0084F35E /* AudioSwitchSettingsWatcherApp */,
+				BF6E8166215423F9004902C1 /* test_comm */,
 			);
 		};
 /* End PBXProject section */
@@ -514,6 +588,7 @@
 			files = (
 				BF117F782094E86E0048D9AD /* AudioDeviceSystemInterface.swift in Sources */,
 				BF117F732094E6B40048D9AD /* main.swift in Sources */,
+				BF6E8162215423AB004902C1 /* HelperCommands.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -548,16 +623,31 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		BF6E8163215423F9004902C1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BF6E816E21542432004902C1 /* HelperCommandsServer.swift in Sources */,
+				BF6E81702154243A004902C1 /* HelperCommands.swift in Sources */,
+				BF6E816F21542438004902C1 /* HelperCommandsClient.swift in Sources */,
+				BF6E816A215423F9004902C1 /* main.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		BFB40C6120A23BE300F4FA67 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				BFB40C6F20A23EC000F4FA67 /* AudioDeviceSystemInterface.swift in Sources */,
+				BF1E50892163FA1200D45CDA /* HelperCommandsTests.swift in Sources */,
 				BFB40C6D20A23BE800F4FA67 /* DeviceListManagerTests.swift in Sources */,
 				BFFECC6F20A8C2F7005ADA44 /* DeviceSystemInterfaceTest.swift in Sources */,
 				BF3799F720B9FBA60067EA2F /* AudioSwitchPrefs.swift in Sources */,
+				BF1E508A2163FABD00D45CDA /* HelperCommands.swift in Sources */,
+				BF1E508B2163FAC200D45CDA /* HelperCommandsClient.swift in Sources */,
 				BF2496B7213B2038006D33C9 /* Settings.swift in Sources */,
 				BFB40C6E20A23EAA00F4FA67 /* AudioDeviceListManager.swift in Sources */,
+				BF1E508C2163FAC500D45CDA /* HelperCommandsServer.swift in Sources */,
 				BF3799F620B9F7AC0067EA2F /* AudioDeviceListControllerTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -986,6 +1076,80 @@
 			};
 			name = Release;
 		};
+		BF6E816C215423F9004902C1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 39S9YX67X7;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
+			};
+			name = Debug;
+		};
+		BF6E816D215423F9004902C1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 39S9YX67X7;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 4.2;
+			};
+			name = Release;
+		};
 		BF907F372094DB930045859F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1174,6 +1338,15 @@
 			buildConfigurations = (
 				BF5F647820BF2EDE0084F35E /* Debug */,
 				BF5F647920BF2EDE0084F35E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BF6E816B215423F9004902C1 /* Build configuration list for PBXNativeTarget "test_comm" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BF6E816C215423F9004902C1 /* Debug */,
+				BF6E816D215423F9004902C1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
