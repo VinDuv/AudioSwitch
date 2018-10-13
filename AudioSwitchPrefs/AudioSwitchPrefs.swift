@@ -214,12 +214,25 @@ final class AudioDeviceListController: NSObject, NSTableViewDataSource {
 /// Controller for the shortcut setter
 final class ShortcutSettingController: NSObject {
     @IBOutlet weak var shortcutView: MASShortcutView!
+    @IBOutlet weak var helperStatusLabel: NSTextField!
+    
+    let helperWatcher = HelperWatcher()
     
     override func awakeFromNib() {
         shortcutView.shortcutValue = Settings.instance.switchShortcut
         
         shortcutView.shortcutValueChange = { [unowned self] _ in
             Settings.instance.switchShortcut = self.shortcutView.shortcutValue
+        }
+        
+        helperWatcher.delegate = self
+    }
+    
+    func helperApp(started: Bool) {
+        if started {
+            helperStatusLabel.stringValue = "AudioSwitch is running."
+        } else {
+            helperStatusLabel.stringValue = "AudioSwitch is not running."
         }
     }
 }

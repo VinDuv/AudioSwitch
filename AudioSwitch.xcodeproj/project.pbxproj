@@ -32,6 +32,7 @@
 		BFD1A75320B17E3500945E0E /* AudioSwitchPrefs.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD1A75220B17E3500945E0E /* AudioSwitchPrefs.swift */; };
 		BFD1A75620B18A9100945E0E /* AudioDeviceListManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF88774020A2279D00F0D1A1 /* AudioDeviceListManager.swift */; };
 		BFD1A75720B18A9400945E0E /* AudioDeviceSystemInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF117F692094DDF00048D9AD /* AudioDeviceSystemInterface.swift */; };
+		BFE97BC72172596E0079C864 /* HelperWatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE97BC62172596E0079C864 /* HelperWatcher.swift */; };
 		BFF8211D20BB342400F0B07E /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF8211C20BB342400F0B07E /* Settings.swift */; };
 		BFFECC6F20A8C2F7005ADA44 /* DeviceSystemInterfaceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFECC6E20A8C2F7005ADA44 /* DeviceSystemInterfaceTest.swift */; };
 /* End PBXBuildFile section */
@@ -120,6 +121,7 @@
 		BFB40C5F20A23B9500F4FA67 /* DeviceListManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceListManagerTests.swift; sourceTree = "<group>"; };
 		BFB40C6520A23BE300F4FA67 /* AudioSwitchTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AudioSwitchTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFD1A75220B17E3500945E0E /* AudioSwitchPrefs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioSwitchPrefs.swift; sourceTree = "<group>"; };
+		BFE97BC62172596E0079C864 /* HelperWatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperWatcher.swift; sourceTree = "<group>"; };
 		BFF8211C20BB342400F0B07E /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		BFFECC6A20A8BF75005ADA44 /* AudioSwitchTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AudioSwitchTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		BFFECC6B20A8BF75005ADA44 /* CoreAudioMock.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CoreAudioMock.h; sourceTree = "<group>"; };
@@ -223,6 +225,7 @@
 			children = (
 				BF1616CE20AF584E009F471D /* AudioSwitchPrefs.xib */,
 				BFD1A75220B17E3500945E0E /* AudioSwitchPrefs.swift */,
+				BFE97BC62172596E0079C864 /* HelperWatcher.swift */,
 			);
 			path = AudioSwitchPrefs;
 			sourceTree = "<group>";
@@ -521,6 +524,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BFE97BC72172596E0079C864 /* HelperWatcher.swift in Sources */,
 				BFD1A75620B18A9100945E0E /* AudioDeviceListManager.swift in Sources */,
 				BF1616EA20AF5BC9009F471D /* AppDelegate.swift in Sources */,
 				BFD1A75320B17E3500945E0E /* AudioSwitchPrefs.swift in Sources */,
