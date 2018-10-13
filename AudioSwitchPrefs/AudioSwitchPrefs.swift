@@ -211,9 +211,33 @@ final class AudioDeviceListController: NSObject, NSTableViewDataSource {
     }
 }
 
+/// Shortcut view override to remove the current shortcut when starting editing
+class SwitchShortcutView: MASShortcutView {
+    override var isRecording: Bool {
+        get {
+            return super.isRecording
+        }
+        
+        set {
+            if (newValue && !super.isRecording) {
+                // Remove the shortcut from the settings while recording so the helper will “un-grab” the key.
+                // This prevents the helper from reacting while recording.
+                Settings.instance.switchShortcut = nil
+
+            } else if (!newValue && super.isRecording) {
+                // If recording is cancelled (by pressing Esc for instance) restore the original shortcut to the settings
+                Settings.instance.switchShortcut = self.shortcutValue
+            }
+            
+            super.isRecording = newValue
+        }
+    }
+}
+
+
 /// Controller for the shortcut setter
-final class ShortcutSettingController: NSObject {
-    @IBOutlet weak var shortcutView: MASShortcutView!
+final class ShortcutSettingController: NSObject, HelperWatcherDelegate {
+    @IBOutlet weak var shortcutView: SwitchShortcutView!
     @IBOutlet weak var helperStatusLabel: NSTextField!
     
     let helperWatcher = HelperWatcher()
