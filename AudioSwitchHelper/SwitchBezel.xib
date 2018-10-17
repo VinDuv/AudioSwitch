@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14313.18"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="SwitchBezelController" customModule="BezelTest" customModuleProvider="target">
+            <connections>
+                <outlet property="effectView" destination="Ami-qP-gom" id="T5T-Qx-I6V"/>
+                <outlet property="imageView" destination="Cyu-LE-RJs" id="xgl-Us-nMv"/>
+                <outlet property="textField" destination="C7G-aU-XYo" id="gwa-xd-rp6"/>
+                <outlet property="window" destination="lc6-hc-zro" id="dFv-bx-TCd"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <window title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" hasShadow="NO" releasedWhenClosed="NO" animationBehavior="none" frameAutosaveName="" id="lc6-hc-zro" customClass="SwitchBezel" customModule="BezelTest" customModuleProvider="target">
+            <windowStyleMask key="styleMask" utility="YES"/>
+            <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+            <rect key="contentRect" x="120" y="64" width="200" height="200"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1057"/>
+            <view key="contentView" id="SRI-0M-J2E">
+                <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <visualEffectView blendingMode="behindWindow" material="light" state="active" translatesAutoresizingMaskIntoConstraints="NO" id="Ami-qP-gom">
+                        <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
+                        <subviews>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="C7G-aU-XYo">
+                                <rect key="frame" x="18" y="20" width="164" height="22"/>
+                                <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" alignment="center" title="[Text]" usesSingleLineMode="YES" id="Pq1-j8-fVA">
+                                    <font key="font" metaFont="system" size="18"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Cyu-LE-RJs">
+                                <rect key="frame" x="20" y="50" width="160" height="130"/>
+                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="p1M-9f-Lk4"/>
+                            </imageView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="200" id="HxO-0o-3O6"/>
+                            <constraint firstAttribute="width" constant="200" id="JCl-Ig-Rn5"/>
+                            <constraint firstItem="Cyu-LE-RJs" firstAttribute="top" secondItem="Ami-qP-gom" secondAttribute="top" constant="20" symbolic="YES" id="Ogg-qW-CFC"/>
+                            <constraint firstAttribute="bottom" secondItem="C7G-aU-XYo" secondAttribute="bottom" constant="20" symbolic="YES" id="RJz-Ui-P0m"/>
+                            <constraint firstAttribute="trailing" secondItem="C7G-aU-XYo" secondAttribute="trailing" constant="20" symbolic="YES" id="Uj8-ib-yKy"/>
+                            <constraint firstItem="C7G-aU-XYo" firstAttribute="top" secondItem="Cyu-LE-RJs" secondAttribute="bottom" constant="8" symbolic="YES" id="agH-SM-Ukw"/>
+                            <constraint firstItem="Cyu-LE-RJs" firstAttribute="leading" secondItem="Ami-qP-gom" secondAttribute="leading" constant="20" symbolic="YES" id="e04-zM-0iM"/>
+                            <constraint firstItem="C7G-aU-XYo" firstAttribute="leading" secondItem="Ami-qP-gom" secondAttribute="leading" constant="20" symbolic="YES" id="hnL-1M-TlZ"/>
+                            <constraint firstAttribute="trailing" secondItem="Cyu-LE-RJs" secondAttribute="trailing" constant="20" symbolic="YES" id="x0l-Ec-E52"/>
+                        </constraints>
+                    </visualEffectView>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="Ami-qP-gom" secondAttribute="bottom" id="69N-MH-6om"/>
+                    <constraint firstItem="Ami-qP-gom" firstAttribute="leading" secondItem="SRI-0M-J2E" secondAttribute="leading" id="jNu-YB-hPc"/>
+                    <constraint firstItem="Ami-qP-gom" firstAttribute="top" secondItem="SRI-0M-J2E" secondAttribute="top" id="lvc-CU-SNX"/>
+                    <constraint firstAttribute="trailing" secondItem="Ami-qP-gom" secondAttribute="trailing" id="o4m-yq-O8S"/>
+                </constraints>
+            </view>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="color" keyPath="backgroundColor">
+                    <color key="value" red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                </userDefinedRuntimeAttribute>
+                <userDefinedRuntimeAttribute type="number" keyPath="level">
+                    <integer key="value" value="2005"/>
+                </userDefinedRuntimeAttribute>
+                <userDefinedRuntimeAttribute type="boolean" keyPath="ignoresMouseEvents" value="YES"/>
+            </userDefinedRuntimeAttributes>
+            <connections>
+                <outlet property="delegate" destination="-2" id="K97-Wv-mBL"/>
+            </connections>
+            <point key="canvasLocation" x="448" y="-16"/>
+        </window>
+    </objects>
+</document>
