@@ -80,7 +80,7 @@ final class Settings: SettingsProtocol {
             deviceListObserver?.invalidate()
             
             if (deviceListChangeCallback != nil) {
-                deviceListObserver = defaults.observe(\UserDefaults.Devices, changeHandler: { [unowned self] (_, _) in
+                deviceListObserver = defaults.observe(\UserDefaults.Devices, options: .initial, changeHandler: { [unowned self] (_, _) in
                     self.deviceListChangeCallback?(self.deviceList)
                 })
             }
@@ -122,12 +122,10 @@ final class Settings: SettingsProtocol {
             switchShortcutObserver?.invalidate()
             
             if (switchShortcutChangeCallback != nil) {
-                switchShortcutObserver = defaults.observe(\UserDefaults.SwitchShortcut, changeHandler: { [unowned self] (_, _) in
+                switchShortcutObserver = defaults.observe(\UserDefaults.SwitchShortcut, options: .initial, changeHandler: { [unowned self] (_, _) in
                     self.switchShortcutChangeCallback?(self.switchShortcut)
                 })
             }
-
-            self.switchShortcutChangeCallback?(self.switchShortcut)
         }
     }
     
