@@ -17,8 +17,13 @@ class SwitchBezel: NSPanel {
     }
 }
 
+/// Public interface for the bezel controller
+protocol SwitchBezelControllerProtocol: AnyObject {
+    func display(text: String)
+}
+
 /// Controller for the bezel panel
-class SwitchBezelController: NSWindowController {
+class SwitchBezelController: NSWindowController, SwitchBezelControllerProtocol {
     @IBOutlet weak var effectView: NSVisualEffectView!
     @IBOutlet weak var imageView: NSImageView!
     @IBOutlet weak var textField: NSTextField!

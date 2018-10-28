@@ -18,7 +18,7 @@ final class AudioDeviceListManager: AudioDeviceObserver {
     }
     
     /// Runtime information on a connected device
-    struct DeviceInfo: Equatable {
+    struct DeviceInfo: Equatable, CustomStringConvertible {
         /// Unique system identifier for the audio device
         let uid: String
         /// Indicates if the device is currently connected
@@ -29,6 +29,9 @@ final class AudioDeviceListManager: AudioDeviceObserver {
         var title: String
         /// Indicates if the user wants to enable (show in the switch interface) the device
         var enabled: Bool
+        
+        /// User-attributed device name, or system-attributed name if no user-attributed name
+        var description: String { return title.isEmpty ? name : title }
     }
     
     /// Device list
