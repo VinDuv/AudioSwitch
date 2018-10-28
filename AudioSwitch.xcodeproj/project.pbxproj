@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BF05F64021862D6F0037420A /* HelperWatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE97BC62172596E0079C864 /* HelperWatcher.swift */; };
 		BF117F732094E6B40048D9AD /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF117F722094E6B40048D9AD /* main.swift */; };
 		BF117F782094E86E0048D9AD /* AudioDeviceSystemInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF117F692094DDF00048D9AD /* AudioDeviceSystemInterface.swift */; };
 		BF1616EA20AF5BC9009F471D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1616E920AF5BC9009F471D /* AppDelegate.swift */; };
@@ -653,6 +654,7 @@
 				BFB40C6D20A23BE800F4FA67 /* DeviceListManagerTests.swift in Sources */,
 				BFFECC6F20A8C2F7005ADA44 /* DeviceSystemInterfaceTest.swift in Sources */,
 				BF3799F720B9FBA60067EA2F /* AudioSwitchPrefs.swift in Sources */,
+				BF05F64021862D6F0037420A /* HelperWatcher.swift in Sources */,
 				BF2496B7213B2038006D33C9 /* Settings.swift in Sources */,
 				BFB40C6E20A23EAA00F4FA67 /* AudioDeviceListManager.swift in Sources */,
 				BF3799F620B9F7AC0067EA2F /* AudioDeviceListControllerTest.swift in Sources */,
