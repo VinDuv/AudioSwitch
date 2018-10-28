@@ -172,27 +172,47 @@ OSStatus AudioObjectGetPropertyData(AudioObjectID inObjectID, const AudioObjectP
     }
     
     if (inObjectID == kAudioObjectSystemObject) {
-        if (inAddress->mSelector != kAudioHardwarePropertyDevices || inAddress->mScope != kAudioObjectPropertyScopeGlobal || inAddress->mElement != kAudioObjectPropertyElementMaster) {
-            fprintf(stderr, "AudioObjectGetPropertyData mock only supports selector kAudioHardwarePropertyDevices, scope kAudioObjectPropertyScopeGlobal, element kAudioObjectPropertyElementMaster\n");
+        if (inAddress->mScope != kAudioObjectPropertyScopeGlobal || inAddress->mElement != kAudioObjectPropertyElementMaster) {
+            fprintf(stderr, "AudioObjectGetPropertyData mock only supports scope kAudioObjectPropertyScopeGlobal, element kAudioObjectPropertyElementMaster\n");
             return kAudioHardwareIllegalOperationError;
         }
         
-        uint32_t out_size = fake_device_count * sizeof(AudioDeviceID);
-        
-        if ((*ioDataSize) < out_size) {
-            fprintf(stderr, "AudioObjectGetPropertyData mock got a too short output buffer\n");
-            return kAudioHardwareIllegalOperationError;
-        }
-        
-        AudioDeviceID* out_buffer = outData;
-        
-        for (uint32_t i = 0 ; i < fake_device_count ; i += 1) {
-            out_buffer[i] = fake_devices[i].device_id;
-        }
-        
-        *ioDataSize = out_size;
+        if (inAddress->mSelector == kAudioHardwarePropertyDefaultOutputDevice) {
+            uint32_t out_size = sizeof(AudioDeviceID);
+            
+            if ((*ioDataSize) < out_size) {
+                fprintf(stderr, "AudioObjectGetPropertyData mock got a too short output buffer\n");
+                return kAudioHardwareIllegalOperationError;
+            }
+            
+            AudioDeviceID* out_buffer = outData;
+            *out_buffer = default_output_device;
+            *ioDataSize = out_size;
+            
+            return kAudioHardwareNoError;
 
-        return kAudioHardwareNoError;
+        } else if (inAddress->mSelector == kAudioHardwarePropertyDevices) {
+            uint32_t out_size = fake_device_count * sizeof(AudioDeviceID);
+            
+            if ((*ioDataSize) < out_size) {
+                fprintf(stderr, "AudioObjectGetPropertyData mock got a too short output buffer\n");
+                return kAudioHardwareIllegalOperationError;
+            }
+            
+            AudioDeviceID* out_buffer = outData;
+            
+            for (uint32_t i = 0 ; i < fake_device_count ; i += 1) {
+                out_buffer[i] = fake_devices[i].device_id;
+            }
+            
+            *ioDataSize = out_size;
+
+            return kAudioHardwareNoError;
+
+        } else {
+            fprintf(stderr, "AudioObjectGetPropertyData mock only supports selectors kAudioHardwarePropertyDefaultOutputDevice and kAudioHardwarePropertyDevices\n");
+            return kAudioHardwareIllegalOperationError;
+        }
     }
     
     struct fake_device* device = find_fake_device(inObjectID);

@@ -47,6 +47,10 @@ protocol AudioDeviceSystemInterface: AnyObject {
     /// The observer will not receive any notification after calling this function.
     func deactivate()
     
+    /// Get the currently selected audio output.
+    /// - Returns: The UID of the currently selected audio output
+    func currentOutputUid() -> String
+    
     /// Change the selected audio output.
     /// - Parameters:
     ///   - uid: The system identifier for the output.
@@ -92,13 +96,25 @@ final class AudioDeviceSystemInterfaceCoreAudio: AudioDeviceSystemInterface {
         }
     }
     
+    func currentOutputUid() -> String {
+        var size = UInt32(MemoryLayout<AudioDeviceID>.stride)
+        var deviceId = AudioDeviceID()
+        var address = AudioObjectPropertyAddress(mSelector: kAudioHardwarePropertyDefaultOutputDevice, mScope: kAudioObjectPropertyScopeGlobal, mElement: kAudioObjectPropertyElementMaster)
+        
+        guard AudioObjectGetPropertyData(AudioObjectID(kAudioObjectSystemObject), &address, 0, nil, &size, &deviceId) == kAudioHardwareNoError else {
+            fatalError("AudioObjectGetPropertyData failed (default)")
+        }
+        
+        return getProperty(deviceId: deviceId, selector: kAudioDevicePropertyDeviceUID)
+    }
+    
     func switchTo(uid: String) {
         guard let deviceId = deviceIds[uid] else {
             return
         }
         
         let size = UInt32(MemoryLayout<AudioDeviceID>.stride)
-        var outputId =  deviceId
+        var outputId = deviceId
         var address = AudioObjectPropertyAddress(mSelector: kAudioHardwarePropertyDefaultOutputDevice, mScope: kAudioObjectPropertyScopeGlobal, mElement: kAudioObjectPropertyElementMaster)
         
         guard AudioObjectSetPropertyData(AudioObjectID(kAudioObjectSystemObject), &address, 0, nil, size, &outputId) == kAudioHardwareNoError else {

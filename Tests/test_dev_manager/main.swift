@@ -63,6 +63,9 @@ sigintSource.setEventHandler {
 
 signal(SIGINT, {_ in })
 
+let currentUid = manager.currentOutputUid()
+print("Current output device UID: \(currentUid)")
+
 print("""
     Watching device events… Press Enter or ^C to quit.
     To switch to a device, type the number preceding its name, then Enter.

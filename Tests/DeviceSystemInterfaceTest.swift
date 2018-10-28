@@ -60,6 +60,7 @@ class DeviceSystemInterfaceTest: XCTestCase {
         
         manager.switchTo(uid: "a")
         XCTAssertEqual(get_current_mock_status(), [.ADD_LISTENER_CALLED, .SYSTEM_OUTPUT_SET, .DEFAULT_OUTPUT_SET])
+        XCTAssertEqual(manager.currentOutputUid(), "a")
         
         remove_fake_device(11)
         CFRunLoopRunInMode(CFRunLoopMode.defaultMode, 0, false)
