@@ -33,9 +33,16 @@ final class HelperWatcher {
                 if let launchedApps = change.newValue, self.helperLaunched != true && launchedApps.contains { $0.bundleIdentifier == self.helperAppId } {
                     self.helperLaunched = true
                     self.delegate?.helperApp(started: true)
+                    return
                 }
                 
                 if let quittedApps = change.oldValue, self.helperLaunched != false && quittedApps.contains { $0.bundleIdentifier == self.helperAppId } {
+                    self.helperLaunched = false
+                    self.delegate?.helperApp(started: false)
+                    return
+                }
+                
+                if self.helperLaunched == nil {
                     self.helperLaunched = false
                     self.delegate?.helperApp(started: false)
                 }
