@@ -4,8 +4,8 @@
 import Cocoa
 
 
-extension AudioDeviceListManager.DeviceInfo: CustomStringConvertible {
-    var description: String {
+extension AudioDeviceListManager.DeviceInfo: CustomDebugStringConvertible {
+    var debugDescription: String {
         let connected = self.connected ? "🔈" : "🔇"
         let enabled = self.enabled ? "🔘" : "⚪"
         let title: String
@@ -29,8 +29,8 @@ extension AudioDeviceListManager.DeviceInfo: CustomStringConvertible {
 }
 
 
-extension AudioDeviceListManager.PersistentDeviceInfo : CustomStringConvertible {
-    var description: String {
+extension AudioDeviceListManager.PersistentDeviceInfo : CustomDebugStringConvertible {
+    var debugDescription: String {
         let enabled = self.enabled ? "🔘" : "⚪"
         let title = self.title.isEmpty ? "<No title>" : self.title
         
@@ -51,7 +51,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         listManager.changeCallback = {
             self.insertText("New device list from manager:")
             for device in self.listManager.devices {
-                self.insertText(" • \(device)")
+                self.insertText(" • \(device.debugDescription)")
             }
             
             self.insertText("")
@@ -62,7 +62,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         Settings.instance.deviceListChangeCallback = { devices in
             self.insertText("New device list from settings:")
             for device in devices {
-                self.insertText(" • \(device)")
+                self.insertText(" • \(device.debugDescription)")
             }
             
             self.insertText("")
