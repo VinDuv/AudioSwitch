@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14313.18"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14460.31"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -13,7 +13,7 @@
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
-        <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="BezelTest" customModuleProvider="target">
+        <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="SwitchUserInterfaceTest" customModuleProvider="target">
             <connections>
                 <outlet property="colorView" destination="5gQ-kb-rGp" id="LkZ-9V-1dc"/>
                 <outlet property="titleField" destination="pVE-Wz-pb6" id="UpY-5K-qGs"/>
@@ -23,16 +23,16 @@
         <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
         <menu title="Main Menu" systemMenu="main" id="AYu-sK-qS6">
             <items>
-                <menuItem title="BezelTest" id="1Xt-HY-uBw">
+                <menuItem title="SwitchUserInterfaceTest" id="1Xt-HY-uBw">
                     <modifierMask key="keyEquivalentModifierMask"/>
-                    <menu key="submenu" title="BezelTest" systemMenu="apple" id="uQy-DD-JDr">
+                    <menu key="submenu" title="SwitchUserInterfaceTest" systemMenu="apple" id="uQy-DD-JDr">
                         <items>
                             <menuItem title="Services" id="NMo-om-nkz">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <menu key="submenu" title="Services" systemMenu="services" id="hz9-B4-Xy5"/>
                             </menuItem>
                             <menuItem isSeparatorItem="YES" id="4je-JR-u6R"/>
-                            <menuItem title="Hide BezelTest" keyEquivalent="h" id="Olw-nP-bQN">
+                            <menuItem title="Hide SwitchUserInterfaceTest" keyEquivalent="h" id="Olw-nP-bQN">
                                 <connections>
                                     <action selector="hide:" target="-1" id="PnN-Uc-m68"/>
                                 </connections>
@@ -50,7 +50,7 @@
                                 </connections>
                             </menuItem>
                             <menuItem isSeparatorItem="YES" id="kCx-OE-vgT"/>
-                            <menuItem title="Quit BezelTest" keyEquivalent="q" id="4sb-4s-VLi">
+                            <menuItem title="Quit SwitchUserInterfaceTest" keyEquivalent="q" id="4sb-4s-VLi">
                                 <connections>
                                     <action selector="terminate:" target="-1" id="Te7-pn-YzF"/>
                                 </connections>
@@ -306,7 +306,7 @@
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <menu key="submenu" title="Help" systemMenu="help" id="F2S-fz-NVQ">
                         <items>
-                            <menuItem title="BezelTest Help" keyEquivalent="?" id="FKE-Sm-Kum">
+                            <menuItem title="SwitchUserInterfaceTest Help" keyEquivalent="?" id="FKE-Sm-Kum">
                                 <connections>
                                     <action selector="showHelp:" target="-1" id="y7X-2Q-9no"/>
                                 </connections>
@@ -317,11 +317,11 @@
             </items>
             <point key="canvasLocation" x="62" y="19"/>
         </menu>
-        <window title="BezelTest" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" animationBehavior="default" id="QvC-M9-y7g">
+        <window title="SwitchUserInterfaceTest" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" animationBehavior="default" id="QvC-M9-y7g">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="335" y="390" width="480" height="360"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1057"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1280" height="777"/>
             <view key="contentView" wantsLayer="YES" id="EiT-Mj-1SZ">
                 <rect key="frame" x="0.0" y="0.0" width="480" height="331"/>
                 <autoresizingMask key="autoresizingMask"/>
@@ -347,7 +347,7 @@ DQ
                             <action selector="displayBezel:" target="Voe-Tx-rLC" id="cyJ-as-T9n"/>
                         </connections>
                     </button>
-                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="5gQ-kb-rGp" customClass="ColorView" customModule="BezelTest" customModuleProvider="target">
+                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="5gQ-kb-rGp" customClass="ColorView" customModule="SwitchUserInterfaceTest" customModuleProvider="target">
                         <rect key="frame" x="130" y="20" width="220" height="220"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="220" id="Bzt-T6-IvF"/>

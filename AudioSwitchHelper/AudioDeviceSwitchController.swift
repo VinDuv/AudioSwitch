@@ -6,12 +6,12 @@ import Foundation
 /// Class handling the switch between audio devices and presenting the UI
 final class AudioDeviceSwitchController {
     let systemInterface: AudioDeviceSystemInterface
-    let switchController: SwitchBezelControllerProtocol
+    let userInterface: SwitchUserInterfaceProtocol
     var currentDeviceUid: String
     
-    init(systemInterface: AudioDeviceSystemInterface, switchController: SwitchBezelControllerProtocol, currentDeviceUid: String = "") {
+    init(systemInterface: AudioDeviceSystemInterface, userInterface: SwitchUserInterfaceProtocol, currentDeviceUid: String = "") {
         self.systemInterface = systemInterface
-        self.switchController = switchController
+        self.userInterface = userInterface
         self.currentDeviceUid = currentDeviceUid
     }
     
@@ -28,7 +28,7 @@ final class AudioDeviceSwitchController {
             displayedText = "<No Output>"
         }
         
-        self.switchController.display(text: displayedText)
+        self.userInterface.display(text: displayedText)
     }
     
     /// Finds the next enabled and connected device after the current device UID.

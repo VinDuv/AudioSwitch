@@ -44,7 +44,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @IBOutlet weak var colorView: ColorView!
     @IBOutlet weak var titleField: NSTextField!
     
-    var switchBezelController = SwitchBezelController()
+    var switchUserInterfaceController = SwitchUserInterfaceController()
     
     /// Window position so the color view is under the bezel
     private var windowUnderBezelPosition: NSPoint {
@@ -65,7 +65,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     @IBAction func displayBezel(_ sender: Any) {
-        switchBezelController.display(text: titleField.stringValue)
+        switchUserInterfaceController.display(text: titleField.stringValue)
     }
 
     @IBAction func positionWindow(_ sender: Any) {

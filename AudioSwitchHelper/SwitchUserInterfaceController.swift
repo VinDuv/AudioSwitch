@@ -11,19 +11,19 @@ import AppKit
 extension NSVisualEffectView: NSVisualEffectViewPrivateApi { }
 
 /// Bezel panel, similar to the sound volume panel
-class SwitchBezel: NSPanel {
+class SwitchUserInterface: NSPanel {
     @objc func _backdropBleedAmount() -> Float {
         return 0.0
     }
 }
 
 /// Public interface for the bezel controller
-protocol SwitchBezelControllerProtocol: AnyObject {
+protocol SwitchUserInterfaceProtocol: AnyObject {
     func display(text: String)
 }
 
 /// Controller for the bezel panel
-class SwitchBezelController: NSWindowController, SwitchBezelControllerProtocol {
+class SwitchUserInterfaceController: NSWindowController, SwitchUserInterfaceProtocol {
     @IBOutlet weak var effectView: NSVisualEffectView!
     @IBOutlet weak var imageView: NSImageView!
     @IBOutlet weak var textField: NSTextField!
@@ -36,7 +36,7 @@ class SwitchBezelController: NSWindowController, SwitchBezelControllerProtocol {
     static let switchIcon = NSImage.Name("SwitchIcon")
     
     convenience init() {
-        self.init(windowNibName: "SwitchBezel")
+        self.init(windowNibName: "SwitchUserInterface")
     }
     
     override func awakeFromNib() {
@@ -44,7 +44,7 @@ class SwitchBezelController: NSWindowController, SwitchBezelControllerProtocol {
         effectView.wantsLayer = true
         effectView.layer?.cornerRadius = 20
         
-        let image = NSImage(named: SwitchBezelController.switchIcon)!
+        let image = NSImage(named: SwitchUserInterfaceController.switchIcon)!
         image.isTemplate = true
         imageView.image = image
     }
@@ -82,17 +82,17 @@ class SwitchBezelController: NSWindowController, SwitchBezelControllerProtocol {
         fadeStartTimer?.invalidate()
         fadeEndTimer?.invalidate()
         
-        fadeStartTimer = Timer.scheduledTimer(withTimeInterval: SwitchBezelController.delayBeforeFade, repeats: false) { [unowned self] _ in
+        fadeStartTimer = Timer.scheduledTimer(withTimeInterval: SwitchUserInterfaceController.delayBeforeFade, repeats: false) { [unowned self] _ in
             self.fadeStartTimer = nil
             
             NSAnimationContext.runAnimationGroup({ context in
-                context.duration = SwitchBezelController.fadeDelay
+                context.duration = SwitchUserInterfaceController.fadeDelay
                 self.window?.animator().alphaValue = 0.0
             })
             
             // This code needs to run at the end of the animation, but can not use the animator completion
             // handler because it needs to be able to be cancelled
-            self.fadeEndTimer = Timer.scheduledTimer(withTimeInterval: SwitchBezelController.fadeDelay, repeats: false) { [unowned self] _ in
+            self.fadeEndTimer = Timer.scheduledTimer(withTimeInterval: SwitchUserInterfaceController.fadeDelay, repeats: false) { [unowned self] _ in
                 self.fadeEndTimer = nil
                 self.window?.orderOut(nil)
             }
