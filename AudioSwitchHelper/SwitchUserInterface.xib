@@ -6,7 +6,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <customObject id="-2" userLabel="File's Owner" customClass="SwitchUserInterfaceController" customModule="SwitchUserInterfaceTest" customModuleProvider="target">
+        <customObject id="-2" userLabel="File's Owner" customClass="SwitchUserInterfaceController" customModule="AudioSwitchHelper" customModuleProvider="target">
             <connections>
                 <outlet property="effectView" destination="Ami-qP-gom" id="T5T-Qx-I6V"/>
                 <outlet property="imageView" destination="Cyu-LE-RJs" id="xgl-Us-nMv"/>
@@ -16,7 +16,7 @@
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
-        <window title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" hasShadow="NO" releasedWhenClosed="NO" animationBehavior="none" frameAutosaveName="" id="lc6-hc-zro" customClass="SwitchUserInterface" customModule="SwitchUserInterfaceTest" customModuleProvider="target">
+        <window title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" restorable="NO" deferred="NO" hasShadow="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="none" frameAutosaveName="" id="lc6-hc-zro" customClass="SwitchUserInterface" customModule="AudioSwitchHelper" customModuleProvider="target">
             <windowStyleMask key="styleMask" utility="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="120" y="64" width="200" height="200"/>

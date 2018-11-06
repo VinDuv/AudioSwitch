@@ -37,6 +37,8 @@ class SwitchUserInterfaceController: NSWindowController, SwitchUserInterfaceProt
     
     convenience init() {
         self.init(windowNibName: "SwitchUserInterface")
+        // Force the window to load early
+        _ = self.window
     }
     
     override func awakeFromNib() {

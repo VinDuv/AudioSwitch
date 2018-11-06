@@ -2,12 +2,13 @@
 // Distributed under the terms of the MIT License.
 
 import Foundation
+import os
 
 /// Class handling the switch between audio devices and presenting the UI
 final class AudioDeviceSwitchController {
-    let systemInterface: AudioDeviceSystemInterface
-    let userInterface: SwitchUserInterfaceProtocol
-    var currentDeviceUid: String
+    private let systemInterface: AudioDeviceSystemInterface
+    private let userInterface: SwitchUserInterfaceProtocol
+    private var currentDeviceUid: String
     
     init(systemInterface: AudioDeviceSystemInterface, userInterface: SwitchUserInterfaceProtocol, currentDeviceUid: String = "") {
         self.systemInterface = systemInterface
@@ -21,10 +22,12 @@ final class AudioDeviceSwitchController {
         let displayedText: String
         
         if let nextDevice = nextDevice(in: deviceList) {
+            os_log("Switching to output device: %s", type: .info, nextDevice.description)
             currentDeviceUid = nextDevice.uid
             displayedText = nextDevice.description
             systemInterface.switchTo(uid: currentDeviceUid)
         } else {
+            os_log("Not switching outputs because none are available", type: .info)
             displayedText = "<No Output>"
         }
         
