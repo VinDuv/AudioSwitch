@@ -4,13 +4,13 @@
 import AppKit
 
 /// Delegate protocol for the helper watcher
-protocol HelperWatcherDelegate: AnyObject {
+protocol HelperAppManagerDelegate: AnyObject {
     /// Called when the helper application is started or stopped
     func helperApp(started: Bool)
 }
 
-/// Indicates if the helper application is currently started or stopped.
-final class HelperWatcher {
+/// Manages the helper application
+final class HelperAppManager {
     /// Bundle ID of the helper application
     private let helperAppId: String
     
@@ -21,7 +21,7 @@ final class HelperWatcher {
     private var launchedObserver: NSKeyValueObservation?
     
     /// Delegate called when the state changes. The delegate will be called on initialization
-    weak var delegate: HelperWatcherDelegate? {
+    weak var delegate: HelperAppManagerDelegate? {
         didSet {
             launchedObserver?.invalidate()
             helperLaunched = nil

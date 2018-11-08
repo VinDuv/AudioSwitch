@@ -236,11 +236,8 @@ class SwitchShortcutView: MASShortcutView {
 
 
 /// Controller for the shortcut setter
-final class ShortcutSettingController: NSObject, HelperWatcherDelegate {
+final class ShortcutSettingController: NSObject {
     @IBOutlet weak var shortcutView: SwitchShortcutView!
-    @IBOutlet weak var helperStatusLabel: NSTextField!
-    
-    let helperWatcher = HelperWatcher()
     
     override func awakeFromNib() {
         shortcutView.shortcutValue = Settings.instance.switchShortcut
@@ -248,8 +245,18 @@ final class ShortcutSettingController: NSObject, HelperWatcherDelegate {
         shortcutView.shortcutValueChange = { [unowned self] _ in
             Settings.instance.switchShortcut = self.shortcutView.shortcutValue
         }
-        
-        helperWatcher.delegate = self
+    }
+}
+
+
+/// Controller for the helper app
+final class HelperAppController: NSObject, HelperAppManagerDelegate {
+    @IBOutlet weak var helperStatusLabel: NSTextField!
+    
+    let helperManager = HelperAppManager()
+
+    override func awakeFromNib() {
+        helperManager.delegate = self
     }
     
     func helperApp(started: Bool) {
