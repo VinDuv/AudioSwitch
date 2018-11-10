@@ -14,8 +14,8 @@ final class HelperAppManager {
     /// Bundle ID of the helper application
     private let helperAppId: String
     
-    /// Indicates if the helper is currently launched (nil if unknown)
-    private(set) var helperLaunched: Bool?
+    /// Handle of the helper if it is launched (nil if it is not)
+    private var helperAppHandle: NSRunningApplication?
     
     /// Launched applications observer
     private var launchedObserver: NSKeyValueObservation?
@@ -24,28 +24,28 @@ final class HelperAppManager {
     weak var delegate: HelperAppManagerDelegate? {
         didSet {
             launchedObserver?.invalidate()
-            helperLaunched = nil
+            helperAppHandle = nil
             if delegate == nil {
                 return
             }
             
             launchedObserver = NSWorkspace.shared.observe(\.runningApplications, options: [.old, .new, .initial]) { [unowned self] (_, change) in
-                if let launchedApps = change.newValue, self.helperLaunched != true && launchedApps.contains { $0.bundleIdentifier == self.helperAppId } {
-                    self.helperLaunched = true
+                
+                if change.oldValue?.contains(where: { $0.bundleIdentifier == self.helperAppId } ) ?? false {
+                    self.helperAppHandle = nil
+                    self.delegate?.helperApp(started: false)
+                }
+                
+                if let launchedApp = change.newValue?.first(where: { $0.bundleIdentifier == self.helperAppId } ) {
+                    self.helperAppHandle = launchedApp
                     self.delegate?.helperApp(started: true)
-                    return
                 }
-                
-                if let quittedApps = change.oldValue, self.helperLaunched != false && quittedApps.contains { $0.bundleIdentifier == self.helperAppId } {
-                    self.helperLaunched = false
-                    self.delegate?.helperApp(started: false)
-                    return
-                }
-                
-                if self.helperLaunched == nil {
-                    self.helperLaunched = false
-                    self.delegate?.helperApp(started: false)
-                }
+            }
+            
+            // If the app was running during the .observe call, the callback has been called and helperAppHandle
+            // set to non-nil. If it wasn't running, the callbac was not call so we need to call it now.
+            if self.helperAppHandle == nil {
+                self.delegate?.helperApp(started: false)
             }
         }
     }
@@ -56,5 +56,21 @@ final class HelperAppManager {
         }
         
         helperAppId = appId
+    }
+    
+    /// Start the helper app if it not running, stops it if it is currently running.
+    /// The helper app must reside in the Contents/Library/LoginItems of the app bundle,
+    /// and be named <last part of bundle ID>.app.
+    func toggleHelperState() {
+        if helperAppHandle != nil {
+            // TODO Ask the application to quit
+            return
+        }
+        
+        let afterDotIndex = helperAppId.lastIndex(of: ".").map {helperAppId.index(after: $0) } ?? helperAppId.startIndex
+        let appName = helperAppId[afterDotIndex...]
+        let helperPath = NSString.path(withComponents: [Bundle.main.bundlePath, "Contents", "Library", "LoginItems", "\(appName).app"])
+        
+        NSWorkspace.shared.openFile(helperPath)
     }
 }

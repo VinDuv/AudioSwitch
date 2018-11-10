@@ -252,6 +252,7 @@ final class ShortcutSettingController: NSObject {
 /// Controller for the helper app
 final class HelperAppController: NSObject, HelperAppManagerDelegate {
     @IBOutlet weak var helperStatusLabel: NSTextField!
+    @IBOutlet weak var helperToggleButton: NSButton!
     
     let helperManager = HelperAppManager()
 
@@ -262,8 +263,16 @@ final class HelperAppController: NSObject, HelperAppManagerDelegate {
     func helperApp(started: Bool) {
         if started {
             helperStatusLabel.stringValue = "AudioSwitch is running."
+            helperToggleButton.title = "Stop AudioSwitch"
         } else {
             helperStatusLabel.stringValue = "AudioSwitch is not running."
+            helperToggleButton.title = "Start AudioSwitch"
         }
+        helperToggleButton.isEnabled = true
+    }
+    
+    @IBAction func toggleHelperState(_ sender: Any) {
+        helperToggleButton.isEnabled = false
+        helperManager.toggleHelperState()
     }
 }

@@ -29,7 +29,6 @@
 		BF5F647B20BF3F3A0084F35E /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF8211C20BB342400F0B07E /* Settings.swift */; };
 		BF5F647C20BF3F4D0084F35E /* AudioDeviceListManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF88774020A2279D00F0D1A1 /* AudioDeviceListManager.swift */; };
 		BF5F647D20BF3F510084F35E /* AudioDeviceSystemInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF117F692094DDF00048D9AD /* AudioDeviceSystemInterface.swift */; };
-		BF66B79F2152DD6E00825919 /* MASShortcut.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFB1037B20C1EBB400766202 /* MASShortcut.framework */; };
 		BF92156D218DC8F500D1D502 /* SwitchIcon.pdf in Resources */ = {isa = PBXBuildFile; fileRef = BF2C2C422173C57B00283294 /* SwitchIcon.pdf */; };
 		BF921576218DC9A900D1D502 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF921573218DC9A800D1D502 /* main.swift */; };
 		BF921578218DCA6B00D1D502 /* MASShortcut.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFB1037B20C1EBB400766202 /* MASShortcut.framework */; };
@@ -49,6 +48,9 @@
 		BFB40C6E20A23EAA00F4FA67 /* AudioDeviceListManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF88774020A2279D00F0D1A1 /* AudioDeviceListManager.swift */; };
 		BFB40C6F20A23EC000F4FA67 /* AudioDeviceSystemInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF117F692094DDF00048D9AD /* AudioDeviceSystemInterface.swift */; };
 		BFC3DA632194CBA30037DF5A /* ServiceManagement.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFC3DA622194CBA30037DF5A /* ServiceManagement.framework */; };
+		BFC7E6DF21962D2F006559AD /* AudioSwitchSettingsWatcherApp.app in CopyFiles */ = {isa = PBXBuildFile; fileRef = BF5F646D20BF2EDD0084F35E /* AudioSwitchSettingsWatcherApp.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		BFC7E6E021962D73006559AD /* MASShortcut.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFB1037B20C1EBB400766202 /* MASShortcut.framework */; };
+		BFC7E6E121962D73006559AD /* MASShortcut.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BFB1037B20C1EBB400766202 /* MASShortcut.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BFD1A75320B17E3500945E0E /* AudioSwitchPrefs.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD1A75220B17E3500945E0E /* AudioSwitchPrefs.swift */; };
 		BFD1A75620B18A9100945E0E /* AudioDeviceListManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF88774020A2279D00F0D1A1 /* AudioDeviceListManager.swift */; };
 		BFD1A75720B18A9400945E0E /* AudioDeviceSystemInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF117F692094DDF00048D9AD /* AudioDeviceSystemInterface.swift */; };
@@ -100,6 +102,13 @@
 			remoteGlobalIDString = 0D827CD21990D4420010B8EF;
 			remoteInfo = MASShortcut;
 		};
+		BFC7E6E221962D73006559AD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFB1037420C1EBB300766202 /* MASShortcut.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 0D827CD21990D4420010B8EF;
+			remoteInfo = MASShortcut;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -130,6 +139,27 @@
 			dstSubfolderSpec = 10;
 			files = (
 				BFB1038320C1EC9700766202 /* MASShortcut.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BFC7E6DE21962CF9006559AD /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = Contents/Library/LoginItems;
+			dstSubfolderSpec = 1;
+			files = (
+				BFC7E6DF21962D2F006559AD /* AudioSwitchSettingsWatcherApp.app in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BFC7E6E421962D73006559AD /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				BFC7E6E121962D73006559AD /* MASShortcut.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -215,7 +245,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BF66B79F2152DD6E00825919 /* MASShortcut.framework in Frameworks */,
+				BFC7E6E021962D73006559AD /* MASShortcut.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -444,6 +474,7 @@
 				BF1616E420AF5BC9009F471D /* Frameworks */,
 				BF1616E520AF5BC9009F471D /* Resources */,
 				BFB1038620C1EC9700766202 /* Embed Frameworks */,
+				BFC7E6DE21962CF9006559AD /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -496,11 +527,13 @@
 				BF5F646920BF2EDD0084F35E /* Sources */,
 				BF5F646A20BF2EDD0084F35E /* Frameworks */,
 				BF5F646B20BF2EDD0084F35E /* Resources */,
+				BFC7E6E421962D73006559AD /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				BF66B79E2152DD6200825919 /* PBXTargetDependency */,
+				BFC7E6E321962D73006559AD /* PBXTargetDependency */,
 			);
 			name = AudioSwitchSettingsWatcherApp;
 			productName = AudioSwitchSettingsWatcherApp;
@@ -788,6 +821,11 @@
 			isa = PBXTargetDependency;
 			name = MASShortcut;
 			targetProxy = BFB1038420C1EC9700766202 /* PBXContainerItemProxy */;
+		};
+		BFC7E6E321962D73006559AD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = MASShortcut;
+			targetProxy = BFC7E6E221962D73006559AD /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
