@@ -63,7 +63,7 @@ final class HelperAppManager {
     /// and be named <last part of bundle ID>.app.
     func toggleHelperState() {
         if helperAppHandle != nil {
-            // TODO Ask the application to quit
+            FileManager.default.createFile(atPath: QuitFlag.quitFlagFullPath.path, contents: nil, attributes: [:])
             return
         }
         

@@ -45,8 +45,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @IBOutlet var textView: NSTextView!
     var systemInterface: AudioDeviceSystemInterfaceCoreAudio!
     var listManager: AudioDeviceListManager!
+    var quitCommandHandler: QuitCommandHandler!
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
+        quitCommandHandler = QuitCommandHandler()
+        
         listManager = AudioDeviceListManager()
         listManager.changeCallback = {
             self.insertText("New device list from manager:")

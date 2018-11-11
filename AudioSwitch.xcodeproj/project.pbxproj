@@ -29,6 +29,9 @@
 		BF5F647B20BF3F3A0084F35E /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF8211C20BB342400F0B07E /* Settings.swift */; };
 		BF5F647C20BF3F4D0084F35E /* AudioDeviceListManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF88774020A2279D00F0D1A1 /* AudioDeviceListManager.swift */; };
 		BF5F647D20BF3F510084F35E /* AudioDeviceSystemInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF117F692094DDF00048D9AD /* AudioDeviceSystemInterface.swift */; };
+		BF76E73E21989E9F00F1DF78 /* QuitFlag.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF76E73D21989E9F00F1DF78 /* QuitFlag.swift */; };
+		BF76E73F21989E9F00F1DF78 /* QuitFlag.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF76E73D21989E9F00F1DF78 /* QuitFlag.swift */; };
+		BF76E7412198A20E00F1DF78 /* QuitCommandHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF76E7402198A20E00F1DF78 /* QuitCommandHandler.swift */; };
 		BF92156D218DC8F500D1D502 /* SwitchIcon.pdf in Resources */ = {isa = PBXBuildFile; fileRef = BF2C2C422173C57B00283294 /* SwitchIcon.pdf */; };
 		BF921576218DC9A900D1D502 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF921573218DC9A800D1D502 /* main.swift */; };
 		BF921578218DCA6B00D1D502 /* MASShortcut.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFB1037B20C1EBB400766202 /* MASShortcut.framework */; };
@@ -189,6 +192,8 @@
 		BF5F646F20BF2EDD0084F35E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BF5F647420BF2EDE0084F35E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		BF66B7872152DA5400825919 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		BF76E73D21989E9F00F1DF78 /* QuitFlag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuitFlag.swift; sourceTree = "<group>"; };
+		BF76E7402198A20E00F1DF78 /* QuitCommandHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuitCommandHandler.swift; sourceTree = "<group>"; };
 		BF79BE6C20C446CA001DCAB4 /* BridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = BridgingHeader.h; path = Shared/BridgingHeader.h; sourceTree = SOURCE_ROOT; };
 		BF88774020A2279D00F0D1A1 /* AudioDeviceListManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioDeviceListManager.swift; sourceTree = "<group>"; };
 		BF921571218DC8F500D1D502 /* AudioSwitchHelper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AudioSwitchHelper.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -275,6 +280,7 @@
 				BF117F692094DDF00048D9AD /* AudioDeviceSystemInterface.swift */,
 				BF88774020A2279D00F0D1A1 /* AudioDeviceListManager.swift */,
 				BFF8211C20BB342400F0B07E /* Settings.swift */,
+				BF76E73D21989E9F00F1DF78 /* QuitFlag.swift */,
 				BF79BE6C20C446CA001DCAB4 /* BridgingHeader.h */,
 			);
 			path = Shared;
@@ -389,6 +395,7 @@
 				BF389FBA218644BC00EC3472 /* AudioDeviceSwitchController.swift */,
 				BFA0436F2177BAD700381D48 /* SwitchUserInterface.xib */,
 				BFA043702177BAD700381D48 /* SwitchUserInterfaceController.swift */,
+				BF76E7402198A20E00F1DF78 /* QuitCommandHandler.swift */,
 			);
 			path = AudioSwitchHelper;
 			sourceTree = "<group>";
@@ -729,6 +736,7 @@
 				BFE97BC72172596E0079C864 /* HelperAppManager.swift in Sources */,
 				BFD1A75620B18A9100945E0E /* AudioDeviceListManager.swift in Sources */,
 				BF1616EA20AF5BC9009F471D /* AppDelegate.swift in Sources */,
+				BF76E73E21989E9F00F1DF78 /* QuitFlag.swift in Sources */,
 				BFD1A75320B17E3500945E0E /* AudioSwitchPrefs.swift in Sources */,
 				BFD1A75720B18A9400945E0E /* AudioDeviceSystemInterface.swift in Sources */,
 				BFF8211D20BB342400F0B07E /* Settings.swift in Sources */,
@@ -756,8 +764,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF76E73F21989E9F00F1DF78 /* QuitFlag.swift in Sources */,
 				BF5F647C20BF3F4D0084F35E /* AudioDeviceListManager.swift in Sources */,
 				BF5F647B20BF3F3A0084F35E /* Settings.swift in Sources */,
+				BF76E7412198A20E00F1DF78 /* QuitCommandHandler.swift in Sources */,
 				BF5F647D20BF3F510084F35E /* AudioDeviceSystemInterface.swift in Sources */,
 				BF5F647020BF2EDD0084F35E /* AppDelegate.swift in Sources */,
 			);
