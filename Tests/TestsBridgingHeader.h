@@ -4,3 +4,5 @@
 #import <MASShortcut/MASShortcut.h>
 #import <MASShortcut/MASShortcutView.h>
 #import "CoreAudioMock.h"
+
+int SMJobIsEnabled(__nonnull CFStringRef domain, __nonnull  CFStringRef service, Boolean* __nonnull value);

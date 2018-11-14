@@ -250,29 +250,49 @@ final class ShortcutSettingController: NSObject {
 
 
 /// Controller for the helper app
-final class HelperAppController: NSObject, HelperAppManagerDelegate {
-    @IBOutlet weak var helperStatusLabel: NSTextField!
-    @IBOutlet weak var helperToggleButton: NSButton!
+final class HelperAppController: NSObject {
+    @IBOutlet weak var enableCheckbox: NSButton!
     
     let helperManager = HelperAppManager()
 
     override func awakeFromNib() {
-        helperManager.delegate = self
-    }
-    
-    func helperApp(started: Bool) {
-        if started {
-            helperStatusLabel.stringValue = "AudioSwitch is running."
-            helperToggleButton.title = "Stop AudioSwitch"
+        if let helperEnabled = helperManager.helperAppEnabled {
+            if helperEnabled {
+                if !helperManager.helperAppRunning {
+                    let text = NSLocalizedString("AudioSwitch is enabled but does not seem to be running.", comment: "Preference pane")
+                    let info = NSLocalizedString("The helper application may have exited unexpectedly.", comment: "Preference pane")
+                    displayError(text: text, info: info)
+                }
+                
+                enableCheckbox.state = .on
+            } else {
+                enableCheckbox.state = .off
+            }
         } else {
-            helperStatusLabel.stringValue = "AudioSwitch is not running."
-            helperToggleButton.title = "Start AudioSwitch"
+            let text = NSLocalizedString("An error occurred retrieving AudioSwitch enable state.", comment: "Preference pane")
+            displayError(text: text, info: "")
+            enableCheckbox.state = .mixed
         }
-        helperToggleButton.isEnabled = true
     }
     
-    @IBAction func toggleHelperState(_ sender: Any) {
-        helperToggleButton.isEnabled = false
-        helperManager.toggleHelperState()
+    @IBAction func changeAutostart(_ sender: Any) {
+        if !helperManager.setHelperAutoStart(enabled: enableCheckbox.state == .on) {
+            if let helperEnabled = helperManager.helperAppEnabled {
+                enableCheckbox.state = helperEnabled ? .on : .off
+            } else {
+                enableCheckbox.state = .mixed
+            }
+            
+            let text = NSLocalizedString("An error occurred enabling or disabling AudioSwitch.", comment: "Preference panel")
+            displayError(text: text, info: "")
+        }
+    }
+    
+    private func displayError(text: String, info: String) {
+        let alert = NSAlert()
+        alert.messageText = text
+        alert.informativeText = info
+        alert.addButton(withTitle: NSLocalizedString("OK", comment: "Alert button"))
+        alert.runModal()
     }
 }

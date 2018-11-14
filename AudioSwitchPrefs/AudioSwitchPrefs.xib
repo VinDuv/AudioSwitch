@@ -114,8 +114,18 @@
                                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                     </textFieldCell>
                                 </textField>
+                                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="47O-G1-KwK">
+                                    <rect key="frame" x="234" y="205" width="380" height="18"/>
+                                    <buttonCell key="cell" type="check" title="Enable AudioSwitch" bezelStyle="regularSquare" imagePosition="left" state="on" allowsMixedState="YES" inset="2" id="1oH-tq-Rwf">
+                                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                        <font key="font" metaFont="system"/>
+                                    </buttonCell>
+                                    <connections>
+                                        <action selector="changeAutostart:" target="NQv-3r-bHo" id="pAw-7t-YrJ"/>
+                                    </connections>
+                                </button>
                                 <customView translatesAutoresizingMaskIntoConstraints="NO" id="Ngy-Ur-qhA" customClass="SwitchShortcutView" customModule="AudioSwitchTestApp" customModuleProvider="target">
-                                    <rect key="frame" x="412" y="202" width="200" height="19"/>
+                                    <rect key="frame" x="412" y="173" width="200" height="19"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="19" id="Vih-wd-GlR"/>
                                         <constraint firstAttribute="width" constant="200" id="Zid-4A-3S6"/>
@@ -123,60 +133,29 @@
                                     </constraints>
                                 </customView>
                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="5wY-8e-B3K">
-                                    <rect key="frame" x="234" y="204" width="104" height="17"/>
+                                    <rect key="frame" x="234" y="174" width="104" height="17"/>
                                     <textFieldCell key="cell" lineBreakMode="clipping" title="Switch shortcut:" id="hhb-pm-DVI">
                                         <font key="font" metaFont="system"/>
                                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                     </textFieldCell>
                                 </textField>
-                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="vsx-e0-GD7">
-                                    <rect key="frame" x="234" y="171" width="17" height="17"/>
-                                    <textFieldCell key="cell" lineBreakMode="clipping" title="—" id="55f-oY-esQ">
-                                        <font key="font" usesAppearanceFont="YES"/>
-                                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                    </textFieldCell>
-                                </textField>
-                                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="kaF-nT-mFc">
-                                    <rect key="frame" x="565" y="161" width="53" height="32"/>
-                                    <buttonCell key="cell" type="push" title="—" bezelStyle="rounded" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="kRT-4w-e2g">
-                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                        <font key="font" metaFont="system"/>
-                                    </buttonCell>
-                                    <connections>
-                                        <action selector="toggleHelperState:" target="NQv-3r-bHo" id="cht-LN-1SF"/>
-                                    </connections>
-                                </button>
-                                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="47O-G1-KwK">
-                                    <rect key="frame" x="234" y="139" width="380" height="18"/>
-                                    <buttonCell key="cell" type="check" title="Start AudioSwitch upon session opening" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="1oH-tq-Rwf">
-                                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                        <font key="font" metaFont="system"/>
-                                    </buttonCell>
-                                </button>
                             </subviews>
                             <constraints>
-                                <constraint firstItem="vsx-e0-GD7" firstAttribute="leading" secondItem="ic8-le-1Sr" secondAttribute="trailing" constant="16" id="2Q2-sh-ZNJ"/>
                                 <constraint firstAttribute="trailing" secondItem="47O-G1-KwK" secondAttribute="trailing" constant="20" symbolic="YES" id="47U-NN-quu"/>
-                                <constraint firstItem="47O-G1-KwK" firstAttribute="top" secondItem="vsx-e0-GD7" secondAttribute="bottom" constant="16" id="Axx-jv-A8u"/>
                                 <constraint firstItem="ic8-le-1Sr" firstAttribute="width" secondItem="Urb-zI-BOU" secondAttribute="width" id="Bip-vv-XaD"/>
                                 <constraint firstItem="5wY-8e-B3K" firstAttribute="leading" secondItem="ic8-le-1Sr" secondAttribute="trailing" constant="16" id="CUZ-nS-Msg"/>
                                 <constraint firstItem="47O-G1-KwK" firstAttribute="leading" secondItem="ic8-le-1Sr" secondAttribute="trailing" constant="16" id="ClO-DB-PGn"/>
-                                <constraint firstItem="kaF-nT-mFc" firstAttribute="firstBaseline" secondItem="vsx-e0-GD7" secondAttribute="firstBaseline" id="DLg-gf-72F"/>
+                                <constraint firstItem="Ngy-Ur-qhA" firstAttribute="centerY" secondItem="5wY-8e-B3K" secondAttribute="centerY" id="F7H-Gh-Dzn"/>
+                                <constraint firstItem="5wY-8e-B3K" firstAttribute="top" secondItem="47O-G1-KwK" secondAttribute="bottom" constant="16" id="I6s-KY-6Qp"/>
                                 <constraint firstAttribute="trailing" secondItem="Ngy-Ur-qhA" secondAttribute="trailing" constant="20" symbolic="YES" id="IKn-83-qzm"/>
-                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="47O-G1-KwK" secondAttribute="bottom" constant="20" symbolic="YES" id="Ira-N4-u8X"/>
                                 <constraint firstItem="D4L-q8-gi6" firstAttribute="width" secondItem="Urb-zI-BOU" secondAttribute="width" id="JsS-Sx-4iq"/>
-                                <constraint firstItem="vsx-e0-GD7" firstAttribute="top" secondItem="5wY-8e-B3K" secondAttribute="bottom" constant="16" id="LeV-M2-89F"/>
-                                <constraint firstItem="5wY-8e-B3K" firstAttribute="top" secondItem="ic8-le-1Sr" secondAttribute="top" id="RHo-bE-vSX"/>
-                                <constraint firstAttribute="trailing" secondItem="kaF-nT-mFc" secondAttribute="trailing" constant="20" symbolic="YES" id="TKr-Yj-bkd"/>
-                                <constraint firstItem="kaF-nT-mFc" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="vsx-e0-GD7" secondAttribute="trailing" constant="8" symbolic="YES" id="Wz3-OT-a2B"/>
                                 <constraint firstItem="Urb-zI-BOU" firstAttribute="leading" secondItem="gLB-bA-7xb" secondAttribute="leading" constant="20" symbolic="YES" id="YyD-XL-nEM"/>
                                 <constraint firstItem="D4L-q8-gi6" firstAttribute="leading" secondItem="gLB-bA-7xb" secondAttribute="leading" constant="20" symbolic="YES" id="a4r-W8-Wln"/>
-                                <constraint firstItem="Ngy-Ur-qhA" firstAttribute="top" secondItem="ic8-le-1Sr" secondAttribute="top" id="bNk-fk-gYc"/>
                                 <constraint firstItem="Urb-zI-BOU" firstAttribute="top" secondItem="gLB-bA-7xb" secondAttribute="top" constant="20" symbolic="YES" id="bpV-OR-Cpc"/>
                                 <constraint firstItem="ic8-le-1Sr" firstAttribute="leading" secondItem="gLB-bA-7xb" secondAttribute="leading" constant="20" symbolic="YES" id="evT-XN-wgq"/>
                                 <constraint firstItem="D4L-q8-gi6" firstAttribute="top" secondItem="ic8-le-1Sr" secondAttribute="bottom" constant="8" symbolic="YES" id="fXa-53-ouE"/>
+                                <constraint firstItem="47O-G1-KwK" firstAttribute="top" secondItem="ic8-le-1Sr" secondAttribute="top" id="hcs-Z7-dF7"/>
                                 <constraint firstAttribute="bottom" secondItem="D4L-q8-gi6" secondAttribute="bottom" constant="20" symbolic="YES" id="hdD-KH-qCq"/>
                                 <constraint firstItem="Ngy-Ur-qhA" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="5wY-8e-B3K" secondAttribute="trailing" constant="8" symbolic="YES" id="rwB-E0-OvK"/>
                                 <constraint firstItem="ic8-le-1Sr" firstAttribute="top" secondItem="Urb-zI-BOU" secondAttribute="bottom" constant="8" symbolic="YES" id="xhz-Yc-dIB"/>
@@ -197,7 +176,7 @@
             <connections>
                 <outlet property="delegate" destination="-2" id="1m1-cm-rIy"/>
             </connections>
-            <point key="canvasLocation" x="-1202" y="-69"/>
+            <point key="canvasLocation" x="-1221" y="-447"/>
         </window>
         <customObject id="nd2-z5-Vrk" customClass="AudioDeviceListController" customModule="AudioSwitchTestApp" customModuleProvider="target">
             <connections>
@@ -211,8 +190,7 @@
         </customObject>
         <customObject id="NQv-3r-bHo" customClass="HelperAppController" customModule="AudioSwitchTestApp" customModuleProvider="target">
             <connections>
-                <outlet property="helperStatusLabel" destination="vsx-e0-GD7" id="8tt-Xj-6vG"/>
-                <outlet property="helperToggleButton" destination="kaF-nT-mFc" id="zRy-6K-oWo"/>
+                <outlet property="enableCheckbox" destination="47O-G1-KwK" id="2Ey-xa-g3q"/>
             </connections>
         </customObject>
     </objects>
