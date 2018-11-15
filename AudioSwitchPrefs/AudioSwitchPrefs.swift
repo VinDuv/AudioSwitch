@@ -248,6 +248,10 @@ final class ShortcutSettingController: NSObject {
     }
 }
 
+/// Checkbox cell subclass that prevents the user from selecting the Mixed state
+class NotMixedCheckboxCell: NSButtonCell {
+    override var nextState: Int { return self.state == .on ? 0 : 1 }
+}
 
 /// Controller for the helper app
 final class HelperAppController: NSObject {

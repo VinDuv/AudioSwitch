@@ -116,7 +116,7 @@
                                 </textField>
                                 <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="47O-G1-KwK">
                                     <rect key="frame" x="234" y="205" width="380" height="18"/>
-                                    <buttonCell key="cell" type="check" title="Enable AudioSwitch" bezelStyle="regularSquare" imagePosition="left" state="on" allowsMixedState="YES" inset="2" id="1oH-tq-Rwf">
+                                    <buttonCell key="cell" type="check" title="Enable AudioSwitch" bezelStyle="regularSquare" imagePosition="left" state="on" allowsMixedState="YES" inset="2" id="1oH-tq-Rwf" customClass="NotMixedCheckboxCell" customModule="AudioSwitchTestApp" customModuleProvider="target">
                                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                         <font key="font" metaFont="system"/>
                                     </buttonCell>
