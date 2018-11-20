@@ -15,6 +15,18 @@
 		BF1616F520AF5C0A009F471D /* AudioSwitchPrefs.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF1616CE20AF584E009F471D /* AudioSwitchPrefs.xib */; };
 		BF2496B7213B2038006D33C9 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF8211C20BB342400F0B07E /* Settings.swift */; };
 		BF2496BA213B2097006D33C9 /* MASShortcut.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFB1037B20C1EBB400766202 /* MASShortcut.framework */; };
+		BF288C7A21A49EAD00F7BEBD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF288C7921A49EAD00F7BEBD /* AppDelegate.swift */; };
+		BF288C7F21A49EAF00F7BEBD /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF288C7D21A49EAF00F7BEBD /* MainMenu.xib */; };
+		BF288C8521A4A07000F7BEBD /* AudioSwitchPrefs.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD1A75220B17E3500945E0E /* AudioSwitchPrefs.swift */; };
+		BF288C8621A4A07300F7BEBD /* HelperAppManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE97BC62172596E0079C864 /* HelperAppManager.swift */; };
+		BF288C8721A4A07900F7BEBD /* AudioDeviceSystemInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF117F692094DDF00048D9AD /* AudioDeviceSystemInterface.swift */; };
+		BF288C8821A4A07B00F7BEBD /* AudioDeviceListManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF88774020A2279D00F0D1A1 /* AudioDeviceListManager.swift */; };
+		BF288C8921A4A07E00F7BEBD /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF8211C20BB342400F0B07E /* Settings.swift */; };
+		BF288C8C21A4A0B000F7BEBD /* MASShortcut.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFB1037B20C1EBB400766202 /* MASShortcut.framework */; };
+		BF288C8D21A4A0B000F7BEBD /* MASShortcut.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BFB1037B20C1EBB400766202 /* MASShortcut.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		BF288C9121A4A0C600F7BEBD /* ServiceManagement.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFC3DA622194CBA30037DF5A /* ServiceManagement.framework */; };
+		BF288C9321A4A0E100F7BEBD /* AudioSwitchHelper.app in CopyFiles */ = {isa = PBXBuildFile; fileRef = BF921571218DC8F500D1D502 /* AudioSwitchHelper.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		BF288C9421A4A16600F7BEBD /* AudioSwitchPrefs.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF1616CE20AF584E009F471D /* AudioSwitchPrefs.xib */; };
 		BF2C2C4A2173C66000283294 /* SwitchUserInterfaceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2C2C492173C66000283294 /* SwitchUserInterfaceTest.swift */; };
 		BF2C2C4F2173C66200283294 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF2C2C4D2173C66200283294 /* MainMenu.xib */; };
 		BF3799F620B9F7AC0067EA2F /* AudioDeviceListControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3799F520B9F7AC0067EA2F /* AudioDeviceListControllerTest.swift */; };
@@ -66,6 +78,27 @@
 			proxyType = 1;
 			remoteGlobalIDString = 0D827CD21990D4420010B8EF;
 			remoteInfo = MASShortcut;
+		};
+		BF288C8A21A4A0A000F7BEBD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFB1037420C1EBB300766202 /* MASShortcut.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 0D827CD21990D4420010B8EF;
+			remoteInfo = MASShortcut;
+		};
+		BF288C8E21A4A0B000F7BEBD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFB1037420C1EBB300766202 /* MASShortcut.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 0D827CD21990D4420010B8EF;
+			remoteInfo = MASShortcut;
+		};
+		BF288C9521A4A1F800F7BEBD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BF907F332094DB930045859F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BF921565218DC8F500D1D502;
+			remoteInfo = AudioSwitchHelper;
 		};
 		BF5ED0CC20ACC76C0023CDBF /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -120,6 +153,27 @@
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 1;
+		};
+		BF288C9021A4A0B000F7BEBD /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				BF288C8D21A4A0B000F7BEBD /* MASShortcut.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BF288C9221A4A0D400F7BEBD /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = Contents/Library/LoginItems;
+			dstSubfolderSpec = 1;
+			files = (
+				BF288C9321A4A0E100F7BEBD /* AudioSwitchHelper.app in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
 		};
 		BF92157C218DCA6B00D1D502 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -177,6 +231,11 @@
 		BF1616F020AF5BCA009F471D /* AudioSwitchTestsInfo.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = AudioSwitchTestsInfo.plist; sourceTree = "<group>"; };
 		BF1616F120AF5BCA009F471D /* AudioSwitchTests.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AudioSwitchTests.entitlements; sourceTree = "<group>"; };
 		BF2496BD213B2301006D33C9 /* TestsBridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestsBridgingHeader.h; sourceTree = "<group>"; };
+		BF288C7721A49EAD00F7BEBD /* AudioSwitch Preferences.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AudioSwitch Preferences.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BF288C7921A49EAD00F7BEBD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		BF288C7E21A49EAF00F7BEBD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		BF288C8021A49EAF00F7BEBD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BF288C8121A49EAF00F7BEBD /* AudioSwitchPrefs.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AudioSwitchPrefs.entitlements; sourceTree = "<group>"; };
 		BF2C2C422173C57B00283294 /* SwitchIcon.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = SwitchIcon.pdf; sourceTree = "<group>"; };
 		BF2C2C472173C66000283294 /* SwitchUserInterfaceTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwitchUserInterfaceTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF2C2C492173C66000283294 /* SwitchUserInterfaceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchUserInterfaceTest.swift; sourceTree = "<group>"; };
@@ -224,6 +283,15 @@
 			files = (
 				BFC3DA632194CBA30037DF5A /* ServiceManagement.framework in Frameworks */,
 				BFB1038220C1EC9700766202 /* MASShortcut.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BF288C7421A49EAD00F7BEBD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BF288C9121A4A0C600F7BEBD /* ServiceManagement.framework in Frameworks */,
+				BF288C8C21A4A0B000F7BEBD /* MASShortcut.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -309,6 +377,7 @@
 				BF5F646D20BF2EDD0084F35E /* AudioSwitchSettingsWatcherApp.app */,
 				BF2C2C472173C66000283294 /* SwitchUserInterfaceTest.app */,
 				BF921571218DC8F500D1D502 /* AudioSwitchHelper.app */,
+				BF288C7721A49EAD00F7BEBD /* AudioSwitch Preferences.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -324,9 +393,13 @@
 		BF1616CD20AF581F009F471D /* AudioSwitchPrefs */ = {
 			isa = PBXGroup;
 			children = (
+				BF288C7921A49EAD00F7BEBD /* AppDelegate.swift */,
+				BF288C7D21A49EAF00F7BEBD /* MainMenu.xib */,
 				BF1616CE20AF584E009F471D /* AudioSwitchPrefs.xib */,
 				BFD1A75220B17E3500945E0E /* AudioSwitchPrefs.swift */,
 				BFE97BC62172596E0079C864 /* HelperAppManager.swift */,
+				BF288C8021A49EAF00F7BEBD /* Info.plist */,
+				BF288C8121A49EAF00F7BEBD /* AudioSwitchPrefs.entitlements */,
 			);
 			path = AudioSwitchPrefs;
 			sourceTree = "<group>";
@@ -486,6 +559,28 @@
 			productReference = BF1616E720AF5BC9009F471D /* AudioSwitchTestApp.app */;
 			productType = "com.apple.product-type.application";
 		};
+		BF288C7621A49EAD00F7BEBD /* AudioSwitch Preferences */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BF288C8421A49EAF00F7BEBD /* Build configuration list for PBXNativeTarget "AudioSwitch Preferences" */;
+			buildPhases = (
+				BF288C7321A49EAD00F7BEBD /* Sources */,
+				BF288C7421A49EAD00F7BEBD /* Frameworks */,
+				BF288C7521A49EAD00F7BEBD /* Resources */,
+				BF288C9021A4A0B000F7BEBD /* Embed Frameworks */,
+				BF288C9221A4A0D400F7BEBD /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BF288C9621A4A1F800F7BEBD /* PBXTargetDependency */,
+				BF288C8B21A4A0A000F7BEBD /* PBXTargetDependency */,
+				BF288C8F21A4A0B000F7BEBD /* PBXTargetDependency */,
+			);
+			name = "AudioSwitch Preferences";
+			productName = AudioSwitchPrefs;
+			productReference = BF288C7721A49EAD00F7BEBD /* AudioSwitch Preferences.app */;
+			productType = "com.apple.product-type.application";
+		};
 		BF2C2C462173C66000283294 /* SwitchUserInterfaceTest */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = BF2C2C522173C66200283294 /* Build configuration list for PBXNativeTarget "SwitchUserInterfaceTest" */;
@@ -584,7 +679,7 @@
 		BF907F332094DB930045859F /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1000;
+				LastSwiftUpdateCheck = 1010;
 				LastUpgradeCheck = 0940;
 				TargetAttributes = {
 					BF117F6E2094E6B40048D9AD = {
@@ -594,6 +689,14 @@
 					BF1616E620AF5BC9009F471D = {
 						CreatedOnToolsVersion = 9.4;
 						LastSwiftMigration = 1000;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.Mac = {
+								enabled = 1;
+							};
+						};
+					};
+					BF288C7621A49EAD00F7BEBD = {
+						CreatedOnToolsVersion = 10.1;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.Mac = {
 								enabled = 1;
@@ -652,6 +755,7 @@
 				BF1616E620AF5BC9009F471D /* AudioSwitchTestApp */,
 				BF5F646C20BF2EDD0084F35E /* AudioSwitchSettingsWatcherApp */,
 				BF2C2C462173C66000283294 /* SwitchUserInterfaceTest */,
+				BF288C7621A49EAD00F7BEBD /* AudioSwitch Preferences */,
 			);
 		};
 /* End PBXProject section */
@@ -673,6 +777,15 @@
 			files = (
 				BF1616F520AF5C0A009F471D /* AudioSwitchPrefs.xib in Resources */,
 				BF1616EF20AF5BCA009F471D /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BF288C7521A49EAD00F7BEBD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BF288C7F21A49EAF00F7BEBD /* MainMenu.xib in Resources */,
+				BF288C9421A4A16600F7BEBD /* AudioSwitchPrefs.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -732,6 +845,19 @@
 				BFD1A75320B17E3500945E0E /* AudioSwitchPrefs.swift in Sources */,
 				BFD1A75720B18A9400945E0E /* AudioDeviceSystemInterface.swift in Sources */,
 				BFF8211D20BB342400F0B07E /* Settings.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BF288C7321A49EAD00F7BEBD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BF288C8921A4A07E00F7BEBD /* Settings.swift in Sources */,
+				BF288C8621A4A07300F7BEBD /* HelperAppManager.swift in Sources */,
+				BF288C7A21A49EAD00F7BEBD /* AppDelegate.swift in Sources */,
+				BF288C8721A4A07900F7BEBD /* AudioDeviceSystemInterface.swift in Sources */,
+				BF288C8821A4A07B00F7BEBD /* AudioDeviceListManager.swift in Sources */,
+				BF288C8521A4A07000F7BEBD /* AudioSwitchPrefs.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -802,6 +928,21 @@
 			name = MASShortcut;
 			targetProxy = BF2496BB213B20DB006D33C9 /* PBXContainerItemProxy */;
 		};
+		BF288C8B21A4A0A000F7BEBD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = MASShortcut;
+			targetProxy = BF288C8A21A4A0A000F7BEBD /* PBXContainerItemProxy */;
+		};
+		BF288C8F21A4A0B000F7BEBD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = MASShortcut;
+			targetProxy = BF288C8E21A4A0B000F7BEBD /* PBXContainerItemProxy */;
+		};
+		BF288C9621A4A1F800F7BEBD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BF921565218DC8F500D1D502 /* AudioSwitchHelper */;
+			targetProxy = BF288C9521A4A1F800F7BEBD /* PBXContainerItemProxy */;
+		};
 		BF5ED0CD20ACC76C0023CDBF /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = BF5ED0C520ACC7330023CDBF /* TestMocks */;
@@ -834,6 +975,14 @@
 			isa = PBXVariantGroup;
 			children = (
 				BF1616EE20AF5BCA009F471D /* Base */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+		BF288C7D21A49EAF00F7BEBD /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BF288C7E21A49EAF00F7BEBD /* Base */,
 			);
 			name = MainMenu.xib;
 			sourceTree = "<group>";
@@ -1063,6 +1212,100 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = net.duvert.AudioSwitchTestApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_OBJC_BRIDGING_HEADER = Shared/BridgingHeader.h;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 4.2;
+			};
+			name = Release;
+		};
+		BF288C8221A49EAF00F7BEBD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_ENTITLEMENTS = AudioSwitchPrefs/AudioSwitchPrefs.entitlements;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 39S9YX67X7;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				INFOPLIST_FILE = AudioSwitchPrefs/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = net.duvert.AudioSwitchPrefs;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OBJC_BRIDGING_HEADER = Shared/BridgingHeader.h;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
+			};
+			name = Debug;
+		};
+		BF288C8321A49EAF00F7BEBD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_ENTITLEMENTS = AudioSwitchPrefs/AudioSwitchPrefs.entitlements;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 39S9YX67X7;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				INFOPLIST_FILE = AudioSwitchPrefs/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = net.duvert.AudioSwitchPrefs;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 				SWIFT_OBJC_BRIDGING_HEADER = Shared/BridgingHeader.h;
@@ -1592,6 +1835,15 @@
 			buildConfigurations = (
 				BF1616F320AF5BCA009F471D /* Debug */,
 				BF1616F420AF5BCA009F471D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BF288C8421A49EAF00F7BEBD /* Build configuration list for PBXNativeTarget "AudioSwitch Preferences" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BF288C8221A49EAF00F7BEBD /* Debug */,
+				BF288C8321A49EAF00F7BEBD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
