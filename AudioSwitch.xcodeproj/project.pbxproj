@@ -11,7 +11,6 @@
 		BF117F732094E6B40048D9AD /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF117F722094E6B40048D9AD /* main.swift */; };
 		BF117F782094E86E0048D9AD /* AudioDeviceSystemInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF117F692094DDF00048D9AD /* AudioDeviceSystemInterface.swift */; };
 		BF1616EA20AF5BC9009F471D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1616E920AF5BC9009F471D /* AppDelegate.swift */; };
-		BF1616F520AF5C0A009F471D /* AudioSwitchPrefs.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF1616CE20AF584E009F471D /* AudioSwitchPrefs.xib */; };
 		BF2496B7213B2038006D33C9 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF8211C20BB342400F0B07E /* Settings.swift */; };
 		BF2496BA213B2097006D33C9 /* MASShortcut.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFB1037B20C1EBB400766202 /* MASShortcut.framework */; };
 		BF288C7A21A49EAD00F7BEBD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF288C7921A49EAD00F7BEBD /* AppDelegate.swift */; };
@@ -25,7 +24,6 @@
 		BF288C8D21A4A0B000F7BEBD /* MASShortcut.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BFB1037B20C1EBB400766202 /* MASShortcut.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BF288C9121A4A0C600F7BEBD /* ServiceManagement.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFC3DA622194CBA30037DF5A /* ServiceManagement.framework */; };
 		BF288C9321A4A0E100F7BEBD /* AudioSwitchHelper.app in CopyFiles */ = {isa = PBXBuildFile; fileRef = BF921571218DC8F500D1D502 /* AudioSwitchHelper.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		BF288C9421A4A16600F7BEBD /* AudioSwitchPrefs.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF1616CE20AF584E009F471D /* AudioSwitchPrefs.xib */; };
 		BF2C2C4A2173C66000283294 /* SwitchUserInterfaceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2C2C492173C66000283294 /* SwitchUserInterfaceTest.swift */; };
 		BF3799F620B9F7AC0067EA2F /* AudioDeviceListControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3799F520B9F7AC0067EA2F /* AudioDeviceListControllerTest.swift */; };
 		BF3799F720B9FBA60067EA2F /* AudioSwitchPrefs.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD1A75220B17E3500945E0E /* AudioSwitchPrefs.swift */; };
@@ -38,6 +36,7 @@
 		BF5F647B20BF3F3A0084F35E /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF8211C20BB342400F0B07E /* Settings.swift */; };
 		BF5F647C20BF3F4D0084F35E /* AudioDeviceListManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF88774020A2279D00F0D1A1 /* AudioDeviceListManager.swift */; };
 		BF5F647D20BF3F510084F35E /* AudioDeviceSystemInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF117F692094DDF00048D9AD /* AudioDeviceSystemInterface.swift */; };
+		BF6F573F21AB48DF00649FFA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BF6F573D21AB48DF00649FFA /* InfoPlist.strings */; };
 		BF92156D218DC8F500D1D502 /* SwitchIcon.pdf in Resources */ = {isa = PBXBuildFile; fileRef = BF2C2C422173C57B00283294 /* SwitchIcon.pdf */; };
 		BF921576218DC9A900D1D502 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF921573218DC9A800D1D502 /* main.swift */; };
 		BF921578218DCA6B00D1D502 /* MASShortcut.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFB1037B20C1EBB400766202 /* MASShortcut.framework */; };
@@ -54,6 +53,9 @@
 		BFACC0D621A8997300F16B20 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFACC0D521A8997300F16B20 /* MainMenu.xib */; };
 		BFACC0D821A899E200F16B20 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFACC0D721A899E100F16B20 /* MainMenu.xib */; };
 		BFACC0DA21A89A0D00F16B20 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFACC0D921A89A0D00F16B20 /* MainMenu.xib */; };
+		BFACC0DD21A8A66F00F16B20 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = BFACC0DB21A8A66F00F16B20 /* Localizable.strings */; };
+		BFACC0E121A8AC7800F16B20 /* AudioSwitchPrefs.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFACC0E421A8AC7800F16B20 /* AudioSwitchPrefs.xib */; };
+		BFACC0E221A8AC7800F16B20 /* AudioSwitchPrefs.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFACC0E421A8AC7800F16B20 /* AudioSwitchPrefs.xib */; };
 		BFB1038220C1EC9700766202 /* MASShortcut.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFB1037B20C1EBB400766202 /* MASShortcut.framework */; };
 		BFB1038320C1EC9700766202 /* MASShortcut.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BFB1037B20C1EBB400766202 /* MASShortcut.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BFB40C6D20A23BE800F4FA67 /* DeviceListManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB40C5F20A23B9500F4FA67 /* DeviceListManagerTests.swift */; };
@@ -224,7 +226,6 @@
 		BF117F692094DDF00048D9AD /* AudioDeviceSystemInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioDeviceSystemInterface.swift; sourceTree = "<group>"; };
 		BF117F6F2094E6B40048D9AD /* test_dev_manager */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = test_dev_manager; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF117F722094E6B40048D9AD /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
-		BF1616CE20AF584E009F471D /* AudioSwitchPrefs.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AudioSwitchPrefs.xib; sourceTree = "<group>"; };
 		BF1616E720AF5BC9009F471D /* AudioSwitchTestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AudioSwitchTestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF1616E920AF5BC9009F471D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BF1616F020AF5BCA009F471D /* AudioSwitchTestsInfo.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = AudioSwitchTestsInfo.plist; sourceTree = "<group>"; };
@@ -245,6 +246,7 @@
 		BF5F646D20BF2EDD0084F35E /* AudioSwitchSettingsWatcherApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AudioSwitchSettingsWatcherApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF5F646F20BF2EDD0084F35E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BF66B7872152DA5400825919 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		BF6F573E21AB48DF00649FFA /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		BF79BE6C20C446CA001DCAB4 /* BridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = BridgingHeader.h; path = Shared/BridgingHeader.h; sourceTree = SOURCE_ROOT; };
 		BF88774020A2279D00F0D1A1 /* AudioDeviceListManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioDeviceListManager.swift; sourceTree = "<group>"; };
 		BF921571218DC8F500D1D502 /* AudioSwitchHelper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AudioSwitchHelper.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -256,6 +258,10 @@
 		BFACC0D521A8997300F16B20 /* MainMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
 		BFACC0D721A899E100F16B20 /* MainMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
 		BFACC0D921A89A0D00F16B20 /* MainMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
+		BFACC0DC21A8A66F00F16B20 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		BFACC0E021A8A7A200F16B20 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/MainMenu.strings; sourceTree = "<group>"; };
+		BFACC0E321A8AC7800F16B20 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/AudioSwitchPrefs.xib; sourceTree = "<group>"; };
+		BFACC0E621A8AC7B00F16B20 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/AudioSwitchPrefs.strings; sourceTree = "<group>"; };
 		BFB1037420C1EBB300766202 /* MASShortcut.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = MASShortcut.xcodeproj; sourceTree = "<group>"; };
 		BFB40C5F20A23B9500F4FA67 /* DeviceListManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceListManagerTests.swift; sourceTree = "<group>"; };
 		BFB40C6520A23BE300F4FA67 /* AudioSwitchTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AudioSwitchTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -395,11 +401,12 @@
 			children = (
 				BF288C7921A49EAD00F7BEBD /* AppDelegate.swift */,
 				BF288C7D21A49EAF00F7BEBD /* MainMenu.xib */,
-				BF1616CE20AF584E009F471D /* AudioSwitchPrefs.xib */,
+				BFACC0E421A8AC7800F16B20 /* AudioSwitchPrefs.xib */,
 				BFD1A75220B17E3500945E0E /* AudioSwitchPrefs.swift */,
 				BFE97BC62172596E0079C864 /* HelperAppManager.swift */,
 				BF288C8021A49EAF00F7BEBD /* Info.plist */,
 				BF288C8121A49EAF00F7BEBD /* AudioSwitchPrefs.entitlements */,
+				BF6F573D21AB48DF00649FFA /* InfoPlist.strings */,
 			);
 			path = AudioSwitchPrefs;
 			sourceTree = "<group>";
@@ -456,6 +463,7 @@
 		BFA0436E2177B98600381D48 /* AudioSwitchHelper */ = {
 			isa = PBXGroup;
 			children = (
+				BFACC0DB21A8A66F00F16B20 /* Localizable.strings */,
 				BF921575218DC9A900D1D502 /* AudioSwitchHelper.entitlements */,
 				BF921574218DC9A900D1D502 /* Info.plist */,
 				BF921573218DC9A800D1D502 /* main.swift */,
@@ -680,7 +688,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1010;
-				LastUpgradeCheck = 0940;
+				LastUpgradeCheck = 1010;
 				TargetAttributes = {
 					BF117F6E2094E6B40048D9AD = {
 						CreatedOnToolsVersion = 9.3;
@@ -736,6 +744,7 @@
 			knownRegions = (
 				en,
 				Base,
+				fr,
 			);
 			mainGroup = BF907F322094DB930045859F;
 			productRefGroup = BF117F702094E6B40048D9AD /* Products */;
@@ -775,7 +784,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BF1616F520AF5C0A009F471D /* AudioSwitchPrefs.xib in Resources */,
+				BFACC0E121A8AC7800F16B20 /* AudioSwitchPrefs.xib in Resources */,
 				BFACC0D821A899E200F16B20 /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -785,7 +794,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				BF288C7F21A49EAF00F7BEBD /* MainMenu.xib in Resources */,
-				BF288C9421A4A16600F7BEBD /* AudioSwitchPrefs.xib in Resources */,
+				BF6F573F21AB48DF00649FFA /* InfoPlist.strings in Resources */,
+				BFACC0E221A8AC7800F16B20 /* AudioSwitchPrefs.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -812,6 +822,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BF921581218DCCEA00D1D502 /* SwitchUserInterface.xib in Resources */,
+				BFACC0DD21A8A66F00F16B20 /* Localizable.strings in Resources */,
 				BF92156D218DC8F500D1D502 /* SwitchIcon.pdf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -975,8 +986,34 @@
 			isa = PBXVariantGroup;
 			children = (
 				BF288C7E21A49EAF00F7BEBD /* Base */,
+				BFACC0E021A8A7A200F16B20 /* fr */,
 			);
 			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+		BF6F573D21AB48DF00649FFA /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BF6F573E21AB48DF00649FFA /* fr */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		BFACC0DB21A8A66F00F16B20 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BFACC0DC21A8A66F00F16B20 /* fr */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		BFACC0E421A8AC7800F16B20 /* AudioSwitchPrefs.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BFACC0E321A8AC7800F16B20 /* Base */,
+				BFACC0E621A8AC7B00F16B20 /* fr */,
+			);
+			name = AudioSwitchPrefs.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -1550,6 +1587,7 @@
 		BF907F372094DB930045859F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
@@ -1583,6 +1621,7 @@
 		BF907F382094DB930045859F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;

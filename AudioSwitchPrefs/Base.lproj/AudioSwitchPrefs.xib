@@ -18,7 +18,7 @@
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="196" y="240" width="670" height="346"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1057"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1280" height="800"/>
             <view key="contentView" wantsLayer="YES" id="EiT-Mj-1SZ">
                 <rect key="frame" x="0.0" y="0.0" width="670" height="346"/>
                 <autoresizingMask key="autoresizingMask"/>
@@ -76,7 +76,7 @@
                                                             <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                             <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                                         </tableHeaderCell>
-                                                        <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" title="Text Cell" id="B4k-xQ-OFv">
+                                                        <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" id="B4k-xQ-OFv">
                                                             <font key="font" metaFont="system"/>
                                                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -105,9 +105,6 @@
                                 </scrollView>
                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="D4L-q8-gi6">
                                     <rect key="frame" x="18" y="20" width="204" height="56"/>
-                                    <constraints>
-                                        <constraint firstAttribute="width" priority="750" constant="200" id="2e7-zC-2XS"/>
-                                    </constraints>
                                     <textFieldCell key="cell" selectable="YES" title="Check the outputs you want to use in AudioSwitch. You can also reorder them, and rename them by double-clicking." id="OIk-6z-XGO">
                                         <font key="font" metaFont="smallSystem"/>
                                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -153,8 +150,10 @@
                                 <constraint firstItem="Urb-zI-BOU" firstAttribute="leading" secondItem="gLB-bA-7xb" secondAttribute="leading" constant="20" symbolic="YES" id="YyD-XL-nEM"/>
                                 <constraint firstItem="D4L-q8-gi6" firstAttribute="leading" secondItem="gLB-bA-7xb" secondAttribute="leading" constant="20" symbolic="YES" id="a4r-W8-Wln"/>
                                 <constraint firstItem="Urb-zI-BOU" firstAttribute="top" secondItem="gLB-bA-7xb" secondAttribute="top" constant="20" symbolic="YES" id="bpV-OR-Cpc"/>
+                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Urb-zI-BOU" secondAttribute="trailing" constant="20" symbolic="YES" id="cGh-9B-baV"/>
                                 <constraint firstItem="ic8-le-1Sr" firstAttribute="leading" secondItem="gLB-bA-7xb" secondAttribute="leading" constant="20" symbolic="YES" id="evT-XN-wgq"/>
                                 <constraint firstItem="D4L-q8-gi6" firstAttribute="top" secondItem="ic8-le-1Sr" secondAttribute="bottom" constant="8" symbolic="YES" id="fXa-53-ouE"/>
+                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="D4L-q8-gi6" secondAttribute="trailing" constant="20" symbolic="YES" id="hXX-im-vCe"/>
                                 <constraint firstItem="47O-G1-KwK" firstAttribute="top" secondItem="ic8-le-1Sr" secondAttribute="top" id="hcs-Z7-dF7"/>
                                 <constraint firstAttribute="bottom" secondItem="D4L-q8-gi6" secondAttribute="bottom" constant="20" symbolic="YES" id="hdD-KH-qCq"/>
                                 <constraint firstItem="Ngy-Ur-qhA" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="5wY-8e-B3K" secondAttribute="trailing" constant="8" symbolic="YES" id="rwB-E0-OvK"/>

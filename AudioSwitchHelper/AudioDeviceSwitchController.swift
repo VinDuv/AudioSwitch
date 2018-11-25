@@ -28,7 +28,7 @@ final class AudioDeviceSwitchController {
             systemInterface.switchTo(uid: currentDeviceUid)
         } else {
             os_log("Not switching outputs because none are available", type: .info)
-            displayedText = "<No Output>"
+            displayedText = NSLocalizedString("<No Output>", comment: "Output switch pane")
         }
         
         self.userInterface.display(text: displayedText)
