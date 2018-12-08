@@ -1,0 +1,5 @@
+/* Preference pane */
+"AudioSwitch is enabled but does not seem to be running." = "AudioSwitch est activé mais ne semble pas être en fonctionnement.";
+"The helper application may have exited unexpectedly." = "L’application en tâche de fond a peut-être quitté inopinément.";
+"An error occurred retrieving AudioSwitch enable state." = "Une erreur est survenue à la récupération de l’état d’activation d’AudioSwitch.";
+"An error occurred enabling or disabling AudioSwitch." = "Une erreur est survenue à l’activation ou désactivation d’AudioSwitch.";
