@@ -8,24 +8,22 @@ import os
 final class AudioDeviceSwitchController {
     private let systemInterface: AudioDeviceSystemInterface
     private let userInterface: SwitchUserInterfaceProtocol
-    private var currentDeviceUid: String
     
-    init(systemInterface: AudioDeviceSystemInterface, userInterface: SwitchUserInterfaceProtocol, currentDeviceUid: String = "") {
+    init(systemInterface: AudioDeviceSystemInterface, userInterface: SwitchUserInterfaceProtocol) {
         self.systemInterface = systemInterface
         self.userInterface = userInterface
-        self.currentDeviceUid = currentDeviceUid
     }
     
-    /// Switch to the next enabled and connected device in the list, displaying the switch UI.
+    /// Switch to the next (relative to the given UID) enabled and connected device in the list, displaying the switch UI.
     /// - Parameter deviceList: Current device list
-    public func switchToNextDevice(in deviceList: [AudioDeviceListManager.DeviceInfo]) {
+    /// - Parameter afterUid: The device after this UID will be selected
+    public func switchToNextDevice(in deviceList: [AudioDeviceListManager.DeviceInfo], afterUid uid: String = "") {
         let displayedText: String
         
-        if let nextDevice = nextDevice(in: deviceList) {
+        if let nextDevice = nextDevice(in: deviceList, afterUid: uid) {
             os_log("Switching to output device: %s", type: .info, nextDevice.description)
-            currentDeviceUid = nextDevice.uid
             displayedText = nextDevice.description
-            systemInterface.switchTo(uid: currentDeviceUid)
+            systemInterface.switchTo(uid: nextDevice.uid)
         } else {
             os_log("Not switching outputs because none are available", type: .info)
             displayedText = NSLocalizedString("<No Output>", comment: "Output switch pane")
@@ -34,9 +32,11 @@ final class AudioDeviceSwitchController {
         self.userInterface.display(text: displayedText)
     }
     
-    /// Finds the next enabled and connected device after the current device UID.
+    /// Finds the next enabled and connected device after the given UID
+    /// - Parameter deviceList: Current device list
+    /// - Parameter afterUid: The device after this UID will be returned
     /// - Returns: The next device, or nil if no device is currently enabled and connected
-    private func nextDevice(in deviceList: [AudioDeviceListManager.DeviceInfo]) -> AudioDeviceListManager.DeviceInfo? {
+    private func nextDevice(in deviceList: [AudioDeviceListManager.DeviceInfo], afterUid currentDeviceUid: String) -> AudioDeviceListManager.DeviceInfo? {
         var searchStartIndex: Int
         if let currentIndex = deviceList.firstIndex(where: { $0.uid == currentDeviceUid }) {
             searchStartIndex = deviceList.index(after: currentIndex)

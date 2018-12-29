@@ -19,7 +19,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         listManager = AudioDeviceListManager()
         systemInterface = AudioDeviceSystemInterfaceCoreAudio(observer: listManager, queue: .main)
         userInterface = SwitchUserInterfaceController()
-        switchController = AudioDeviceSwitchController(systemInterface: systemInterface, userInterface: userInterface, currentDeviceUid: systemInterface.currentOutputUid())
+        switchController = AudioDeviceSwitchController(systemInterface: systemInterface, userInterface: userInterface)
         
         super.init()
         
@@ -47,7 +47,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     /// Called when the shortcut key is pressed. Handles the switch process
     private func shortcutKeyPressed() {
-        switchController.switchToNextDevice(in: listManager.devices)
+        switchController.switchToNextDevice(in: listManager.devices, afterUid: systemInterface.currentOutputUid())
     }
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {

@@ -79,13 +79,13 @@ class AudioDeviceSwitchControllerTest: XCTestCase {
         ]
         
         let logger = SwitchControllerLogger()
-        let controller = AudioDeviceSwitchController(systemInterface: logger, userInterface: logger, currentDeviceUid: "b")
+        let controller = AudioDeviceSwitchController(systemInterface: logger, userInterface: logger)
         
-        controller.switchToNextDevice(in: devices)
+        controller.switchToNextDevice(in: devices, afterUid: "b")
         XCTAssertEqual(logger.displayed, ["Device A"])
         XCTAssertEqual(logger.uids, ["a"])
         
-        controller.switchToNextDevice(in: devices)
+        controller.switchToNextDevice(in: devices, afterUid: "a")
         XCTAssertEqual(logger.displayed, ["Device A", "Device A"])
         XCTAssertEqual(logger.uids, ["a", "a"])
     }
@@ -99,13 +99,13 @@ class AudioDeviceSwitchControllerTest: XCTestCase {
         ]
         
         let logger = SwitchControllerLogger()
-        let controller = AudioDeviceSwitchController(systemInterface: logger, userInterface: logger, currentDeviceUid: "d")
+        let controller = AudioDeviceSwitchController(systemInterface: logger, userInterface: logger)
         
-        controller.switchToNextDevice(in: devices)
+        controller.switchToNextDevice(in: devices, afterUid: "d")
         XCTAssertEqual(logger.displayed, ["Device A"])
         XCTAssertEqual(logger.uids, ["a"])
         
-        controller.switchToNextDevice(in: devices)
+        controller.switchToNextDevice(in: devices, afterUid: "a")
         XCTAssertEqual(logger.displayed, ["Device A", "D"])
         XCTAssertEqual(logger.uids, ["a", "d"])
     }
@@ -126,13 +126,13 @@ class AudioDeviceSwitchControllerTest: XCTestCase {
         ]
         
         let logger = SwitchControllerLogger()
-        let controller = AudioDeviceSwitchController(systemInterface: logger, userInterface: logger, currentDeviceUid: "a")
+        let controller = AudioDeviceSwitchController(systemInterface: logger, userInterface: logger)
         
-        controller.switchToNextDevice(in: devicesInit)
+        controller.switchToNextDevice(in: devicesInit, afterUid: "a")
         XCTAssertEqual(logger.displayed, ["Device B"])
         XCTAssertEqual(logger.uids, ["b"])
         
-        controller.switchToNextDevice(in: devicesBDisabled)
+        controller.switchToNextDevice(in: devicesBDisabled, afterUid: "b")
         XCTAssertEqual(logger.displayed, ["Device B", "Device C"])
         XCTAssertEqual(logger.uids, ["b", "c"])
     }
@@ -153,13 +153,13 @@ class AudioDeviceSwitchControllerTest: XCTestCase {
         ]
         
         let logger = SwitchControllerLogger()
-        let controller = AudioDeviceSwitchController(systemInterface: logger, userInterface: logger, currentDeviceUid: "a")
+        let controller = AudioDeviceSwitchController(systemInterface: logger, userInterface: logger)
         
-        controller.switchToNextDevice(in: devicesInit)
+        controller.switchToNextDevice(in: devicesInit, afterUid: "a")
         XCTAssertEqual(logger.displayed, ["Device B"])
         XCTAssertEqual(logger.uids, ["b"])
         
-        controller.switchToNextDevice(in: devicesBDisconnected)
+        controller.switchToNextDevice(in: devicesBDisconnected, afterUid: "b")
         XCTAssertEqual(logger.displayed, ["Device B", "Device C"])
         XCTAssertEqual(logger.uids, ["b", "c"])
     }
@@ -181,13 +181,13 @@ class AudioDeviceSwitchControllerTest: XCTestCase {
         ]
         
         let logger = SwitchControllerLogger()
-        let controller = AudioDeviceSwitchController(systemInterface: logger, userInterface: logger, currentDeviceUid: "a")
+        let controller = AudioDeviceSwitchController(systemInterface: logger, userInterface: logger)
         
-        controller.switchToNextDevice(in: devicesInit)
+        controller.switchToNextDevice(in: devicesInit, afterUid: "a")
         XCTAssertEqual(logger.displayed, ["Device B"])
         XCTAssertEqual(logger.uids, ["b"])
         
-        controller.switchToNextDevice(in: devicesBRemoved)
+        controller.switchToNextDevice(in: devicesBRemoved, afterUid: "b")
         XCTAssertEqual(logger.displayed, ["Device B", "Device A"])
         XCTAssertEqual(logger.uids, ["b", "a"])
     }
