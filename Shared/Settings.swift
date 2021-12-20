@@ -17,8 +17,8 @@ extension UserDefaults {
         return self.value(forKey: "Devices") as? [[String: Any]]
     }
     
-    @objc dynamic var SwitchShortcut: [String: UInt]? {
-        return self.value(forKey: "SwitchShortcut") as? [String: UInt]
+    @objc dynamic var SwitchShortcut: [String: Int]? {
+        return self.value(forKey: "SwitchShortcut") as? [String: Int]
     }
 }
 
@@ -90,20 +90,22 @@ final class Settings: SettingsProtocol {
     /// Switch shortcut
     var switchShortcut: MASShortcut? {
         get {
-            if let shortcut = defaults.SwitchShortcut, let keyCode = shortcut["KeyCode"], let modifierFlags = shortcut["ModifierFlags"] {
-                return MASShortcut(keyCode: keyCode, modifierFlags: modifierFlags)
+            guard let shortcut = defaults.SwitchShortcut, let keyCode = shortcut["KeyCode"], let rawModifierFlags = shortcut["ModifierFlags"] else {
+                return nil
             }
             
-            return nil
+            let modifierFlags = NSEvent.ModifierFlags(rawValue: UInt(rawModifierFlags))
+            
+            return MASShortcut(keyCode: keyCode, modifierFlags: modifierFlags)
         }
         
         set {
-            let result: [String: UInt]?
+            let result: [String: Int]?
             
             if let newValue = newValue {
                 result = [
                     "KeyCode": newValue.keyCode,
-                    "ModifierFlags": newValue.modifierFlags
+                    "ModifierFlags": Int(newValue.modifierFlags.rawValue)
                 ]
             } else {
                 result = nil
