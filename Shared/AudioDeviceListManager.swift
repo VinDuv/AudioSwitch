@@ -87,7 +87,7 @@ final class AudioDeviceListManager: AudioDeviceObserver {
     
     /// Adds the device to the list, or update its info if it’s already present
     func deviceAdded(info: AudioDeviceInfo) {
-        if let index = devices.index(where: { $0.uid == info.uid }) {
+        if let index = devices.firstIndex(where: { $0.uid == info.uid }) {
             var device = devices[index]
             
             device.connected = true
@@ -105,7 +105,7 @@ final class AudioDeviceListManager: AudioDeviceObserver {
     
     /// Marks the device as disconnected
     func deviceRemoved(info: AudioDeviceInfo) {
-        guard let index = devices.index(where: { $0.uid == info.uid }) else { return }
+        guard let index = devices.firstIndex(where: { $0.uid == info.uid }) else { return }
         devices[index].connected = false
         
         changeCallback?()
