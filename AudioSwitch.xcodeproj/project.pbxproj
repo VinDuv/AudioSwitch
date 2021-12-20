@@ -40,8 +40,6 @@
 		BF6F573F21AB48DF00649FFA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BF6F573D21AB48DF00649FFA /* InfoPlist.strings */; };
 		BF92156D218DC8F500D1D502 /* SwitchIcon.pdf in Resources */ = {isa = PBXBuildFile; fileRef = BF2C2C422173C57B00283294 /* SwitchIcon.pdf */; };
 		BF921576218DC9A900D1D502 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF921573218DC9A800D1D502 /* main.swift */; };
-		BF921578218DCA6B00D1D502 /* MASShortcut.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFB1037B20C1EBB400766202 /* MASShortcut.framework */; };
-		BF921579218DCA6B00D1D502 /* MASShortcut.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BFB1037B20C1EBB400766202 /* MASShortcut.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BF92157D218DCA8700D1D502 /* AudioDeviceSystemInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF117F692094DDF00048D9AD /* AudioDeviceSystemInterface.swift */; };
 		BF92157E218DCA8B00D1D502 /* AudioDeviceListManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF88774020A2279D00F0D1A1 /* AudioDeviceListManager.swift */; };
 		BF92157F218DCA9100D1D502 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF8211C20BB342400F0B07E /* Settings.swift */; };
@@ -62,6 +60,8 @@
 		BFB40C6D20A23BE800F4FA67 /* DeviceListManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB40C5F20A23B9500F4FA67 /* DeviceListManagerTests.swift */; };
 		BFB40C6E20A23EAA00F4FA67 /* AudioDeviceListManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF88774020A2279D00F0D1A1 /* AudioDeviceListManager.swift */; };
 		BFB40C6F20A23EC000F4FA67 /* AudioDeviceSystemInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF117F692094DDF00048D9AD /* AudioDeviceSystemInterface.swift */; };
+		BFBE8E1D276FAC05008F8916 /* MASShortcut.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFB1037B20C1EBB400766202 /* MASShortcut.framework */; };
+		BFBE8E1E276FAC05008F8916 /* MASShortcut.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BFB1037B20C1EBB400766202 /* MASShortcut.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BFC3DA632194CBA30037DF5A /* ServiceManagement.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFC3DA622194CBA30037DF5A /* ServiceManagement.framework */; };
 		BFC7E6DF21962D2F006559AD /* AudioSwitchSettingsWatcherApp.app in CopyFiles */ = {isa = PBXBuildFile; fileRef = BF5F646D20BF2EDD0084F35E /* AudioSwitchSettingsWatcherApp.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		BFC7E6E021962D73006559AD /* MASShortcut.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFB1037B20C1EBB400766202 /* MASShortcut.framework */; };
@@ -111,13 +111,6 @@
 			remoteInfo = TestMocks;
 		};
 		BF66B79D2152DD6200825919 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BFB1037420C1EBB300766202 /* MASShortcut.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 0D827CD21990D4420010B8EF;
-			remoteInfo = MASShortcut;
-		};
-		BF92157A218DCA6B00D1D502 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFB1037420C1EBB300766202 /* MASShortcut.xcodeproj */;
 			proxyType = 1;
@@ -178,17 +171,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		BF92157C218DCA6B00D1D502 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				BF921579218DCA6B00D1D502 /* MASShortcut.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		BFB1038620C1EC9700766202 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -196,6 +178,17 @@
 			dstSubfolderSpec = 10;
 			files = (
 				BFB1038320C1EC9700766202 /* MASShortcut.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BFBE8E1F276FAC05008F8916 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				BFBE8E1E276FAC05008F8916 /* MASShortcut.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -329,7 +322,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BF921578218DCA6B00D1D502 /* MASShortcut.framework in Frameworks */,
+				BFBE8E1D276FAC05008F8916 /* MASShortcut.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -653,12 +646,11 @@
 				BF921566218DC8F500D1D502 /* Sources */,
 				BF921569218DC8F500D1D502 /* Frameworks */,
 				BF92156A218DC8F500D1D502 /* Resources */,
-				BF92157C218DCA6B00D1D502 /* Embed Frameworks */,
+				BFBE8E1F276FAC05008F8916 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				BF92157B218DCA6B00D1D502 /* PBXTargetDependency */,
 			);
 			name = AudioSwitchHelper;
 			productName = SwitchUserInterfaceTest;
@@ -967,11 +959,6 @@
 			isa = PBXTargetDependency;
 			name = MASShortcut;
 			targetProxy = BF66B79D2152DD6200825919 /* PBXContainerItemProxy */;
-		};
-		BF92157B218DCA6B00D1D502 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = MASShortcut;
-			targetProxy = BF92157A218DCA6B00D1D502 /* PBXContainerItemProxy */;
 		};
 		BFB1038520C1EC9700766202 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
