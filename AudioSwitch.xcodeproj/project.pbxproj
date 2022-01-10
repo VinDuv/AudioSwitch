@@ -63,6 +63,7 @@
 		BFBE8E1D276FAC05008F8916 /* MASShortcut.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFB1037B20C1EBB400766202 /* MASShortcut.framework */; };
 		BFBE8E1E276FAC05008F8916 /* MASShortcut.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BFB1037B20C1EBB400766202 /* MASShortcut.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BFC3DA632194CBA30037DF5A /* ServiceManagement.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFC3DA622194CBA30037DF5A /* ServiceManagement.framework */; };
+		BFC4474F278CD72000A04469 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BFC4474E278CD72000A04469 /* Assets.xcassets */; };
 		BFC7E6DF21962D2F006559AD /* AudioSwitchSettingsWatcherApp.app in CopyFiles */ = {isa = PBXBuildFile; fileRef = BF5F646D20BF2EDD0084F35E /* AudioSwitchSettingsWatcherApp.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		BFC7E6E021962D73006559AD /* MASShortcut.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFB1037B20C1EBB400766202 /* MASShortcut.framework */; };
 		BFC7E6E121962D73006559AD /* MASShortcut.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BFB1037B20C1EBB400766202 /* MASShortcut.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -261,6 +262,7 @@
 		BFB40C5F20A23B9500F4FA67 /* DeviceListManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceListManagerTests.swift; sourceTree = "<group>"; };
 		BFB40C6520A23BE300F4FA67 /* AudioSwitchTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AudioSwitchTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFC3DA622194CBA30037DF5A /* ServiceManagement.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ServiceManagement.framework; path = System/Library/Frameworks/ServiceManagement.framework; sourceTree = SDKROOT; };
+		BFC4474E278CD72000A04469 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BFD1A75220B17E3500945E0E /* AudioSwitchPrefs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioSwitchPrefs.swift; sourceTree = "<group>"; };
 		BFE97BC62172596E0079C864 /* HelperAppManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperAppManager.swift; sourceTree = "<group>"; };
 		BFF8211C20BB342400F0B07E /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
@@ -420,6 +422,7 @@
 			isa = PBXGroup;
 			children = (
 				BF2C2C422173C57B00283294 /* SwitchIcon.pdf */,
+				BFC4474E278CD72000A04469 /* Assets.xcassets */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -796,6 +799,7 @@
 				BF51164021BC44C200E0134D /* Localizable.strings in Resources */,
 				BF6F573F21AB48DF00649FFA /* InfoPlist.strings in Resources */,
 				BFACC0E221A8AC7800F16B20 /* AudioSwitchPrefs.xib in Resources */,
+				BFC4474F278CD72000A04469 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
