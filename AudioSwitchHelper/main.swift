@@ -34,11 +34,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         currentShortcut = shortcut
         
-        if let currentShortcut = currentShortcut {
+        if let currentShortcut = currentShortcut, let keyCodeString = currentShortcut.keyCodeString {
             if shortcutMonitor.register(currentShortcut, withAction: { [unowned self] in self.shortcutKeyPressed() }) {
-                os_log("Switch shortcut changed to %s", type: .info, currentShortcut.keyCodeString)
+                os_log("Switch shortcut changed to %s", type: .info, keyCodeString)
             } else {
-                os_log("Failed to set switch shortcut to %s. It may be in use by another app", type: .error, currentShortcut.keyCodeString)
+                os_log("Failed to set switch shortcut to %s. It may be in use by another app", type: .error, keyCodeString)
             }
         } else {
             os_log("Switch shortcut was deactivated")

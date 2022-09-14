@@ -4,6 +4,7 @@
 import AppKit
 import ServiceManagement
 
+
 /// Manages the helper application installation as a service
 final class HelperAppManager {
     /// Bundle ID of the helper application
