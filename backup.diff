@@ -1,0 +1,642 @@
+diff --git a/AudioSwitch.xcodeproj/project.pbxproj b/AudioSwitch.xcodeproj/project.pbxproj
+index b1d914e..4c1c0e3 100644
+--- a/AudioSwitch.xcodeproj/project.pbxproj
++++ b/AudioSwitch.xcodeproj/project.pbxproj
+@@ -57,6 +57,7 @@
+ 		BFACC0E221A8AC7800F16B20 /* AudioSwitchPrefs.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFACC0E421A8AC7800F16B20 /* AudioSwitchPrefs.xib */; };
+ 		BFB1038220C1EC9700766202 /* MASShortcut.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFB1037B20C1EBB400766202 /* MASShortcut.framework */; };
+ 		BFB1038320C1EC9700766202 /* MASShortcut.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BFB1037B20C1EBB400766202 /* MASShortcut.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
++		BFB374B428D776F200D2896B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BFB374B228D776F200D2896B /* InfoPlist.strings */; };
+ 		BFB40C6D20A23BE800F4FA67 /* DeviceListManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB40C5F20A23B9500F4FA67 /* DeviceListManagerTests.swift */; };
+ 		BFB40C6E20A23EAA00F4FA67 /* AudioDeviceListManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF88774020A2279D00F0D1A1 /* AudioDeviceListManager.swift */; };
+ 		BFB40C6F20A23EC000F4FA67 /* AudioDeviceSystemInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF117F692094DDF00048D9AD /* AudioDeviceSystemInterface.swift */; };
+@@ -259,6 +260,7 @@
+ 		BFACC0E321A8AC7800F16B20 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/AudioSwitchPrefs.xib; sourceTree = "<group>"; };
+ 		BFACC0E621A8AC7B00F16B20 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/AudioSwitchPrefs.strings; sourceTree = "<group>"; };
+ 		BFB1037420C1EBB300766202 /* MASShortcut.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = MASShortcut.xcodeproj; sourceTree = "<group>"; };
++		BFB374B328D776F200D2896B /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+ 		BFB40C5F20A23B9500F4FA67 /* DeviceListManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceListManagerTests.swift; sourceTree = "<group>"; };
+ 		BFB40C6520A23BE300F4FA67 /* AudioSwitchTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AudioSwitchTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+ 		BFC3DA622194CBA30037DF5A /* ServiceManagement.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ServiceManagement.framework; path = System/Library/Frameworks/ServiceManagement.framework; sourceTree = SDKROOT; };
+@@ -465,6 +467,7 @@
+ 				BFACC0DB21A8A66F00F16B20 /* Localizable.strings */,
+ 				BF921575218DC9A900D1D502 /* AudioSwitchHelper.entitlements */,
+ 				BF921574218DC9A900D1D502 /* Info.plist */,
++				BFB374B228D776F200D2896B /* InfoPlist.strings */,
+ 				BF921573218DC9A800D1D502 /* main.swift */,
+ 				BF389FBA218644BC00EC3472 /* AudioDeviceSwitchController.swift */,
+ 				BFA0436F2177BAD700381D48 /* SwitchUserInterface.xib */,
+@@ -826,6 +829,7 @@
+ 			buildActionMask = 2147483647;
+ 			files = (
+ 				BF921581218DCCEA00D1D502 /* SwitchUserInterface.xib in Resources */,
++				BFB374B428D776F200D2896B /* InfoPlist.strings in Resources */,
+ 				BFACC0DD21A8A66F00F16B20 /* Localizable.strings in Resources */,
+ 				BF92156D218DC8F500D1D502 /* SwitchIcon.pdf in Resources */,
+ 			);
+@@ -1023,6 +1027,14 @@
+ 			name = AudioSwitchPrefs.xib;
+ 			sourceTree = "<group>";
+ 		};
++		BFB374B228D776F200D2896B /* InfoPlist.strings */ = {
++			isa = PBXVariantGroup;
++			children = (
++				BFB374B328D776F200D2896B /* fr */,
++			);
++			name = InfoPlist.strings;
++			sourceTree = "<group>";
++		};
+ /* End PBXVariantGroup section */
+ 
+ /* Begin XCBuildConfiguration section */
+diff --git a/AudioSwitchHelper/fr.lproj/Localizable.strings b/AudioSwitchHelper/fr.lproj/Localizable.strings
+index e8d167a..a945a9c 100644
+--- a/AudioSwitchHelper/fr.lproj/Localizable.strings
++++ b/AudioSwitchHelper/fr.lproj/Localizable.strings
+@@ -1,3 +1,3 @@
+-﻿/* Output switch pane */
++/* Output switch pane */
+ "<No Output>" = "<Aucune sortie>";
+ 
+diff --git a/AudioSwitchPrefs/AudioSwitchPrefs.swift b/AudioSwitchPrefs/AudioSwitchPrefs.swift
+index 68d8e5c..8b9524c 100644
+--- a/AudioSwitchPrefs/AudioSwitchPrefs.swift
++++ b/AudioSwitchPrefs/AudioSwitchPrefs.swift
+@@ -257,46 +257,20 @@ class NotMixedCheckboxCell: NSButtonCell {
+ final class HelperAppController: NSObject {
+     @IBOutlet weak var enableCheckbox: NSButton!
+     
+-    let helperManager = HelperAppManager()
++    let helperManager = getHelperManager()
+ 
+     override func awakeFromNib() {
+-        if let helperEnabled = helperManager.helperAppEnabled {
+-            if helperEnabled {
+-                if !helperManager.helperAppRunning {
+-                    let text = NSLocalizedString("AudioSwitch is enabled but does not seem to be running.", comment: "Preference pane")
+-                    let info = NSLocalizedString("The helper application may have exited unexpectedly.", comment: "Preference pane")
+-                    displayError(text: text, info: info)
+-                }
+-                
+-                enableCheckbox.state = .on
+-            } else {
+-                enableCheckbox.state = .off
+-            }
+-        } else {
+-            let text = NSLocalizedString("An error occurred retrieving AudioSwitch enable state.", comment: "Preference pane")
+-            displayError(text: text, info: "")
+-            enableCheckbox.state = .mixed
+-        }
++        self.updateRunningStatus()
+     }
+     
+     @IBAction func changeAutostart(_ sender: Any) {
+-        if !helperManager.setHelperAutoStart(enabled: enableCheckbox.state == .on) {
+-            if let helperEnabled = helperManager.helperAppEnabled {
+-                enableCheckbox.state = helperEnabled ? .on : .off
+-            } else {
+-                enableCheckbox.state = .mixed
+-            }
+-            
+-            let text = NSLocalizedString("An error occurred enabling or disabling AudioSwitch.", comment: "Preference panel")
+-            displayError(text: text, info: "")
++        helperManager.setRunningStatus(parentWindow: enableCheckbox.window!, newStatus: enableCheckbox.state == .on) {
++            self.updateRunningStatus()
+         }
+-    }
+-    
+-    private func displayError(text: String, info: String) {
+-        let alert = NSAlert()
+-        alert.messageText = text
+-        alert.informativeText = info
+-        alert.addButton(withTitle: NSLocalizedString("OK", comment: "Alert button"))
+-        alert.runModal()
++   }
++
++    private func updateRunningStatus() {
++        let helperEnabled = helperManager.getRunningStatus()
++        self.enableCheckbox.state = helperEnabled ? .on : .off
+     }
+ }
+diff --git a/AudioSwitchPrefs/HelperAppManager.swift b/AudioSwitchPrefs/HelperAppManager.swift
+index b1f3875..c93db8c 100644
+--- a/AudioSwitchPrefs/HelperAppManager.swift
++++ b/AudioSwitchPrefs/HelperAppManager.swift
+@@ -4,9 +4,31 @@
+ import AppKit
+ import ServiceManagement
+ 
++/// Manages the helper application as a service.
++protocol HelperAppManager: AnyObject {
++    /// Checks the running status of the helper.
++    /// Returns true iff the helper is running
++    func getRunningStatus() -> Bool
+ 
+-/// Manages the helper application installation as a service
+-final class HelperAppManagerClassic {
++    /// Sets the running status of the helper; calls the completion callback when it is done.
++    /// getRunningStatus will be called afterwards to update the actual status.
++    /// The call can display error messages, using the parent window parameter. The completion callback should be called when the error message is dismissed.
++    func setRunningStatus(parentWindow: NSWindow, newStatus: Bool, completion: @escaping () -> Void)
++}
++
++
++/// Return either the classic helper manager (macOS 12-) or the new manager (macOS 13+)
++func getHelperManager() -> HelperAppManager {
++    if #available(macOS 13.0, *) {
++        return HelperAppManagerModern()
++    } else {
++        return HelperAppManagerClassic()
++    }
++}
++
++
++/// Manages the helper application installation as a service (classic manager)
++final class HelperAppManagerClassic: HelperAppManager {
+     /// Bundle ID of the helper application
+     private let helperAppId: String
+     
+@@ -17,27 +39,116 @@ final class HelperAppManagerClassic {
+         
+         helperAppId = appId
+     }
+-    
+-    /// Indicates if the helper app is currently running
+-    var helperAppRunning: Bool {
+-        return NSWorkspace.shared.runningApplications.contains { $0.bundleIdentifier == self.helperAppId }
++
++    func getRunningStatus() -> Bool {
++        var persistence: DarwinBoolean = false
++        let loaded = SMJobIsEnabled(kSMDomainUserLaunchd, helperAppId as CFString, &persistence) != 0
++
++        if persistence.boolValue != loaded {
++            // Service disabled
++            return false
++        }
++
++        // Service enabled and running
++        return true
+     }
+-    
+-    /// Indicates if the helper app is enabled ; returns nil if an error occurred trying to get the information
+-    var helperAppEnabled: Bool? {
+-        var serviceDisabled: DarwinBoolean = false
+-        
+-        // FIXME: SMJobIsEnabled returns false when the service is enabled, for some reason
+-        if SMJobIsEnabled(kSMDomainUserLaunchd, helperAppId as CFString, &serviceDisabled) != 0 {
+-            return nil
++
++    func setRunningStatus(parentWindow: NSWindow, newStatus: Bool, completion: @escaping () -> Void) {
++        if (SMLoginItemSetEnabled(helperAppId as CFString, newStatus)) {
++            completion()
++            return
++        }
++
++        let alert = NSAlert()
++        if newStatus {
++            alert.messageText = NSLocalizedString("An error occurred enabling AudioSwitch.", comment: "Alert message")
++        } else {
++            alert.messageText = NSLocalizedString("An error occurred disabling AudioSwitch.", comment: "Alert message")
++        }
++        alert.addButton(withTitle: NSLocalizedString("OK", comment: "Alert button"))
++        alert.beginSheetModal(for: parentWindow) {_ in
++            completion()
+         }
+-        
+-        return !serviceDisabled.boolValue
+     }
+-    
+-    /// Enable or disable the helper auto-start property
+-    /// - Returns: true if change was successful, false if an error occurred
+-    func setHelperAutoStart(enabled: Bool) -> Bool {
+-        return SMLoginItemSetEnabled(helperAppId as CFString, enabled)
++}
++
++
++/// Manages the helper application installation as a service (modern manager)
++@available(macOS 13.0, *)
++final class HelperAppManagerModern: HelperAppManager {
++    /// Service manager of the helper application
++    private let service: SMAppService
++
++    init() {
++        guard let appId = Bundle.main.object(forInfoDictionaryKey: "HelperApp") as? String else {
++            fatalError("HelperApp missing in info plist")
++        }
++
++        service = SMAppService.loginItem(identifier: appId)
++    }
++
++    func getRunningStatus() -> Bool {
++        return service.status == .enabled
++    }
++
++    func setRunningStatus(parentWindow: NSWindow, newStatus: Bool, completion: @escaping () -> Void) {
++        if (newStatus) {
++            switch service.status {
++            case .enabled:
++                // Nothing to do
++                completion()
++                break
++
++            case .requiresApproval:
++                let alert = NSAlert()
++                alert.messageText = NSLocalizedString("AudioSwitch needs to be allowed to start.", comment:"Alert message")
++                alert.informativeText = NSLocalizedString("Allow AudioSwitch in the Login Items Settings.", comment:"Alert message")
++                alert.addButton(withTitle: NSLocalizedString("Open Login Items Settings", comment: "Alert button"))
++                alert.addButton(withTitle: NSLocalizedString("Cancel", comment: "Alert button"))
++
++                alert.beginSheetModal(for: parentWindow) { retCode in
++                    if retCode == .alertFirstButtonReturn {
++                        SMAppService.openSystemSettingsLoginItems()
++                    }
++                    completion()
++                }
++
++            case .notFound:
++                fallthrough
++            case .notRegistered:
++                fallthrough
++            @unknown default:
++                do {
++                    try service.register()
++                    completion()
++                } catch {
++                    let alert = NSAlert()
++                    alert.messageText = NSLocalizedString("An error occurred enabling AudioSwitch.", comment: "Alert message")
++                    alert.informativeText = error.localizedDescription
++                    alert.addButton(withTitle: NSLocalizedString("OK", comment: "Alert button"))
++                    alert.beginSheetModal(for: parentWindow) {_ in
++                        completion()
++                    }
++                }
++            }
++        } else {
++            if service.status == .enabled {
++                do {
++                    try service.register()
++                    completion()
++                } catch {
++                    let alert = NSAlert()
++                    alert.messageText = NSLocalizedString("An error occurred disabling AudioSwitch.", comment: "Alert message")
++                    alert.informativeText = error.localizedDescription
++                    alert.addButton(withTitle: NSLocalizedString("OK", comment: "Alert button"))
++                    alert.beginSheetModal(for: parentWindow) {_ in
++                        completion()
++                    }
++                }
++            } else {
++                // Nothing to do
++                completion()
++            }
++        }
+     }
+ }
+diff --git a/AudioSwitchPrefs/fr.lproj/AudioSwitchPrefs.strings b/AudioSwitchPrefs/fr.lproj/AudioSwitchPrefs.strings
+index 92d45df..6f13d09 100644
+--- a/AudioSwitchPrefs/fr.lproj/AudioSwitchPrefs.strings
++++ b/AudioSwitchPrefs/fr.lproj/AudioSwitchPrefs.strings
+@@ -1,13 +1,6 @@
+-
+ /* Class = "NSButtonCell"; title = "Enable AudioSwitch"; ObjectID = "1oH-tq-Rwf"; */
+ "1oH-tq-Rwf.title" = "Activer AudioSwitch";
+ 
+-/* Class = "NSTextFieldCell"; title = "Check the outputs you want to use in AudioSwitch. You can also reorder them, and rename them by double-clicking."; ObjectID = "OIk-6z-XGO"; */
+-"OIk-6z-XGO.title" = "Cochez les sorties audio que vous voulez utiliser avec AudioSwitch. Vous pouvez également les réordonner, et les renommer en double-cliquant dessus.";
+-
+-/* Class = "NSWindow"; title = "AudioSwitch"; ObjectID = "QvC-M9-y7g"; */
+-"QvC-M9-y7g.title" = "AudioSwitch";
+-
+ /* Class = "NSTextFieldCell"; title = "AudioSwitch allows changing the current system audio output by pressing a keyboard shortcut, from any application."; ObjectID = "aOb-Jj-til"; */
+ "aOb-Jj-til.title" = "AudioSwitch permet de changer la sortie audio système actuelle via un raccourci clavier, depuis n’importe quelle application.";
+ 
+@@ -16,3 +9,10 @@
+ 
+ /* Class = "NSTextFieldCell"; title = "Switch shortcut:"; ObjectID = "hhb-pm-DVI"; */
+ "hhb-pm-DVI.title" = "Raccourci de bascule :";
++
++/* Class = "NSTextFieldCell"; title = "Check the outputs you want to use in AudioSwitch. You can also reorder them, and rename them by double-clicking."; ObjectID = "OIk-6z-XGO"; */
++"OIk-6z-XGO.title" = "Cochez les sorties audio que vous voulez utiliser avec AudioSwitch. Vous pouvez également les réordonner, et les renommer en double-cliquant dessus.";
++
++/* Class = "NSWindow"; title = "AudioSwitch"; ObjectID = "QvC-M9-y7g"; */
++"QvC-M9-y7g.title" = "AudioSwitch";
++
+diff --git a/AudioSwitchPrefs/fr.lproj/InfoPlist.strings b/AudioSwitchPrefs/fr.lproj/InfoPlist.strings
+index 1b80579..a57f02a 100644
+--- a/AudioSwitchPrefs/fr.lproj/InfoPlist.strings
++++ b/AudioSwitchPrefs/fr.lproj/InfoPlist.strings
+@@ -1,3 +1,6 @@
+-/* App name */
+-"CFBundleName" = "Préférences AudioSwitch";
++/* Bundle display name */
+ "CFBundleDisplayName" = "Préférences AudioSwitch";
++
++/* Bundle name */
++"CFBundleName" = "Préférences AudioSwitch";
++
+diff --git a/AudioSwitchPrefs/fr.lproj/Localizable.strings b/AudioSwitchPrefs/fr.lproj/Localizable.strings
+index 1c467f5..713db83 100644
+--- a/AudioSwitchPrefs/fr.lproj/Localizable.strings
++++ b/AudioSwitchPrefs/fr.lproj/Localizable.strings
+@@ -1,5 +1,21 @@
+-/* Preference pane */
+-"AudioSwitch is enabled but does not seem to be running." = "AudioSwitch est activé mais ne semble pas être en fonctionnement.";
+-"The helper application may have exited unexpectedly." = "L’application en tâche de fond a peut-être quitté inopinément.";
+-"An error occurred retrieving AudioSwitch enable state." = "Une erreur est survenue à la récupération de l’état d’activation d’AudioSwitch.";
+-"An error occurred enabling or disabling AudioSwitch." = "Une erreur est survenue à l’activation ou désactivation d’AudioSwitch.";
++/* Alert message */
++"Allow AudioSwitch in the Login Items Settings." = "Veuillez autoriser AudioSwitch dans le panneau Ouverture de Réglages.";
++
++/* Alert message */
++"An error occurred disabling AudioSwitch." = "Une erreur est survenue à la désactivation d’AudioSwitch.";
++
++/* Alert message */
++"An error occurred enabling AudioSwitch." = "Une erreur est survenue à l’activation d’AudioSwitch.";
++
++/* Alert message */
++"AudioSwitch needs to be allowed to start." = "AudioSwitch doit être autorisé à démarrer.";
++
++/* Alert button */
++"Cancel" = "Annuler";
++
++/* Alert button */
++"OK" = "OK";
++
++/* Alert button */
++"Open Login Items Settings" = "Ouvrir les réglages Ouverture";
++
+diff --git a/AudioSwitchPrefs/fr.lproj/MainMenu.strings b/AudioSwitchPrefs/fr.lproj/MainMenu.strings
+index 13180c1..f174d83 100644
+--- a/AudioSwitchPrefs/fr.lproj/MainMenu.strings
++++ b/AudioSwitchPrefs/fr.lproj/MainMenu.strings
+@@ -1,13 +1,9 @@
+-
+-/* Class = "NSMenuItem"; title = "Customize Toolbar…"; ObjectID = "1UK-8n-QPP"; */
+-"1UK-8n-QPP.title" = "Personnaliser la barre d’outils…";
++/* Class = "NSMenu"; title = "Find"; ObjectID = "1b7-l0-nxx"; */
++"1b7-l0-nxx.title" = "Rechercher";
+ 
+ /* Class = "NSMenuItem"; title = "AudioSwitch Preferences"; ObjectID = "1Xt-HY-uBw"; */
+ "1Xt-HY-uBw.title" = "Préférences AudioSwitch";
+ 
+-/* Class = "NSMenu"; title = "Find"; ObjectID = "1b7-l0-nxx"; */
+-"1b7-l0-nxx.title" = "Rechercher";
+-
+ /* Class = "NSMenuItem"; title = "Transformations"; ObjectID = "2oI-Rn-ZJC"; */
+ "2oI-Rn-ZJC.title" = "Transformations";
+ 
+@@ -20,50 +16,77 @@
+ /* Class = "NSMenuItem"; title = "Find"; ObjectID = "4EN-yA-p0u"; */
+ "4EN-yA-p0u.title" = "Rechercher";
+ 
+-/* Class = "NSMenuItem"; title = "Enter Full Screen"; ObjectID = "4J7-dP-txa"; */
+-"4J7-dP-txa.title" = "Activer le mode plein écran";
+-
+ /* Class = "NSMenuItem"; title = "Quit AudioSwitch Preferences"; ObjectID = "4sb-4s-VLi"; */
+ "4sb-4s-VLi.title" = "Quitter les préférences AudioSwitch";
+ 
+-/* Class = "NSMenuItem"; title = "Edit"; ObjectID = "5QF-Oa-p0T"; */
+-"5QF-Oa-p0T.title" = "Édition";
+-
+ /* Class = "NSMenuItem"; title = "About AudioSwitch Preferences"; ObjectID = "5kV-Vb-QxS"; */
+ "5kV-Vb-QxS.title" = "À propos des préférences AudioSwitch";
+ 
++/* Class = "NSMenuItem"; title = "Edit"; ObjectID = "5QF-Oa-p0T"; */
++"5QF-Oa-p0T.title" = "Édition";
++
+ /* Class = "NSMenuItem"; title = "Redo"; ObjectID = "6dh-zS-Vam"; */
+ "6dh-zS-Vam.title" = "Rétablir";
+ 
+-/* Class = "NSMenuItem"; title = "Correct Spelling Automatically"; ObjectID = "78Y-hA-62v"; */
+-"78Y-hA-62v.title" = "Corriger l’orthographe automatiquement";
+-
+ /* Class = "NSMenuItem"; title = "Substitutions"; ObjectID = "9ic-FL-obx"; */
+ "9ic-FL-obx.title" = "Substitutions";
+ 
+ /* Class = "NSMenuItem"; title = "Smart Copy/Paste"; ObjectID = "9yt-4B-nSM"; */
+ "9yt-4B-nSM.title" = "Copier-coller intelligent";
+ 
++/* Class = "NSMenuItem"; title = "Correct Spelling Automatically"; ObjectID = "78Y-hA-62v"; */
++"78Y-hA-62v.title" = "Corriger l’orthographe automatiquement";
++
++/* Class = "NSMenuItem"; title = "Window"; ObjectID = "aUF-d1-5bR"; */
++"aUF-d1-5bR.title" = "Fenêtre";
++
+ /* Class = "NSMenu"; title = "Main Menu"; ObjectID = "AYu-sK-qS6"; */
+ "AYu-sK-qS6.title" = "Main Menu";
+ 
++/* Class = "NSMenuItem"; title = "Use Selection for Find"; ObjectID = "buJ-ug-pKt"; */
++"buJ-ug-pKt.title" = "Rechercher la sélection";
++
++/* Class = "NSMenu"; title = "Transformations"; ObjectID = "c8a-y6-VQd"; */
++"c8a-y6-VQd.title" = "Transformations";
++
++/* Class = "NSMenuItem"; title = "Smart Links"; ObjectID = "cwL-P1-jid"; */
++"cwL-P1-jid.title" = "Liens intelligents";
++
++/* Class = "NSMenuItem"; title = "Make Lower Case"; ObjectID = "d9M-CD-aMd"; */
++"d9M-CD-aMd.title" = "Mettre en minuscules";
++
++/* Class = "NSMenuItem"; title = "Undo"; ObjectID = "dRJ-4n-Yzg"; */
++"dRJ-4n-Yzg.title" = "Annuler";
++
+ /* Class = "NSMenuItem"; title = "Spelling and Grammar"; ObjectID = "Dv1-io-Yv7"; */
+ "Dv1-io-Yv7.title" = "Orthographe et grammaire";
+ 
+ /* Class = "NSMenu"; title = "Help"; ObjectID = "F2S-fz-NVQ"; */
+ "F2S-fz-NVQ.title" = "Aide";
+ 
++/* Class = "NSMenu"; title = "Substitutions"; ObjectID = "FeM-D8-WVr"; */
++"FeM-D8-WVr.title" = "Substitutions";
++
+ /* Class = "NSMenuItem"; title = "AudioSwitch Preferences Help"; ObjectID = "FKE-Sm-Kum"; */
+ "FKE-Sm-Kum.title" = "Aide Préférences AudioSwitch";
+ 
+-/* Class = "NSMenu"; title = "Substitutions"; ObjectID = "FeM-D8-WVr"; */
+-"FeM-D8-WVr.title" = "Substitutions";
++/* Class = "NSMenuItem"; title = "Paste"; ObjectID = "gVA-U4-sdL"; */
++"gVA-U4-sdL.title" = "Coller";
++
++/* Class = "NSMenuItem"; title = "Show Spelling and Grammar"; ObjectID = "HFo-cy-zxI"; */
++"HFo-cy-zxI.title" = "Afficher l’orthographe et la grammaire";
+ 
+ /* Class = "NSMenuItem"; title = "Text Replacement"; ObjectID = "HFQ-gK-NFA"; */
+ "HFQ-gK-NFA.title" = "Remplacement de texte";
+ 
+-/* Class = "NSMenuItem"; title = "Show Spelling and Grammar"; ObjectID = "HFo-cy-zxI"; */
+-"HFo-cy-zxI.title" = "Afficher l’orthographe et la grammaire";
++/* Class = "NSMenuItem"; title = "Smart Quotes"; ObjectID = "hQb-2v-fYv"; */
++"hQb-2v-fYv.title" = "Guillemets intelligents";
++
++/* Class = "NSMenuItem"; title = "Check Document Now"; ObjectID = "hz2-CU-CR7"; */
++"hz2-CU-CR7.title" = "Vérifier le document maintenant";
++
++/* Class = "NSMenu"; title = "Services"; ObjectID = "hz9-B4-Xy5"; */
++"hz9-B4-Xy5.title" = "Services";
+ 
+ /* Class = "NSMenuItem"; title = "Show All"; ObjectID = "Kd2-mp-pUS"; */
+ "Kd2-mp-pUS.title" = "Tout afficher";
+@@ -71,111 +94,72 @@
+ /* Class = "NSMenuItem"; title = "Bring All to Front"; ObjectID = "LE2-aR-0XJ"; */
+ "LE2-aR-0XJ.title" = "Tout ramener au premier plan";
+ 
++/* Class = "NSMenuItem"; title = "Check Grammar With Spelling"; ObjectID = "mK6-2p-4JG"; */
++"mK6-2p-4JG.title" = "Vérifier la grammaire et l’orthographe";
++
+ /* Class = "NSMenuItem"; title = "Services"; ObjectID = "NMo-om-nkz"; */
+ "NMo-om-nkz.title" = "Services";
+ 
+-/* Class = "NSMenuItem"; title = "Minimize"; ObjectID = "OY7-WF-poV"; */
+-"OY7-WF-poV.title" = "Réduire";
+-
+ /* Class = "NSMenuItem"; title = "Hide AudioSwitch Preferences"; ObjectID = "Olw-nP-bQN"; */
+ "Olw-nP-bQN.title" = "Masquer les préférences AudioSwitch";
+ 
+ /* Class = "NSMenuItem"; title = "Find Previous"; ObjectID = "OwM-mh-QMV"; */
+ "OwM-mh-QMV.title" = "Rechercher le précédent";
+ 
++/* Class = "NSMenuItem"; title = "Minimize"; ObjectID = "OY7-WF-poV"; */
++"OY7-WF-poV.title" = "Réduire";
++
+ /* Class = "NSMenuItem"; title = "Stop Speaking"; ObjectID = "Oyz-dy-DGm"; */
+ "Oyz-dy-DGm.title" = "Arrêter la lecture";
+ 
+-/* Class = "NSMenuItem"; title = "Zoom"; ObjectID = "R4o-n2-Eq4"; */
+-"R4o-n2-Eq4.title" = "Agrandir";
+-
+-/* Class = "NSMenuItem"; title = "Select All"; ObjectID = "Ruw-6m-B2m"; */
+-"Ruw-6m-B2m.title" = "Tout sélectionner";
+-
+-/* Class = "NSMenuItem"; title = "Jump to Selection"; ObjectID = "S0p-oC-mLd"; */
+-"S0p-oC-mLd.title" = "Aller à la sélection";
+-
+-/* Class = "NSMenu"; title = "Window"; ObjectID = "Td7-aD-5lo"; */
+-"Td7-aD-5lo.title" = "Fenêtre";
+-
+-/* Class = "NSMenuItem"; title = "Capitalize"; ObjectID = "UEZ-Bs-lqG"; */
+-"UEZ-Bs-lqG.title" = "1re lettre majuscule";
+-
+-/* Class = "NSMenuItem"; title = "Hide Others"; ObjectID = "Vdr-fp-XzO"; */
+-"Vdr-fp-XzO.title" = "Masquer les autres";
+-
+-/* Class = "NSMenu"; title = "Edit"; ObjectID = "W48-6f-4Dl"; */
+-"W48-6f-4Dl.title" = "Édition";
+-
+-/* Class = "NSMenuItem"; title = "Paste and Match Style"; ObjectID = "WeT-3V-zwk"; */
+-"WeT-3V-zwk.title" = "Coller et adapter le style";
+-
+-/* Class = "NSMenuItem"; title = "Find…"; ObjectID = "Xz5-n4-O0W"; */
+-"Xz5-n4-O0W.title" = "Rechercher…";
+-
+-/* Class = "NSMenuItem"; title = "Find and Replace…"; ObjectID = "YEy-JH-Tfz"; */
+-"YEy-JH-Tfz.title" = "Rechercher et remplacer…";
+-
+-/* Class = "NSMenuItem"; title = "Start Speaking"; ObjectID = "Ynk-f8-cLZ"; */
+-"Ynk-f8-cLZ.title" = "Commencer la lecture";
+-
+-/* Class = "NSMenuItem"; title = "Window"; ObjectID = "aUF-d1-5bR"; */
+-"aUF-d1-5bR.title" = "Fenêtre";
+-
+-/* Class = "NSMenuItem"; title = "Use Selection for Find"; ObjectID = "buJ-ug-pKt"; */
+-"buJ-ug-pKt.title" = "Rechercher la sélection";
+-
+-/* Class = "NSMenu"; title = "Transformations"; ObjectID = "c8a-y6-VQd"; */
+-"c8a-y6-VQd.title" = "Transformations";
+-
+-/* Class = "NSMenuItem"; title = "Smart Links"; ObjectID = "cwL-P1-jid"; */
+-"cwL-P1-jid.title" = "Liens intelligents";
+-
+-/* Class = "NSMenuItem"; title = "Make Lower Case"; ObjectID = "d9M-CD-aMd"; */
+-"d9M-CD-aMd.title" = "Mettre en minuscules";
+-
+-/* Class = "NSMenuItem"; title = "Undo"; ObjectID = "dRJ-4n-Yzg"; */
+-"dRJ-4n-Yzg.title" = "Annuler";
+-
+-/* Class = "NSMenuItem"; title = "Paste"; ObjectID = "gVA-U4-sdL"; */
+-"gVA-U4-sdL.title" = "Coller";
+-
+-/* Class = "NSMenuItem"; title = "Smart Quotes"; ObjectID = "hQb-2v-fYv"; */
+-"hQb-2v-fYv.title" = "Guillemets intelligents";
+-
+-/* Class = "NSMenuItem"; title = "Check Document Now"; ObjectID = "hz2-CU-CR7"; */
+-"hz2-CU-CR7.title" = "Vérifier le document maintenant";
+-
+-/* Class = "NSMenu"; title = "Services"; ObjectID = "hz9-B4-Xy5"; */
+-"hz9-B4-Xy5.title" = "Services";
+-
+-/* Class = "NSMenuItem"; title = "Check Grammar With Spelling"; ObjectID = "mK6-2p-4JG"; */
+-"mK6-2p-4JG.title" = "Vérifier la grammaire et l’orthographe";
+-
+ /* Class = "NSMenuItem"; title = "Delete"; ObjectID = "pa3-QI-u2k"; */
+ "pa3-QI-u2k.title" = "Supprimer";
+ 
+ /* Class = "NSMenuItem"; title = "Find Next"; ObjectID = "q09-fT-Sye"; */
+ "q09-fT-Sye.title" = "Rechercher le suivant";
+ 
++/* Class = "NSMenuItem"; title = "Zoom"; ObjectID = "R4o-n2-Eq4"; */
++"R4o-n2-Eq4.title" = "Agrandir";
++
+ /* Class = "NSMenuItem"; title = "Check Spelling While Typing"; ObjectID = "rbD-Rh-wIN"; */
+ "rbD-Rh-wIN.title" = "Vérifier l’orthographe lors de la saisie";
+ 
+ /* Class = "NSMenuItem"; title = "Smart Dashes"; ObjectID = "rgM-f4-ycn"; */
+ "rgM-f4-ycn.title" = "Tirets intelligents";
+ 
++/* Class = "NSMenuItem"; title = "Select All"; ObjectID = "Ruw-6m-B2m"; */
++"Ruw-6m-B2m.title" = "Tout sélectionner";
++
++/* Class = "NSMenuItem"; title = "Jump to Selection"; ObjectID = "S0p-oC-mLd"; */
++"S0p-oC-mLd.title" = "Aller à la sélection";
++
++/* Class = "NSMenu"; title = "Window"; ObjectID = "Td7-aD-5lo"; */
++"Td7-aD-5lo.title" = "Fenêtre";
++
+ /* Class = "NSMenuItem"; title = "Data Detectors"; ObjectID = "tRr-pd-1PS"; */
+ "tRr-pd-1PS.title" = "Détection de données";
+ 
++/* Class = "NSMenuItem"; title = "Capitalize"; ObjectID = "UEZ-Bs-lqG"; */
++"UEZ-Bs-lqG.title" = "1re lettre majuscule";
++
+ /* Class = "NSMenu"; title = "AudioSwitch Preferences"; ObjectID = "uQy-DD-JDr"; */
+ "uQy-DD-JDr.title" = "Préférences AudioSwitch";
+ 
+ /* Class = "NSMenuItem"; title = "Cut"; ObjectID = "uRl-iY-unG"; */
+ "uRl-iY-unG.title" = "Couper";
+ 
++/* Class = "NSMenuItem"; title = "Hide Others"; ObjectID = "Vdr-fp-XzO"; */
++"Vdr-fp-XzO.title" = "Masquer les autres";
++
+ /* Class = "NSMenuItem"; title = "Make Upper Case"; ObjectID = "vmV-6d-7jI"; */
+ "vmV-6d-7jI.title" = "Mettre en majuscules";
+ 
++/* Class = "NSMenu"; title = "Edit"; ObjectID = "W48-6f-4Dl"; */
++"W48-6f-4Dl.title" = "Édition";
++
++/* Class = "NSMenuItem"; title = "Paste and Match Style"; ObjectID = "WeT-3V-zwk"; */
++"WeT-3V-zwk.title" = "Coller et adapter le style";
++
+ /* Class = "NSMenuItem"; title = "Help"; ObjectID = "wpr-3q-Mcd"; */
+ "wpr-3q-Mcd.title" = "Aide";
+ 
+@@ -185,5 +169,15 @@
+ /* Class = "NSMenuItem"; title = "Speech"; ObjectID = "xrE-MZ-jX0"; */
+ "xrE-MZ-jX0.title" = "Parole";
+ 
++/* Class = "NSMenuItem"; title = "Find…"; ObjectID = "Xz5-n4-O0W"; */
++"Xz5-n4-O0W.title" = "Rechercher…";
++
++/* Class = "NSMenuItem"; title = "Find and Replace…"; ObjectID = "YEy-JH-Tfz"; */
++"YEy-JH-Tfz.title" = "Rechercher et remplacer…";
++
++/* Class = "NSMenuItem"; title = "Start Speaking"; ObjectID = "Ynk-f8-cLZ"; */
++"Ynk-f8-cLZ.title" = "Commencer la lecture";
++
+ /* Class = "NSMenuItem"; title = "Show Substitutions"; ObjectID = "z6F-FW-3nz"; */
+ "z6F-FW-3nz.title" = "Afficher les substitutions";
++
+diff --git a/Source Frameworks/MASShortcut b/Source Frameworks/MASShortcut
+--- a/Source Frameworks/MASShortcut	
++++ b/Source Frameworks/MASShortcut	
+@@ -1 +1 @@
+-Subproject commit 4232597aa83c16b66257ca00efe087f06dd67407
++Subproject commit 4232597aa83c16b66257ca00efe087f06dd67407-dirty

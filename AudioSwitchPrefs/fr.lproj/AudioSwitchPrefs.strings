@@ -1,12 +1,5 @@
-
 /* Class = "NSButtonCell"; title = "Enable AudioSwitch"; ObjectID = "1oH-tq-Rwf"; */
 "1oH-tq-Rwf.title" = "Activer AudioSwitch";
-
-/* Class = "NSTextFieldCell"; title = "Check the outputs you want to use in AudioSwitch. You can also reorder them, and rename them by double-clicking."; ObjectID = "OIk-6z-XGO"; */
-"OIk-6z-XGO.title" = "Cochez les sorties audio que vous voulez utiliser avec AudioSwitch. Vous pouvez également les réordonner, et les renommer en double-cliquant dessus.";
-
-/* Class = "NSWindow"; title = "AudioSwitch"; ObjectID = "QvC-M9-y7g"; */
-"QvC-M9-y7g.title" = "AudioSwitch";
 
 /* Class = "NSTextFieldCell"; title = "AudioSwitch allows changing the current system audio output by pressing a keyboard shortcut, from any application."; ObjectID = "aOb-Jj-til"; */
 "aOb-Jj-til.title" = "AudioSwitch permet de changer la sortie audio système actuelle via un raccourci clavier, depuis n’importe quelle application.";
@@ -16,3 +9,10 @@
 
 /* Class = "NSTextFieldCell"; title = "Switch shortcut:"; ObjectID = "hhb-pm-DVI"; */
 "hhb-pm-DVI.title" = "Raccourci de bascule :";
+
+/* Class = "NSTextFieldCell"; title = "Check the outputs you want to use in AudioSwitch. You can also reorder them, and rename them by double-clicking."; ObjectID = "OIk-6z-XGO"; */
+"OIk-6z-XGO.title" = "Cochez les sorties audio que vous voulez utiliser avec AudioSwitch. Vous pouvez également les réordonner, et les renommer en double-cliquant dessus.";
+
+/* Class = "NSWindow"; title = "AudioSwitch"; ObjectID = "QvC-M9-y7g"; */
+"QvC-M9-y7g.title" = "AudioSwitch";
+

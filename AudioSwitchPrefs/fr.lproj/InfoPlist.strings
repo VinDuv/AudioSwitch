@@ -1,3 +1,6 @@
-/* App name */
-"CFBundleName" = "Préférences AudioSwitch";
+/* Bundle display name */
 "CFBundleDisplayName" = "Préférences AudioSwitch";
+
+/* Bundle name */
+"CFBundleName" = "Préférences AudioSwitch";
+

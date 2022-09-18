@@ -1,0 +1,134 @@
+diff --git a/AudioSwitchPrefs/HelperAppManager.swift b/AudioSwitchPrefs/HelperAppManager.swift
+index 041d7b5..1bdfd4d 100644
+--- a/AudioSwitchPrefs/HelperAppManager.swift
++++ b/AudioSwitchPrefs/HelperAppManager.swift
+@@ -1,11 +1,36 @@
+-// Copyright 2018 Vincent Duvert.
++// Copyright 2018-2022 Vincent Duvert.
+ // Distributed under the terms of the MIT License.
+ 
+ import AppKit
+ import ServiceManagement
+ 
+ /// Manages the helper application installation as a service
+-final class HelperAppManager {
++protocol HelperAppManager: AnyObject {
++    /// Indicates if the helper app is currently running
++    var helperAppRunning: Bool { get }
++
++    /// Indicates if the helper app is enabled; returns nil if an error occurred trying to get the information
++    var helperAppEnabled: Bool? { get }
++
++    /// Enable or disable the helper auto-start property. May show modal UI for progress, using the passed parent window.
++    /// Once the operation is done, returns the new enable status in the completion handler (true if enabled, false if disabled,
++    /// nil if not sure).
++    /// - Returns: true if change was successful, false if an error occurred
++    func setHelperAutoStart(enabled: Bool, parentWindow: NSWindow, completionHandler: @escaping (Bool?) -> ())
++}
++
++/// Returns an instance of helper application manager for the running OS.
++func getHelperAppManager() -> HelperAppManager {
++    if #available(macOS 13.0, *) {
++        return HelperAppManagerNewSM()
++    } else {
++        return HelperAppManagerOldSM()
++    }
++}
++
++/// Manages the helper application installation as a service (macOS 12 and previous)
++@available(macOS, obsoleted: 13)
++fileprivate final class HelperAppManagerOldSM: HelperAppManager {
+     /// Bundle ID of the helper application
+     private let helperAppId: String
+     
+@@ -36,7 +61,88 @@ final class HelperAppManager {
+     
+     /// Enable or disable the helper auto-start property
+     /// - Returns: true if change was successful, false if an error occurred
+-    func setHelperAutoStart(enabled: Bool) -> Bool {
+-        return SMLoginItemSetEnabled(helperAppId as CFString, enabled)
++    func setHelperAutoStart(enabled: Bool, parentWindow: NSWindow, completionHandler: @escaping (Bool?) -> ()) {
++        if (SMLoginItemSetEnabled(helperAppId as CFString, enabled)) {
++            completionHandler(enabled)
++        } else {
++            let alert = NSAlert()
++            alert.messageText = NSLocalizedString("An error occurred enabling or disabling AudioSwitch.", comment:"Alert message")
++            alert.addButton(withTitle: NSLocalizedString("Cancel", comment: "Alert button"))
++            alert.beginSheetModal(for: parentWindow) { _ in
++                completionHandler(nil)
++            }
++        }
++    }
++}
++
++/// Manages the helper application installation as a service (macOS 13+)
++@available(macOS 13.0, *)
++fileprivate final class HelperAppManagerNewSM: HelperAppManager {
++    /// Bundle ID of the helper application
++    private let helperAppId: String
++
++    /// Service manager handle of the helper application
++    private let helperAppService: SMAppService
++
++    init() {
++        guard let appId = Bundle.main.object(forInfoDictionaryKey: "HelperApp") as? String else {
++            fatalError("HelperApp missing in info plist")
++        }
++
++        helperAppId = appId
++        helperAppService = .loginItem(identifier: appId)
++        /*if helperAppService.status == .notFound {
++            fatalError("HelperApp ID \(appId) not found by service manager")
++        }*/
++    }
++
++    var helperAppRunning: Bool {
++        return NSWorkspace.shared.runningApplications.contains { $0.bundleIdentifier == self.helperAppId }
++    }
++
++    var helperAppEnabled: Bool? {
++        return helperAppService.status == .enabled
++    }
++
++    func setHelperAutoStart(enabled: Bool, parentWindow: NSWindow, completionHandler: @escaping (Bool?) -> ()) {
++        do {
++            if (enabled) {
++                switch (helperAppService.status) {
++                case .enabled:
++                    completionHandler(true)
++                    return
++
++                case .notRegistered:
++                    try helperAppService.register()
++                    completionHandler(true)
++                    return
++
++                default:
++                    let alert = NSAlert()
++                    alert.messageText = NSLocalizedString("AudioSwitch needs to be allowed to start.", comment:"Alert message")
++                    alert.informativeText = NSLocalizedString("Allow AudioSwitch in the Login Items System Preferences.", comment:"Alert message")
++                    alert.addButton(withTitle: NSLocalizedString("Open System Preferences", comment: "Alert button"))
++                    alert.addButton(withTitle: NSLocalizedString("Cancel", comment: "Alert button"))
++
++                    alert.beginSheetModal(for: parentWindow) { retCode in
++                        if retCode == .alertFirstButtonReturn {
++                            SMAppService.openSystemSettingsLoginItems()
++                        }
++                        completionHandler(false)
++                    }
++                }
++            } else {
++                try helperAppService.unregister()
++                completionHandler(false)
++                return
++            }
++
++        } catch {
++            let alert = NSAlert(error: error)
++            alert.addButton(withTitle: NSLocalizedString("Cancel", comment: "Alert button"))
++            alert.beginSheetModal(for: parentWindow) { _ in
++                completionHandler(nil)
++            }
++        }
+     }
+ }
