@@ -1,15 +1,21 @@
-/* Preference panel */
-"An error occurred enabling or disabling AudioSwitch." = "Une erreur est survenue à l’activation ou désactivation d’AudioSwitch.";
+/* Alert message */
+"Allow AudioSwitch in the Login Items Settings." = "Veuillez autoriser AudioSwitch dans les Réglages Ouverture.";
 
-/* Preference pane */
-"An error occurred retrieving AudioSwitch enable state." = "Une erreur est survenue à la récupération de l’état d’activation d’AudioSwitch.";
+/* Alert message */
+"An error occurred disabling AudioSwitch." = "Une erreur est survenue à la désactivation d’AudioSwitch.";
 
-/* Preference pane */
-"AudioSwitch is enabled but does not seem to be running." = "AudioSwitch est activé mais ne semble pas être en fonctionnement.";
+/* Alert message */
+"An error occurred enabling AudioSwitch." = "Une erreur est survenue à l’activation d’AudioSwitch.";
+
+/* Alert message */
+"AudioSwitch needs to be allowed to start." = "AudioSwitch doit être autorisé à démarrer.";
+
+/* Alert button */
+"Cancel" = "Annuler";
 
 /* Alert button */
 "OK" = "OK";
 
-/* Preference pane */
-"The helper application may have exited unexpectedly." = "L’application en tâche de fond a peut-être quitté inopinément.";
+/* Alert button */
+"Open Login Items Settings" = "Ouvrir les Réglages Ouverture";
 

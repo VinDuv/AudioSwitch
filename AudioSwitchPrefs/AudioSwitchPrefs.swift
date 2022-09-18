@@ -257,46 +257,20 @@ class NotMixedCheckboxCell: NSButtonCell {
 final class HelperAppController: NSObject {
     @IBOutlet weak var enableCheckbox: NSButton!
     
-    let helperManager = HelperAppManager()
+    let helperManager = getHelperManager()
 
     override func awakeFromNib() {
-        if let helperEnabled = helperManager.helperAppEnabled {
-            if helperEnabled {
-                if !helperManager.helperAppRunning {
-                    let text = NSLocalizedString("AudioSwitch is enabled but does not seem to be running.", comment: "Preference pane")
-                    let info = NSLocalizedString("The helper application may have exited unexpectedly.", comment: "Preference pane")
-                    displayError(text: text, info: info)
-                }
-                
-                enableCheckbox.state = .on
-            } else {
-                enableCheckbox.state = .off
-            }
-        } else {
-            let text = NSLocalizedString("An error occurred retrieving AudioSwitch enable state.", comment: "Preference pane")
-            displayError(text: text, info: "")
-            enableCheckbox.state = .mixed
-        }
+        self.updateRunningStatus()
     }
     
     @IBAction func changeAutostart(_ sender: Any) {
-        if !helperManager.setHelperAutoStart(enabled: enableCheckbox.state == .on) {
-            if let helperEnabled = helperManager.helperAppEnabled {
-                enableCheckbox.state = helperEnabled ? .on : .off
-            } else {
-                enableCheckbox.state = .mixed
-            }
-            
-            let text = NSLocalizedString("An error occurred enabling or disabling AudioSwitch.", comment: "Preference panel")
-            displayError(text: text, info: "")
+        helperManager.setRunningStatus(parentWindow: enableCheckbox.window!, newStatus: enableCheckbox.state == .on) {
+            self.updateRunningStatus()
         }
-    }
-    
-    private func displayError(text: String, info: String) {
-        let alert = NSAlert()
-        alert.messageText = text
-        alert.informativeText = info
-        alert.addButton(withTitle: NSLocalizedString("OK", comment: "Alert button"))
-        alert.runModal()
+   }
+
+    private func updateRunningStatus() {
+        let helperEnabled = helperManager.getRunningStatus()
+        self.enableCheckbox.state = helperEnabled ? .on : .off
     }
 }
